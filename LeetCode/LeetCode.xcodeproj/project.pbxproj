@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		18A52DD01FCBF451005A3B6E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A52DCF1FCBF451005A3B6E /* main.swift */; };
+		18A52DD71FCBF6BC005A3B6E /* LC2Sum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A52DD61FCBF6BC005A3B6E /* LC2Sum.swift */; };
+		18A52DD91FCBF8FA005A3B6E /* LCStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A52DD81FCBF8FA005A3B6E /* LCStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		18A52DCC1FCBF451005A3B6E /* LeetCode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LeetCode; sourceTree = BUILT_PRODUCTS_DIR; };
 		18A52DCF1FCBF451005A3B6E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		18A52DD61FCBF6BC005A3B6E /* LC2Sum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LC2Sum.swift; sourceTree = "<group>"; };
+		18A52DD81FCBF8FA005A3B6E /* LCStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				18A52DCF1FCBF451005A3B6E /* main.swift */,
+				18A52DD61FCBF6BC005A3B6E /* LC2Sum.swift */,
+				18A52DD81FCBF8FA005A3B6E /* LCStack.swift */,
 			);
 			path = LeetCode;
 			sourceTree = "<group>";
@@ -121,6 +127,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				18A52DD01FCBF451005A3B6E /* main.swift in Sources */,
+				18A52DD71FCBF6BC005A3B6E /* LC2Sum.swift in Sources */,
+				18A52DD91FCBF8FA005A3B6E /* LCStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
