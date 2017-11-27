@@ -20,4 +20,11 @@ class LC2Sum {
         
         return false
     }
+    
+    func twoSum(nums:[Int], _target:Int) -> Bool {
+        var dict = [Int:Int]
+        for (i,num) in nums.enumerated() {
+            
+        }
+    }
 }
