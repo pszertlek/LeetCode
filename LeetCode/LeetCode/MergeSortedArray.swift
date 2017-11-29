@@ -8,24 +8,29 @@
 
 import Foundation
 
+extension Int {
+    static postfix func --(i: inout Int) -> Int {
+        let n = i
+        i = i - 1
+        return n
+    }
+    static prefix func --(i: inout Int) -> Int {
+        i = i - 1
+        return i
+    }
+}
+
 class MergeSortedArray {
-    func merge(_ nums1: inout [Int], _ m: Int, _ nums2: [Int], _ n: Int) {
+    static func merge(_ nums1: inout [Int], _ m: Int, _ nums2: [Int], _ n: Int) {
         var k = n + m - 1, j = n - 1,i = m - 1
         
-        while j > 0 {
-            nums1[k] = nums2[j] > nums1[i] ? nums2[j--]:nums1[i--]
-            if (nums2[j] > nums1[i]) {
-                nums1[k] =
-            }
-            nums1[j]
-            n = n - 1
-            
+        while j > -1 && i > -1 {
+            nums1[k--] = nums1[i] < nums2[j]  ? nums2[j--]:nums1[i--]
+        }
+        while j > -1 {
+            nums1[k--] = nums2[j--]
         }
     }
 }
 
-extension Int {
-    operator func--(i: Int){
-        
-    }
-}
+

@@ -11,6 +11,8 @@
 		18A52DD71FCBF6BC005A3B6E /* LC2Sum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A52DD61FCBF6BC005A3B6E /* LC2Sum.swift */; };
 		18A52DD91FCBF8FA005A3B6E /* LCStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A52DD81FCBF8FA005A3B6E /* LCStack.swift */; };
 		18A52DDB1FCC0615005A3B6E /* MergeSortedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A52DDA1FCC0615005A3B6E /* MergeSortedArray.swift */; };
+		18D7B5521FCD482F00D7AF18 /* OneBitTwoBitCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D7B5511FCD482F00D7AF18 /* OneBitTwoBitCharacters.swift */; };
+		18D7B5541FCE781100D7AF18 /* DegreeOfAnArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D7B5531FCE781100D7AF18 /* DegreeOfAnArray.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +33,8 @@
 		18A52DD61FCBF6BC005A3B6E /* LC2Sum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LC2Sum.swift; sourceTree = "<group>"; };
 		18A52DD81FCBF8FA005A3B6E /* LCStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCStack.swift; sourceTree = "<group>"; };
 		18A52DDA1FCC0615005A3B6E /* MergeSortedArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeSortedArray.swift; sourceTree = "<group>"; };
+		18D7B5511FCD482F00D7AF18 /* OneBitTwoBitCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneBitTwoBitCharacters.swift; sourceTree = "<group>"; };
+		18D7B5531FCE781100D7AF18 /* DegreeOfAnArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DegreeOfAnArray.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,8 @@
 				18A52DD61FCBF6BC005A3B6E /* LC2Sum.swift */,
 				18A52DD81FCBF8FA005A3B6E /* LCStack.swift */,
 				18A52DDA1FCC0615005A3B6E /* MergeSortedArray.swift */,
+				18D7B5511FCD482F00D7AF18 /* OneBitTwoBitCharacters.swift */,
+				18D7B5531FCE781100D7AF18 /* DegreeOfAnArray.swift */,
 			);
 			path = LeetCode;
 			sourceTree = "<group>";
@@ -132,6 +138,8 @@
 				18A52DD01FCBF451005A3B6E /* main.swift in Sources */,
 				18A52DDB1FCC0615005A3B6E /* MergeSortedArray.swift in Sources */,
 				18A52DD71FCBF6BC005A3B6E /* LC2Sum.swift in Sources */,
+				18D7B5541FCE781100D7AF18 /* DegreeOfAnArray.swift in Sources */,
+				18D7B5521FCD482F00D7AF18 /* OneBitTwoBitCharacters.swift in Sources */,
 				18A52DD91FCBF8FA005A3B6E /* LCStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
