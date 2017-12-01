@@ -11,9 +11,9 @@ import Foundation
 class LC2Sum {
     func twoSum(nums:[Int], _ target:Int) -> Bool {
         //set查找效率为O(1)
-        var set = Set<Int>();
+        var set = Set<Int>(nums);
         for num in nums {
-            if set.contains(num) {
+            if set.contains(target - num) {
                 return true
             }
         }
@@ -21,10 +21,29 @@ class LC2Sum {
         return false
     }
     
-//    func twoSum(nums:[Int], _target:Int) -> Bool {
-//        var dict = [Int:Int]
-//        for (i,num) in nums.enumerated() {
-//            
-//        }
-//    }
+    func twoSumSort(nums:[Int], _ target: Int) -> [Int] {
+        var left = 0,right = nums.count - 1
+        while left < right {
+            if target == nums[left] + nums[right] {
+                return [left,right]
+            } else if target < (nums[left] + nums[right]) {
+                right -= 1
+            } else {
+                left += 1
+            }
+        }
+        return []
+    }
+    
+    func twoSumResult(nums:[Int], _ target:Int) -> [Int] {
+        var dict = [Int:Int]()
+        for (i,num) in nums.enumerated() {
+            if let result = dict[target - num] {
+                return [i,result]
+            } else {
+                dict[num] = i
+            }
+        }
+        return []
+    }
 }

@@ -9,9 +9,11 @@
 import Foundation
 
 print("Hello, World!")
+let sss : NSString = "fffff"
+print(sss.integerValue)
 
 
-print(DegreeOfAnArray().findShortestSubArrayy([2,1]))
+print(LC2Sum().twoSumResult(nums: [1,2,3,4,5,6,7], 9))
 //print(sss.uppercased())
 ////func charsss(_ bits:[Int]) -> Bool {
 ////    var n = bits.count, i = 0

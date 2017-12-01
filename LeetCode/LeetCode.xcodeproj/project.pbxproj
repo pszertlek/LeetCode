@@ -13,6 +13,8 @@
 		18A52DDB1FCC0615005A3B6E /* MergeSortedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A52DDA1FCC0615005A3B6E /* MergeSortedArray.swift */; };
 		18D7B5521FCD482F00D7AF18 /* OneBitTwoBitCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D7B5511FCD482F00D7AF18 /* OneBitTwoBitCharacters.swift */; };
 		18D7B5541FCE781100D7AF18 /* DegreeOfAnArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D7B5531FCE781100D7AF18 /* DegreeOfAnArray.swift */; };
+		18D7B5561FCE9D4E00D7AF18 /* MaxAreaOfIsland.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D7B5551FCE9D4E00D7AF18 /* MaxAreaOfIsland.swift */; };
+		18D7B5591FCEAD3400D7AF18 /* AddTwoNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D7B5581FCEAD3400D7AF18 /* AddTwoNumbers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +37,8 @@
 		18A52DDA1FCC0615005A3B6E /* MergeSortedArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeSortedArray.swift; sourceTree = "<group>"; };
 		18D7B5511FCD482F00D7AF18 /* OneBitTwoBitCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneBitTwoBitCharacters.swift; sourceTree = "<group>"; };
 		18D7B5531FCE781100D7AF18 /* DegreeOfAnArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DegreeOfAnArray.swift; sourceTree = "<group>"; };
+		18D7B5551FCE9D4E00D7AF18 /* MaxAreaOfIsland.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxAreaOfIsland.swift; sourceTree = "<group>"; };
+		18D7B5581FCEAD3400D7AF18 /* AddTwoNumbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTwoNumbers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,13 +72,23 @@
 			isa = PBXGroup;
 			children = (
 				18A52DCF1FCBF451005A3B6E /* main.swift */,
+				18D7B5571FCEAD2200D7AF18 /* New Group */,
 				18A52DD61FCBF6BC005A3B6E /* LC2Sum.swift */,
 				18A52DD81FCBF8FA005A3B6E /* LCStack.swift */,
 				18A52DDA1FCC0615005A3B6E /* MergeSortedArray.swift */,
 				18D7B5511FCD482F00D7AF18 /* OneBitTwoBitCharacters.swift */,
 				18D7B5531FCE781100D7AF18 /* DegreeOfAnArray.swift */,
+				18D7B5551FCE9D4E00D7AF18 /* MaxAreaOfIsland.swift */,
 			);
 			path = LeetCode;
+			sourceTree = "<group>";
+		};
+		18D7B5571FCEAD2200D7AF18 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				18D7B5581FCEAD3400D7AF18 /* AddTwoNumbers.swift */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +152,9 @@
 				18A52DD01FCBF451005A3B6E /* main.swift in Sources */,
 				18A52DDB1FCC0615005A3B6E /* MergeSortedArray.swift in Sources */,
 				18A52DD71FCBF6BC005A3B6E /* LC2Sum.swift in Sources */,
+				18D7B5561FCE9D4E00D7AF18 /* MaxAreaOfIsland.swift in Sources */,
 				18D7B5541FCE781100D7AF18 /* DegreeOfAnArray.swift in Sources */,
+				18D7B5591FCEAD3400D7AF18 /* AddTwoNumbers.swift in Sources */,
 				18D7B5521FCD482F00D7AF18 /* OneBitTwoBitCharacters.swift in Sources */,
 				18A52DD91FCBF8FA005A3B6E /* LCStack.swift in Sources */,
 			);
