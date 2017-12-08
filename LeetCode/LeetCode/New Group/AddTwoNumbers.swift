@@ -31,25 +31,21 @@ class AddTwoNumbers {
     func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
         var sum = l1!.val
 
-        while let next = l1?.next {
-            sum += next.val
+        l1!.val = (l1!.val + l2!.val)%10
+        while let nextL1 = l1?.next, let nextL2 = l2?.next {
+            nextL1.val = (nextL1.val + nextL2.val) % 10
         }
-        let result = ListNode(sum)
-        result.next = ListNode(0)
-        sum = l2!.val
-        while let next = l1?.next {
-            sum += next.val
-        }
-        result.next!.next = ListNode(sum)
-        return result
+        return l1
     }
-    
-    func addList(_ node: ListNode) -> ListNode {
-        var sum = node.val
-        while let next = node.next {
-            sum += next.val
-        }
-        return ListNode(sum)
-
-    }
+//
+//    func addList(_ node: ListNode) -> ListNode {
+//        var sum = node.val
+//        while let next = node.next {
+//            sum += next.val
+//        }
+//        return ListNode(sum)
+//
+//    }
 }
+
+
