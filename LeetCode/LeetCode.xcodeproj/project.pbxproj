@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		189EE9471FDBB92F001CA7EA /* LongestPalindrome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189EE9461FDBB92F001CA7EA /* LongestPalindrome.swift */; };
 		18A52DD01FCBF451005A3B6E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A52DCF1FCBF451005A3B6E /* main.swift */; };
 		18A52DD71FCBF6BC005A3B6E /* LC2Sum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A52DD61FCBF6BC005A3B6E /* LC2Sum.swift */; };
 		18A52DD91FCBF8FA005A3B6E /* LCStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A52DD81FCBF8FA005A3B6E /* LCStack.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		189EE9461FDBB92F001CA7EA /* LongestPalindrome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongestPalindrome.swift; sourceTree = "<group>"; };
 		18A52DCC1FCBF451005A3B6E /* LeetCode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LeetCode; sourceTree = BUILT_PRODUCTS_DIR; };
 		18A52DCF1FCBF451005A3B6E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		18A52DD61FCBF6BC005A3B6E /* LC2Sum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LC2Sum.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				18D7B5581FCEAD3400D7AF18 /* AddTwoNumbers.swift */,
+				189EE9461FDBB92F001CA7EA /* LongestPalindrome.swift */,
 			);
 			path = "New Group";
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 				18A52DD71FCBF6BC005A3B6E /* LC2Sum.swift in Sources */,
 				18D7B5561FCE9D4E00D7AF18 /* MaxAreaOfIsland.swift in Sources */,
 				18D7B5541FCE781100D7AF18 /* DegreeOfAnArray.swift in Sources */,
+				189EE9471FDBB92F001CA7EA /* LongestPalindrome.swift in Sources */,
 				18D7B5591FCEAD3400D7AF18 /* AddTwoNumbers.swift in Sources */,
 				18D7B5521FCD482F00D7AF18 /* OneBitTwoBitCharacters.swift in Sources */,
 				18A52DD91FCBF8FA005A3B6E /* LCStack.swift in Sources */,
