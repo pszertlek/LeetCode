@@ -8,6 +8,13 @@
 
 import Foundation
 
+
+if let url = URL(string: "http://device/sss") {
+    print(url.host)
+    print(url.path)
+    print(url.path.replacingOccurrences(of: "/", with: ""))
+}
+
 func reverse(_ x: Int) -> Int {
     if x >= 1 << 31 || x < -(1 << 31) + 1 {
         return 0
@@ -20,7 +27,6 @@ func reverse(_ x: Int) -> Int {
     return sum
 }
 
-print(reverse(-11323))
 
 
 func longestPalindrome(_ s: String) -> String {
