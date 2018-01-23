@@ -11,4 +11,20 @@ import Foundation
 print("Hello, World!")
 
 
-print(ValidParentheses("[](){}"))
+class PNN {
+    static var i = setup()
+    static var fsdfsdf: Int {
+        print("fsdf")
+        return 0
+    }
+    
+    class func setup() -> Int {
+        print("fdsfdas")
+        return 0;
+    }
+}
+
+print(PNN.i)
+print(PNN.i)
+print(PNN.i)
+
