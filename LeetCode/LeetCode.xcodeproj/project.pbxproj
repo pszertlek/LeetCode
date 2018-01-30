@@ -14,6 +14,25 @@
 		18A52DDB1FCC0615005A3B6E /* MergeSortedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A52DDA1FCC0615005A3B6E /* MergeSortedArray.swift */; };
 		18A5B86A2017304D003623BB /* FindDisappearNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A5B8692017304D003623BB /* FindDisappearNumber.swift */; };
 		18A5B86C20173E37003623BB /* RemoveElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A5B86B20173E37003623BB /* RemoveElement.swift */; };
+		18B1874A201AC4FD00842F09 /* ToeplitzMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B18749201AC4FD00842F09 /* ToeplitzMatrix.swift */; };
+		18B4F33F2018215800CDD3A9 /* LargestOfArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B4F33E2018215800CDD3A9 /* LargestOfArray.swift */; };
+		18B4F3412018283E00CDD3A9 /* SearchInsertPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B4F3402018283E00CDD3A9 /* SearchInsertPosition.swift */; };
+		18B4F3492018367100CDD3A9 /* unitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B4F3482018367100CDD3A9 /* unitTest.swift */; };
+		18B4F34E2018546900CDD3A9 /* FindDisappearNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A5B8692017304D003623BB /* FindDisappearNumber.swift */; };
+		18B4F34F2018546E00CDD3A9 /* RemoveElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A5B86B20173E37003623BB /* RemoveElement.swift */; };
+		18B4F3502018547000CDD3A9 /* LargestOfArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B4F33E2018215800CDD3A9 /* LargestOfArray.swift */; };
+		18B4F3522018547500CDD3A9 /* AddTwoNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D7B5581FCEAD3400D7AF18 /* AddTwoNumbers.swift */; };
+		18B4F3542018547900CDD3A9 /* LC2Sum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A52DD61FCBF6BC005A3B6E /* LC2Sum.swift */; };
+		18B4F35620185B6400CDD3A9 /* MinCostClimbingStairs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B4F35520185B6400CDD3A9 /* MinCostClimbingStairs.swift */; };
+		18B4F35720185B6400CDD3A9 /* MinCostClimbingStairs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B4F35520185B6400CDD3A9 /* MinCostClimbingStairs.swift */; };
+		18C702BA201978C70097F051 /* RemoveDuplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C702B9201978C70097F051 /* RemoveDuplicates.swift */; };
+		18C702BB201978C70097F051 /* RemoveDuplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C702B9201978C70097F051 /* RemoveDuplicates.swift */; };
+		18C702CF2019BD790097F051 /* MaximumSubarray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C702CE2019BD790097F051 /* MaximumSubarray.swift */; };
+		18C702D02019BD790097F051 /* MaximumSubarray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C702CE2019BD790097F051 /* MaximumSubarray.swift */; };
+		18C702D22019CB210097F051 /* PlusOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C702D12019CB210097F051 /* PlusOne.swift */; };
+		18C702D32019CB210097F051 /* PlusOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C702D12019CB210097F051 /* PlusOne.swift */; };
+		18C702D52019E10B0097F051 /* PascalTriangle .swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C702D42019E10B0097F051 /* PascalTriangle .swift */; };
+		18C702D62019E10B0097F051 /* PascalTriangle .swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C702D42019E10B0097F051 /* PascalTriangle .swift */; };
 		18D7B5521FCD482F00D7AF18 /* OneBitTwoBitCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D7B5511FCD482F00D7AF18 /* OneBitTwoBitCharacters.swift */; };
 		18D7B5541FCE781100D7AF18 /* DegreeOfAnArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D7B5531FCE781100D7AF18 /* DegreeOfAnArray.swift */; };
 		18D7B5561FCE9D4E00D7AF18 /* MaxAreaOfIsland.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D7B5551FCE9D4E00D7AF18 /* MaxAreaOfIsland.swift */; };
@@ -41,6 +60,17 @@
 		18A52DDA1FCC0615005A3B6E /* MergeSortedArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeSortedArray.swift; sourceTree = "<group>"; };
 		18A5B8692017304D003623BB /* FindDisappearNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindDisappearNumber.swift; sourceTree = "<group>"; };
 		18A5B86B20173E37003623BB /* RemoveElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveElement.swift; sourceTree = "<group>"; };
+		18B18749201AC4FD00842F09 /* ToeplitzMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToeplitzMatrix.swift; sourceTree = "<group>"; };
+		18B4F33E2018215800CDD3A9 /* LargestOfArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargestOfArray.swift; sourceTree = "<group>"; };
+		18B4F3402018283E00CDD3A9 /* SearchInsertPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInsertPosition.swift; sourceTree = "<group>"; };
+		18B4F3462018367100CDD3A9 /* unitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = unitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		18B4F3482018367100CDD3A9 /* unitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitTest.swift; sourceTree = "<group>"; };
+		18B4F34A2018367100CDD3A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18B4F35520185B6400CDD3A9 /* MinCostClimbingStairs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinCostClimbingStairs.swift; sourceTree = "<group>"; };
+		18C702B9201978C70097F051 /* RemoveDuplicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveDuplicates.swift; sourceTree = "<group>"; };
+		18C702CE2019BD790097F051 /* MaximumSubarray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaximumSubarray.swift; sourceTree = "<group>"; };
+		18C702D12019CB210097F051 /* PlusOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusOne.swift; sourceTree = "<group>"; };
+		18C702D42019E10B0097F051 /* PascalTriangle .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PascalTriangle .swift"; sourceTree = "<group>"; };
 		18D7B5511FCD482F00D7AF18 /* OneBitTwoBitCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneBitTwoBitCharacters.swift; sourceTree = "<group>"; };
 		18D7B5531FCE781100D7AF18 /* DegreeOfAnArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DegreeOfAnArray.swift; sourceTree = "<group>"; };
 		18D7B5551FCE9D4E00D7AF18 /* MaxAreaOfIsland.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxAreaOfIsland.swift; sourceTree = "<group>"; };
@@ -55,6 +85,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		18B4F3432018367100CDD3A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -62,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				18A52DCE1FCBF451005A3B6E /* LeetCode */,
+				18B4F3472018367100CDD3A9 /* unitTest */,
 				18A52DCD1FCBF451005A3B6E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				18A52DCC1FCBF451005A3B6E /* LeetCode */,
+				18B4F3462018367100CDD3A9 /* unitTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,8 +134,25 @@
 			children = (
 				18A5B8692017304D003623BB /* FindDisappearNumber.swift */,
 				18A5B86B20173E37003623BB /* RemoveElement.swift */,
+				18B4F33E2018215800CDD3A9 /* LargestOfArray.swift */,
+				18B4F3402018283E00CDD3A9 /* SearchInsertPosition.swift */,
+				18B4F35520185B6400CDD3A9 /* MinCostClimbingStairs.swift */,
+				18C702B9201978C70097F051 /* RemoveDuplicates.swift */,
+				18C702CE2019BD790097F051 /* MaximumSubarray.swift */,
+				18C702D12019CB210097F051 /* PlusOne.swift */,
+				18C702D42019E10B0097F051 /* PascalTriangle .swift */,
+				18B18749201AC4FD00842F09 /* ToeplitzMatrix.swift */,
 			);
 			name = Array;
+			sourceTree = "<group>";
+		};
+		18B4F3472018367100CDD3A9 /* unitTest */ = {
+			isa = PBXGroup;
+			children = (
+				18B4F3482018367100CDD3A9 /* unitTest.swift */,
+				18B4F34A2018367100CDD3A9 /* Info.plist */,
+			);
+			path = unitTest;
 			sourceTree = "<group>";
 		};
 		18D7B5571FCEAD2200D7AF18 /* New Group */ = {
@@ -128,18 +184,39 @@
 			productReference = 18A52DCC1FCBF451005A3B6E /* LeetCode */;
 			productType = "com.apple.product-type.tool";
 		};
+		18B4F3452018367100CDD3A9 /* unitTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18B4F34B2018367100CDD3A9 /* Build configuration list for PBXNativeTarget "unitTest" */;
+			buildPhases = (
+				18B4F3422018367100CDD3A9 /* Sources */,
+				18B4F3432018367100CDD3A9 /* Frameworks */,
+				18B4F3442018367100CDD3A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = unitTest;
+			productName = unitTest;
+			productReference = 18B4F3462018367100CDD3A9 /* unitTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		18A52DC41FCBF451005A3B6E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0910;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = Pszertlek;
 				TargetAttributes = {
 					18A52DCB1FCBF451005A3B6E = {
 						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					18B4F3452018367100CDD3A9 = {
+						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -157,9 +234,20 @@
 			projectRoot = "";
 			targets = (
 				18A52DCB1FCBF451005A3B6E /* LeetCode */,
+				18B4F3452018367100CDD3A9 /* unitTest */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		18B4F3442018367100CDD3A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		18A52DC81FCBF451005A3B6E /* Sources */ = {
@@ -167,16 +255,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				18A52DD01FCBF451005A3B6E /* main.swift in Sources */,
+				18B1874A201AC4FD00842F09 /* ToeplitzMatrix.swift in Sources */,
 				18A52DDB1FCC0615005A3B6E /* MergeSortedArray.swift in Sources */,
 				18A5B86C20173E37003623BB /* RemoveElement.swift in Sources */,
 				18A52DD71FCBF6BC005A3B6E /* LC2Sum.swift in Sources */,
 				18D7B5561FCE9D4E00D7AF18 /* MaxAreaOfIsland.swift in Sources */,
 				18D7B5541FCE781100D7AF18 /* DegreeOfAnArray.swift in Sources */,
 				189EE9471FDBB92F001CA7EA /* LongestPalindrome.swift in Sources */,
+				18C702CF2019BD790097F051 /* MaximumSubarray.swift in Sources */,
 				18D7B5591FCEAD3400D7AF18 /* AddTwoNumbers.swift in Sources */,
+				18B4F3412018283E00CDD3A9 /* SearchInsertPosition.swift in Sources */,
 				18D7B5521FCD482F00D7AF18 /* OneBitTwoBitCharacters.swift in Sources */,
+				18C702D22019CB210097F051 /* PlusOne.swift in Sources */,
+				18C702BA201978C70097F051 /* RemoveDuplicates.swift in Sources */,
+				18B4F35620185B6400CDD3A9 /* MinCostClimbingStairs.swift in Sources */,
+				18C702D52019E10B0097F051 /* PascalTriangle .swift in Sources */,
+				18B4F33F2018215800CDD3A9 /* LargestOfArray.swift in Sources */,
 				18A52DD91FCBF8FA005A3B6E /* LCStack.swift in Sources */,
 				18A5B86A2017304D003623BB /* FindDisappearNumber.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18B4F3422018367100CDD3A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18B4F3492018367100CDD3A9 /* unitTest.swift in Sources */,
+				18B4F3502018547000CDD3A9 /* LargestOfArray.swift in Sources */,
+				18C702D32019CB210097F051 /* PlusOne.swift in Sources */,
+				18B4F3522018547500CDD3A9 /* AddTwoNumbers.swift in Sources */,
+				18C702BB201978C70097F051 /* RemoveDuplicates.swift in Sources */,
+				18B4F3542018547900CDD3A9 /* LC2Sum.swift in Sources */,
+				18B4F34E2018546900CDD3A9 /* FindDisappearNumber.swift in Sources */,
+				18B4F34F2018546E00CDD3A9 /* RemoveElement.swift in Sources */,
+				18C702D62019E10B0097F051 /* PascalTriangle .swift in Sources */,
+				18B4F35720185B6400CDD3A9 /* MinCostClimbingStairs.swift in Sources */,
+				18C702D02019BD790097F051 /* MaximumSubarray.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +423,34 @@
 			};
 			name = Release;
 		};
+		18B4F34C2018367100CDD3A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = HY3APXQW82;
+				INFOPLIST_FILE = unitTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = BroadLink.unitTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		18B4F34D2018367100CDD3A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = HY3APXQW82;
+				INFOPLIST_FILE = unitTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = BroadLink.unitTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -326,6 +468,15 @@
 			buildConfigurations = (
 				18A52DD41FCBF451005A3B6E /* Debug */,
 				18A52DD51FCBF451005A3B6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18B4F34B2018367100CDD3A9 /* Build configuration list for PBXNativeTarget "unitTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18B4F34C2018367100CDD3A9 /* Debug */,
+				18B4F34D2018367100CDD3A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

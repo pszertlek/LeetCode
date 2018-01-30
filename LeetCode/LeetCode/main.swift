@@ -8,7 +8,8 @@
 
 import Foundation
 
-var array = [1,2,32,32,32,231,32]
-removeElement(&array, 32)
+let matrix = [7, 6, 4, 10, 3,3,4,5,223,1,5,43,4,223]
+
+print(maxProfit(matrix))
 
 
