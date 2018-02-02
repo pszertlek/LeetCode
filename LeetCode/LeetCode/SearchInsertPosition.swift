@@ -52,3 +52,5 @@ func binarySearch(_ nums: [Int], _ range: Range<Int>, _ target: Int) -> (Int,Boo
 func searchInsert(_ nums: [Int], _ target: Int) -> Int {
     return binarySearch(nums, Range(uncheckedBounds:(0,nums.count - 1)), target).0
 }
+
+

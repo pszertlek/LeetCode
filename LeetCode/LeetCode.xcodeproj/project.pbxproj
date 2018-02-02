@@ -14,6 +14,7 @@
 		18A52DDB1FCC0615005A3B6E /* MergeSortedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A52DDA1FCC0615005A3B6E /* MergeSortedArray.swift */; };
 		18A5B86A2017304D003623BB /* FindDisappearNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A5B8692017304D003623BB /* FindDisappearNumber.swift */; };
 		18A5B86C20173E37003623BB /* RemoveElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A5B86B20173E37003623BB /* RemoveElement.swift */; };
+		18AF899D20243885003EBB1D /* FindPivotIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AF899C20243885003EBB1D /* FindPivotIndex.swift */; };
 		18B1874A201AC4FD00842F09 /* ToeplitzMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B18749201AC4FD00842F09 /* ToeplitzMatrix.swift */; };
 		18B4F33F2018215800CDD3A9 /* LargestOfArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B4F33E2018215800CDD3A9 /* LargestOfArray.swift */; };
 		18B4F3412018283E00CDD3A9 /* SearchInsertPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B4F3402018283E00CDD3A9 /* SearchInsertPosition.swift */; };
@@ -60,6 +61,7 @@
 		18A52DDA1FCC0615005A3B6E /* MergeSortedArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeSortedArray.swift; sourceTree = "<group>"; };
 		18A5B8692017304D003623BB /* FindDisappearNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindDisappearNumber.swift; sourceTree = "<group>"; };
 		18A5B86B20173E37003623BB /* RemoveElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveElement.swift; sourceTree = "<group>"; };
+		18AF899C20243885003EBB1D /* FindPivotIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPivotIndex.swift; sourceTree = "<group>"; };
 		18B18749201AC4FD00842F09 /* ToeplitzMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToeplitzMatrix.swift; sourceTree = "<group>"; };
 		18B4F33E2018215800CDD3A9 /* LargestOfArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargestOfArray.swift; sourceTree = "<group>"; };
 		18B4F3402018283E00CDD3A9 /* SearchInsertPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInsertPosition.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				18C702D12019CB210097F051 /* PlusOne.swift */,
 				18C702D42019E10B0097F051 /* PascalTriangle .swift */,
 				18B18749201AC4FD00842F09 /* ToeplitzMatrix.swift */,
+				18AF899C20243885003EBB1D /* FindPivotIndex.swift */,
 			);
 			name = Array;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				189EE9471FDBB92F001CA7EA /* LongestPalindrome.swift in Sources */,
 				18C702CF2019BD790097F051 /* MaximumSubarray.swift in Sources */,
 				18D7B5591FCEAD3400D7AF18 /* AddTwoNumbers.swift in Sources */,
+				18AF899D20243885003EBB1D /* FindPivotIndex.swift in Sources */,
 				18B4F3412018283E00CDD3A9 /* SearchInsertPosition.swift in Sources */,
 				18D7B5521FCD482F00D7AF18 /* OneBitTwoBitCharacters.swift in Sources */,
 				18C702D22019CB210097F051 /* PlusOne.swift in Sources */,

@@ -8,8 +8,8 @@
 
 import Foundation
 
-let matrix = [7, 6, 4, 10, 3,3,4,5,223,1,5,43,4,223]
+let matrix = [2,3,4]
 
-print(maxProfit(matrix))
+print(twoSum(matrix, 6))
 
 

@@ -24,19 +24,30 @@ import Foundation
  cost will have a length in the range [2, 1000].
  Every cost[i] will be an integer in the range [0, 999].*/
 
-
+//0,1,2,2,5,10
 func minCostClimbingStairs(_ cost: [Int]) -> Int {
     var totalCost = 0
-    var n = 0
-    while n < cost.count - 1 {
-        if cost[n] > cost[n + 1] {
-            n = n + 2
+    var n = -1
+//    if cost.count > 2 {
+//        <#code#>
+//    }
+    func objc(_ index: Int) -> Int {
+        if index > cost.count - 1 {
+            return 0
         } else {
-            n = n + 1
+            return cost[index]
         }
-        if n < cost.count - 1 {
+    }
+    while n < cost.count - 2 {
+        if objc(1) + objc(3) + objc(5) > objc(2) + objc(n + 4) {
+            n = n + 1
+        } else {
+            n = n + 2
+        }
+        if n <= cost.count - 1 {
             totalCost += cost[n]
         }
+        print(n)
     }
     return totalCost
 }

@@ -8,6 +8,40 @@
 
 import Foundation
 
+func binarySearch(_ numbers: [Int],target: Int) -> Int {
+    guard numbers.count == 0 else {
+        return -1
+    }
+    var low = 0, high = numbers.count, mid = 0
+    while low < high {
+        mid = (low + high) / 2
+        if numbers[mid] < target {
+            low = mid + 1
+        } else if numbers[mid] > target {
+            high = mid
+        } else {
+            return mid
+        }
+    }
+    return -1
+}
+
+func twoSum(_ numbers: [Int], _ target: Int) -> [Int] {
+    var i = 0, j = numbers.count - 1
+    while i < j {
+        let sum = numbers[i] + numbers[j]
+        if sum > target {
+            j -= 1
+        } else if sum < target {
+            i += 1
+        } else {
+            return [i+1,j+1]
+        }
+    }
+    return []
+    
+}
+
 class LC2Sum {
     func twoSum(nums:[Int], _ target:Int) -> Bool {
         //set查找效率为O(1)
@@ -45,5 +79,21 @@ class LC2Sum {
             }
         }
         return []
+    }
+    
+    func twoSum(_ numbers: [Int], _ target: Int) -> [Int] {
+        var i = 0, j = numbers.count - 1
+        while i < j {
+            let sum = numbers[i] + numbers[j]
+            if sum > target {
+                j -= 1
+            } else if sum < target {
+                i -= 1
+            } else {
+                return [i,j]
+            }
+        }
+        return []
+        
     }
 }
