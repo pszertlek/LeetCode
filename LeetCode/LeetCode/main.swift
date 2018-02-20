@@ -8,22 +8,12 @@
 
 import Foundation
 
-let matrix = [6,5,5]
-
-func majorityElement(_ nums: [Int]) -> Int {
-    var vote = 0,count = 0
-    for num in nums {
-        if count == 0 {
-            vote = num
-            count = 1
-        } else if vote == num {
-            count += 1
-        } else {
-            count -= 1
-        }
-    }
-    return vote
-}
-print(majorityElement(matrix))
-
+var matrix1 = [3,2,1]
+let matrix2 = [2,1]
+let matrix3 = [3,4,2,3]
+let matrix4 = [2,2,3,1]
+print(thirdMax(matrix1))
+print(thirdMax(matrix2))
+print(thirdMax(matrix3))
+print(thirdMax(matrix4))
 
