@@ -102,4 +102,40 @@ class Solution {
         }
         return String.init(result)
     }
+    
+    func mySqrt(_ x: Int) -> Int {
+        return Int(sqrt(Double(x)))
+    }
+    
+    func combination(_ n: Int,_ m: Int) -> Int {
+        let i = m > (n / 2) ? (n - m) : m
+        var x = i, result = 1
+        while x != 0 {
+            result = result * (n - (i - x)) / (i - x + 1)
+            x = x - 1
+        }
+        return result
+    }
+    
+    func climbStairs(_ n: Int) -> Int {
+        if n == 1 {
+            return 1
+        }
+
+        var current = n / 2, result = 0
+        while current >= 0 {
+            result = combination(n - current, current) + result
+            current = current - 1
+        }
+        
+        return result
+    }
+    
+    func climbStairs1(_ n: Int) -> Int {
+        if n <= 3 {
+            return n
+        }
+        return climbStairs1(n - 1) + climbStairs1(n - 2)
+    }
+    
 }

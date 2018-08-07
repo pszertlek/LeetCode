@@ -25,5 +25,14 @@ l3.next = l4
 l5.next = l6
 l4.next = l5
 l6.next = l7
-print(LinkMap().mergeTwoLists(l1,l8))
-print(Solution().addBinary("111", "101"))
+print(NSDate())
+print(Solution().climbStairs1(44))
+print(NSDate())
+
+print(Solution().climbStairs(44))
+print(NSDate())
+
+print(Solution().climbStairs(3))
+print(Solution().climbStairs(4))
+print(Solution().climbStairs(5))
+print(Solution().climbStairs(6))
