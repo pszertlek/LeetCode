@@ -10,10 +10,10 @@ import Cocoa
 
 class StockProfit: NSObject {
     class func maxProfit(_ nums: [Int]) -> Int {
-        var lastBuyIndex = -1
-        for i in 0..<nums.count {
-            
-        }
+//        var lastBuyIndex = -1
+//        for i in 0..<nums.count {
+//
+//        }
         return 0
     }
     
@@ -91,4 +91,5 @@ class StockProfit: NSObject {
         return dist;
     }
     
+
 }
