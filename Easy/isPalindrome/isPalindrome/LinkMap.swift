@@ -28,6 +28,8 @@ class LinkMap {
         }
     }
     
+
+    
     
     func mergeTwoLists(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
         guard let node1 = l1 else {
@@ -57,4 +59,6 @@ class LinkMap {
         }
         return node1.val < node2.val ? node1 : node2
     }
+    
+
 }

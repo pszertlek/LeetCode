@@ -138,4 +138,43 @@ class Solution {
         return climbStairs1(n - 1) + climbStairs1(n - 2)
     }
     
+    func countAndSay(_ n: Int) -> String {
+        
+        var result = n
+        var s = ""
+        for c in count(n) {
+            s.append("\(c)")
+        }
+        return s
+        
+    }
+    
+    func count(_ n: Int) -> [Int] {
+        if n == 1 {
+            return [1]
+        }
+        let s = count(n - 1)
+        var i = 1, result = [Int](), currentNum = s[0] , currentCount = 1
+        
+        repeat {
+            if s.count == i {
+                result.append(contentsOf: [currentCount,currentNum])
+                break;
+            }
+            let currentEqual = currentNum == s[i]
+            if !currentEqual && currentCount != 0 {
+                result.append(contentsOf: [currentCount,currentNum])
+                currentNum = s[i]
+                currentCount = 1
+            } else if currentEqual {
+                currentCount = currentCount + 1
+            } else if !currentEqual {
+                result.append(contentsOf: [1,currentNum])
+                currentNum = s[i]
+                currentCount = 1
+            }
+            i = i + 1
+        } while s.count >= i
+        return result
+    }
 }

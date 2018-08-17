@@ -11,6 +11,7 @@
 		1885AC89210F29350049E375 /* DeleteNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1885AC88210F29350049E375 /* DeleteNumber.swift */; };
 		1885AC8B210F32410049E375 /* StockProfit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1885AC8A210F32410049E375 /* StockProfit.swift */; };
 		189408432114666C00987D70 /* MMM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189408422114666C00987D70 /* MMM.swift */; };
+		189984632126C112008C44D1 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189984622126C112008C44D1 /* Tree.swift */; };
 		18B29DF921181AA1002A69A6 /* ReverseRomanNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B29DF821181AA1002A69A6 /* ReverseRomanNumber.swift */; };
 		18B29DFB211821EE002A69A6 /* Solution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B29DFA211821EE002A69A6 /* Solution.swift */; };
 		18B29DFD211841EF002A69A6 /* LinkMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B29DFC211841EF002A69A6 /* LinkMap.swift */; };
@@ -34,6 +35,7 @@
 		1885AC88210F29350049E375 /* DeleteNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteNumber.swift; sourceTree = "<group>"; };
 		1885AC8A210F32410049E375 /* StockProfit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockProfit.swift; sourceTree = "<group>"; };
 		189408422114666C00987D70 /* MMM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMM.swift; sourceTree = "<group>"; };
+		189984622126C112008C44D1 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 		18B29DF821181AA1002A69A6 /* ReverseRomanNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseRomanNumber.swift; sourceTree = "<group>"; };
 		18B29DFA211821EE002A69A6 /* Solution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution.swift; sourceTree = "<group>"; };
 		18B29DFC211841EF002A69A6 /* LinkMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkMap.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				18B29DF821181AA1002A69A6 /* ReverseRomanNumber.swift */,
 				18B29DFA211821EE002A69A6 /* Solution.swift */,
 				18B29DFC211841EF002A69A6 /* LinkMap.swift */,
+				189984622126C112008C44D1 /* Tree.swift */,
 			);
 			path = isPalindrome;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 				18B29DFB211821EE002A69A6 /* Solution.swift in Sources */,
 				18B29DF921181AA1002A69A6 /* ReverseRomanNumber.swift in Sources */,
 				1885AC8B210F32410049E375 /* StockProfit.swift in Sources */,
+				189984632126C112008C44D1 /* Tree.swift in Sources */,
 				18B29DFD211841EF002A69A6 /* LinkMap.swift in Sources */,
 				189408432114666C00987D70 /* MMM.swift in Sources */,
 			);
