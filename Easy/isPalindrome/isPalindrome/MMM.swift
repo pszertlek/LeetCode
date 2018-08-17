@@ -42,4 +42,23 @@ class MMM: NSObject {
 //            }
 //        }
 //    }
+    
+    func uncommonFromSentences(_ A: String, _ B: String) -> [String] {
+        let first = A.components(separatedBy: CharacterSet.init(charactersIn: " "))
+        let second = B.components(separatedBy: CharacterSet.init(charactersIn: " "))
+        var result = [String]()
+        var dict = [String: Int]()
+        for s in first {
+            dict[s] = ( dict[s] ?? 0) + 1
+        }
+        for s in second {
+            dict[s] = ( dict[s] ?? 0) + 1
+        }
+        for key in dict.keys {
+            if dict[key] == 1 {
+                result.append(key)
+            }
+        }
+        return result
+    }
 }
