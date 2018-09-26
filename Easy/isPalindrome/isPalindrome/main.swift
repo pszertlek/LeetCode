@@ -8,30 +8,14 @@
 
 import Foundation
 
+//let node1 = LinkMap.ListNode([1,2,2,4,5])
+//
+//
+//
+//
+//print(LinkMap().removeElements(node1,2))
 
 
-func countPrimes(_ n: Int) -> Int {
-    if n < 3 {
-        return 0
-    }
-    if n == 3 {
-        return 1
-    }
-    var notPrime = Set<Int>.init(minimumCapacity: n)
-    for i in 2..<n {
-        if !notPrime.contains(i) {
-            var j = i + i
-            while j < n {
-                notPrime.insert(j)
-                j = j + i
-            }
-        }
-    }
-    var count = 0
-    for i in 2..<n {
-        if !notPrime.contains(i) {
-            count = count + 1
-        }
-    }
-    return count
-}
+let predict = NSPredicate(format: "SELF matches %@", "^sss")
+let SSS = "sss"
+print(predict.evaluate(with: SSS))

@@ -8,18 +8,56 @@
 
 import Foundation
 
-public class TreeNode {
-    public var val: Int
+public class TreeNode<T>: ExpressibleByArrayLiteral,CustomStringConvertible {
+    public var description: String {
+        let levelArray = levelOrder(self)
+        var string = ""
+        levelArray.forEach { (level) in
+            string.append("\(level)\n")
+        }
+        return string
+    }
+    
+    
+    
+    public typealias ArrayLiteralElement = T?
+    
+    public var val: T
     public var left: TreeNode?
     public var right: TreeNode?
-    public init(_ val: Int) {
+    public init(_ val: T) {
         self.val = val
         self.left = nil
         self.right = nil
     }
     
-    func preorderTraversal(_ root: TreeNode?) -> [Int] {
-        var nums = [Int]()
+    public required init(arrayLiteral elements: T?...) {
+        self.val = elements[0]!
+        var levelArray = [TreeNode]()
+        levelArray.append(self)
+        var i = 1, height = 1
+        while i < elements.count {
+            let node = levelArray[0]
+            var left: TreeNode? = nil , right:TreeNode? = nil
+            if let leftVal = elements[i] {
+                left = TreeNode(leftVal)
+                node.left = left
+                levelArray.append(left!)
+            }
+            if i + 1 < elements.count , let rightVal = elements[i+1] {
+                right = TreeNode(rightVal)
+                node.right = right
+                levelArray.append(right!)
+            }
+            levelArray.removeFirst()
+            i = i + 2
+        }
+    }
+    
+    
+    
+    func preorderTraversal(_ root: TreeNode?) -> [T] {
+        var nums = [T]()
         var node: TreeNode? = root
         var nodeStack = [TreeNode]()
         while let theNode = node {
@@ -50,8 +88,8 @@ public class TreeNode {
         return nums
     }
     
-    func inorderTraversal(_ root: TreeNode?) -> [Int] {
-        var stack = [TreeNode](),result = [Int]()
+    func inorderTraversal(_ root: TreeNode?) -> [T] {
+        var stack = [TreeNode](),result = [T]()
         var node = root
         while let theNode = node {
             if theNode.left != nil {
@@ -81,14 +119,14 @@ public class TreeNode {
         return result
     }
     
-    func levelOrder(_ root: TreeNode?) -> [[Int]] {
-        var result = [[Int]]()
+    func levelOrder(_ root: TreeNode?) -> [[T]] {
+        var result = [[T]]()
         guard let node = root else {
             return result
         }
         var lastLevel = [node]
         while lastLevel.count != 0 {
-            var levelArray = [Int]()
+            var levelArray = [T]()
             var newLevel = [TreeNode]()
             for n in lastLevel {
                 levelArray.append(n.val)
@@ -104,4 +142,146 @@ public class TreeNode {
         }
         return result
     }
+}
+
+
+//extension TreeNode: ExpressibleByArrayLiteral {
+//    public typealias ArrayLiteralElement = T
+//
+//    public required convenience init(arrayLiteral elements: T...) {
+//        assert(elements.count == 0)
+//        var node = TreeNode(elements[0])
+//        for i in 1..<elements.count {
+//            let next = TreeNode(elements[i])
+//
+//        }
+//    }
+//}
+
+extension TreeNode where T: Comparable {
+    public func equal (_ lhs: TreeNode<T>?,_ rhs: TreeNode<T>?) -> Bool {
+        if lhs == nil && rhs == nil {
+            return true
+        } else if let left = lhs, let right = rhs {
+            return left.val == right.val
+        } else {
+            return false
+        }
+    }
+    
+    func preorderTraversal1(_ root: TreeNode<T>?) -> [T] {
+        var result = [T]()
+        var node = root
+        
+        func travel(_ root: TreeNode<T>?) {
+            guard let node = root else {
+                return
+            }
+            visit(node)
+            travel(node.left)
+            travel(node.right)
+        }
+        func visit(_ node: TreeNode<T>) {
+            result.append(node.val)
+        }
+        travel(root)
+        
+        return result
+    }
+    
+    func inorderTraversal1(_ root: TreeNode?) -> [T] {
+        var result = [T]()
+        var node = root
+        
+        func travel(_ root: TreeNode<T>?) {
+            guard let node = root else {
+                return
+            }
+            travel(node.left)
+            visit(node)
+            travel(node.right)
+        }
+        func visit(_ node: TreeNode<T>) {
+            result.append(node.val)
+        }
+        travel(root)
+        
+        return result
+    }
+    func maxDepth(_ root: TreeNode?) -> Int {
+        guard let node = root else {
+            return 0
+        }
+        let left = maxDepth(node.left)
+        let right = maxDepth(node.right)
+        return max(left, right) + 1
+    }
+    
+    func inorderTraversal2(_ root: TreeNode?) -> [T] {
+        var result = [T]()
+        var node = root
+        
+        func travel(_ root: TreeNode<T>?) {
+            guard let node = root else {
+                return
+            }
+            travel(node.right)
+            visit(node)
+            travel(node.left)
+
+        }
+        func visit(_ node: TreeNode<T>) {
+            result.append(node.val)
+        }
+        travel(root)
+        
+        return result
+    }
+    
+    func isSymmetric(_ root: TreeNode?) -> Bool {
+        
+        let left = root?.left, right = root?.right
+
+        guard equal(left, right) else {
+            return false
+        }
+        var lastLeftLevel = [left], lastRightLevel = [right]
+        while  lastLeftLevel.count != 0 && lastRightLevel.count != 0 {
+            var newLeftLevel = [TreeNode?](), newRightLevel = [TreeNode?]()
+            if lastRightLevel.count != lastLeftLevel.count {
+                return false
+            }
+            var nilCount = 0
+            for i in 0..<lastRightLevel.count {
+                
+                let leftLeft = lastLeftLevel[i]?.left
+                let rightRight = lastRightLevel[i]?.right
+                guard equal(leftLeft,rightRight) else {
+                    return false
+                }
+                let leftRight = lastLeftLevel[i]?.right
+                let rightLeft = lastRightLevel[i]?.left
+                guard equal(leftRight,rightLeft) else {
+                    return false
+                }
+                if leftRight == nil {
+                    nilCount = nilCount + 1
+                }
+                newLeftLevel.append(leftLeft)
+                newLeftLevel.append(leftRight)
+                newRightLevel.append(rightRight)
+                newRightLevel.append(rightLeft)
+
+            }
+            if nilCount == lastRightLevel.count {
+                return true
+            }
+            nilCount = 0
+            lastLeftLevel = newLeftLevel
+            lastRightLevel = newRightLevel
+        }
+        return true
+    }
+    
+
 }

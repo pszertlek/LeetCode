@@ -229,5 +229,71 @@ class DeleteNumber {
         }
         return result == 1
     }
+    func containsDuplicate(_ nums:[Int]) -> Bool {
+        var set = Set<Int>()
+        for i in nums {
+            if set.contains(i) {
+                return true
+            } else {
+                set.insert(i)
+            }
+        }
+        return false
+    }
+    
+    func containsNearbyDuplicate(_ nums: [Int], _ k: Int) -> Bool {
+        guard nums.count > 1 && k != 0 else {
+            return false
+        }
+        let s = k >= nums.count - 1 ? nums.count - 1: k
+        var set = Set<Int>(Array(nums[0...s]))
+        if set.count < s + 1 {
+            return true
+        }
+        for i in 1..<nums.count - s {
+            set.remove(nums[i - 1])
+            if set.contains(nums[i + s]) {
+                return true
+            } else {
+                set.insert(nums[i + s])
+            }
+        }
+        return false
 
+    }
+    
+    func minCostClimbingStairs(_ cost: [Int]) -> Int {
+        var a = 0, b = 0
+        for i in cost {
+            let t = min(a, b) + i
+            b = a
+            a = t
+            
+        }
+        return min(a, b)
+    }
+    
+    func intersection(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
+        let set1 = Set(nums1)
+        let set2 = Set(nums2)
+        return Array(set1.intersection(set2))
+    }
+    
+    func distributeCandies(_ candies: [Int]) -> Int {
+        var dict = [Int: Int]()
+        for i in candies {
+            dict[i] = dict[i] ?? 0 + 1
+        }
+        var result = 0
+        for i in dict.values {
+            if i > 1 {
+                result = result + 1
+            } else {
+                if result < candies.count / 2 {
+                    result = result + 1
+                }
+            }
+        }
+        return result
+    }
 }

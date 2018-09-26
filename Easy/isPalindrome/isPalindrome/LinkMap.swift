@@ -9,12 +9,26 @@
 import Foundation
 
 class LinkMap {
-    public class ListNode: CustomStringConvertible {
+    public class ListNode: CustomStringConvertible, Equatable {
         public var val: Int
         public var next: ListNode?
         public init(_ val: Int) {
             self.val = val
             self.next = nil
+        }
+        
+        public init(_ vals: [Int]) {
+            guard vals.count != 0 else {
+                fatalError()
+                return
+            }
+            self.val = vals[0]
+            var node: ListNode? = self
+            for i in 1..<vals.count {
+                node?.next = ListNode(vals[i])
+                node = node?.next
+            }
+            
         }
         
         public var description: String {
@@ -25,6 +39,10 @@ class LinkMap {
                 node = node?.next
             }
             return s
+        }
+        
+        public static func == (lhs: LinkMap.ListNode, rhs: LinkMap.ListNode) -> Bool {
+            return lhs.val == rhs.val
         }
     }
     
@@ -60,5 +78,55 @@ class LinkMap {
         return node1.val < node2.val ? node1 : node2
     }
     
+    func middleNode(_ head: ListNode?) -> ListNode? {
+        var array = [ListNode](), next = head
+        while next != nil {
+            array.append(next!)
+            next = next?.next
+        }
+        return array[array.count / 2]
 
+    }
+    
+    func reverseList(_ head: ListNode?) -> ListNode? {
+        var next = head , last: ListNode? = nil
+        
+        while next != nil {
+            let temp = next?.next
+            next?.next = last
+            last = next
+            next = temp
+        }
+        
+        return last
+        
+    }
+    
+    func deleteDuplicates(_ head: ListNode?) -> ListNode? {
+        var last: ListNode? = nil, current = head
+        while current != nil {
+            if current != last {
+                last = current
+                current = current?.next
+            } else {
+                last?.next = current?.next
+                current = current?.next
+            }
+        }
+        return head
+    }
+    
+    func removeElements(_ head: ListNode?, _ val: Int) -> ListNode? {
+        var last: ListNode? = nil, current = head
+        while current != nil {
+            if current?.val != val {
+                last = current
+                current = current?.next
+            } else {
+                last?.next = current?.next
+                current = current?.next
+            }
+        }
+        return head
+    }
 }
