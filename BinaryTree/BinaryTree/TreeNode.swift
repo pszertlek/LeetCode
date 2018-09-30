@@ -283,5 +283,36 @@ extension TreeNode where T: Comparable {
         return true
     }
     
+    func hasPathSum(_ root: TreeNode<T>?, _ sum: Int) -> Bool {
+        var nums = [T]()
+        var node: TreeNode? = root
+        var nodeStack = [TreeNode]()
+        while let theNode = node {
+            nums.append(theNode.val)
+            if theNode.left != nil {
+                nodeStack.append(theNode)
+                node = theNode.left
+            } else if theNode.right != nil {
+                node = theNode.right
+            } else {
+                if nodeStack.last == nil {
+                    break
+                }
+                while let root = nodeStack.last {
+                    if root.right != nil {
+                        node = root.right
+                        nodeStack.removeLast()
+                        break;
+                    } else {
+                        nodeStack.removeLast()
+                        if nodeStack.count == 0 {
+                            return nums
+                        }
+                    }
+                }
+            }
+        }
+        return nums
+    }
 
 }

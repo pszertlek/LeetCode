@@ -18,5 +18,5 @@ node1.right = node3
 //node2.left = node4
 
 
-let node = TreeNode(arrayLiteral: 1,2)
-print(node.isSymmetric(node))
+let node = TreeNode(arrayLiteral: 1,2,3,4,5)
+print(node.preorderTraversal(node))

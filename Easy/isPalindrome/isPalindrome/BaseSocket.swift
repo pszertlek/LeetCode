@@ -9,5 +9,5 @@
 import Foundation
 
 protocol Registration {
-    var insterested: SelectorEvenSet { get set }
+
 }

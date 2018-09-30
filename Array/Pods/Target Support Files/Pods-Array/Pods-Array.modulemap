@@ -1,0 +1,6 @@
+framework module Pods_Array {
+  umbrella header "Pods-Array-umbrella.h"
+
+  export *
+  module * { export * }
+}
