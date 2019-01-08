@@ -9,7 +9,13 @@
 import Foundation
 
 
-let a = ListNode(arrayLiteral: 5)
+let a = ListNode(arrayLiteral: 1,2,3)
 let b = ListNode(arrayLiteral: 5)
 
-print(ListNode.addTwoNumbers(a, b))
+//print(ListNode.addTwoNumbers(a, b))
+print(a.swapPairs(ListNode(arrayLiteral: 1,2,3)))
+print(a.swapPairs(ListNode(arrayLiteral: 1,2,3,4)))
+print(a.swapPairs(ListNode(arrayLiteral: 1,2,3,4,5)))
+print(a.swapPairs(ListNode(arrayLiteral: 1,2,3,4,5,6)))
+print(a.swapPairs(ListNode(arrayLiteral: 1)))
+print(a.swapPairs(ListNode(arrayLiteral: 1,2,3,4,5)))

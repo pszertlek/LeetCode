@@ -65,5 +65,51 @@ public class ListNode: CustomStringConvertible, ExpressibleByArrayLiteral {
         return node
     }
     
+    func removeNode(_ head: ListNode, _ remove: ListNode) -> ListNode? {
+        if head === remove {
+            return head.next
+        } else {
+            var next: ListNode? = head
+            while next?.next !== remove {
+                next = next?.next
+            }
+        }
+        return head
+    }
+    
+    func removeNthFromEnd(_ head: ListNode?, _ n: Int) -> ListNode? {
+        var nodeArray = [ListNode]()
+        var next = head
+        while let nextNode = next {
+            nodeArray.append(nextNode)
+            next = next?.next
+        }
+        if nodeArray.count < n {
+            return head
+        }
+        if nodeArray.count - n - 1 >= 0 {
+            nodeArray[nodeArray.count - n - 1].next = nodeArray[nodeArray.count - n].next
+            return head
+        } else {
+            return head?.next
+        }
+    }
+    
+    func swapPairs(_ head: ListNode?) -> ListNode? {
+        var next = head
+        var nextNext = head?.next
+        var lastNode: ListNode?
+        let first = head?.next ?? head
+        while let nextNode = next, let nextNextNode = nextNext {
+            let nextCalculate = nextNextNode.next
+            nextNode.next = nextCalculate
+            nextNextNode.next = nextNode
+            lastNode?.next = nextNextNode
+            lastNode = nextNode
+            next = nextNode.next
+            nextNext = nextNode.next?.next
+        }
+        return first
+    }
     
 }
