@@ -112,4 +112,82 @@ public class ListNode: CustomStringConvertible, ExpressibleByArrayLiteral {
         return first
     }
     
+    func rotateRight(_ head: ListNode?, _ k: Int) -> ListNode? {
+        guard head != nil else {
+            return nil
+        }
+        var nodeArray = [ListNode]()
+        var next = head
+        while let nextNode = next {
+            nodeArray.append(nextNode)
+            next = next?.next
+        }
+        let rotateK = k % nodeArray.count
+        if rotateK == 0 {
+            return head
+        }
+        let first = nodeArray[nodeArray.count - rotateK]
+        nodeArray[nodeArray.count - 1].next = head
+        nodeArray[nodeArray.count - rotateK - 1].next = nil
+        return first
+    }
+    
+    func deleteDuplicates(_ head: ListNode?) -> ListNode? {
+        guard let headNode = head, headNode.next != nil else {
+            return head
+        }
+        var next:ListNode? = headNode
+        var lastVal = headNode.val
+        var valCount = 0
+        var first: ListNode? = headNode.val == headNode.next!.val ? nil : headNode
+        var lastDif:ListNode? = nil
+        var last: ListNode!
+        while let nextNode = next {
+            if lastVal == nextNode.val {
+                valCount = valCount + 1
+                if valCount > 1 {
+                    lastDif?.next = nextNode.next
+                }
+            } else {
+                if first == nil {
+                    first = valCount == 1 ? lastDif :nil
+                }
+                lastDif = last
+                lastVal = nextNode.val
+            }
+            last = nextNode
+            next = next?.next
+        }
+        return first
+    }
+    
+    func isPalindrome(_ head: ListNode?) -> Bool {
+        var next = head
+        var count = 0
+        while let _ = next {
+            count = count + 1
+            next = next?.next
+        }
+        let half = count / 2
+        var i = 0
+        var pre = head
+        next = head?.next
+        while i < half - 1 {
+            let nextNode = next?.next
+            next?.next = pre
+            pre = next
+            next = nextNode
+            i = i + 1
+        }
+        next = count % 2 == 1 ? next?.next : next
+        while let preNode = pre, let nextNode = next {
+            if (preNode.val != nextNode.val) {
+                return false
+            } else {
+                pre = preNode.next
+                next = nextNode.next
+            }
+        }
+        return true;
+    }
 }
