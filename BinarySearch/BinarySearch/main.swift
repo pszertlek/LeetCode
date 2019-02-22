@@ -334,5 +334,44 @@ func findMin1(_ nums: [Int]) -> Int {
     
     return nums[left]
 }
-print(findMin1([2,2,2,0,0,1,1,2]))
-print(findMin1([1,3,3]))
+
+
+func findRadius(_ houses: [Int], _ heaters: [Int]) -> Int {
+    let houses = houses.sorted()
+    let headerSorts = heaters.sorted()
+    var result = 0, currentHeaterIndex = 0, i = 0
+    func findHeater(currentHeater: Int, house: Int) -> Int {
+        var index = currentHeater
+        while index < headerSorts.count - 1 {
+            index = index + 1
+            if headerSorts[index] - result <= house && headerSorts[index] + result >= house {
+                return index
+            }
+        }
+        return -1
+    }
+    
+    while i < houses.count {
+        if headerSorts[currentHeaterIndex] - result <= houses[i] && headerSorts[currentHeaterIndex] + result >= houses[i] {
+            i = i + 1
+        } else {
+            let find = findHeater(currentHeater: currentHeaterIndex, house: houses[i])
+            if find != -1 {
+                currentHeaterIndex = find
+                i = i + 1
+            } else {
+                var index = currentHeaterIndex
+                var currentResult = Int.max
+                while index < headerSorts.count {
+                    currentResult = min(abs(headerSorts[index] - houses[i]), currentResult)
+                    index = index + 1
+                }
+                result = currentResult
+                i = i + 1
+            }
+        }
+
+    }
+    return result
+}
+

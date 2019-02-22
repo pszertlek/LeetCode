@@ -9,14 +9,15 @@
 import Foundation
 
 
-let a = ListNode(arrayLiteral: 1,2,3)
-let b = ListNode(arrayLiteral: 5)
+var common = ListNode(arrayLiteral: 8,4,5)
+var A = ListNode(arrayLiteral:4,1)
+var B = ListNode(arrayLiteral: 5,0,1)
 
-//print(ListNode.addTwoNumbers(a, b))
-print(a.isPalindrome(ListNode(arrayLiteral: 1,2,2,1)))
-print(a.isPalindrome(ListNode(arrayLiteral: 1,1)))
-print(a.isPalindrome(ListNode(arrayLiteral: 1)))
-print(a.isPalindrome(ListNode(arrayLiteral: 1,2)))
+A.next?.next = common
+B.next?.next?.next = common
+print(A)
+print(B)
+print(A.getIntersectionNode(A, B))
 
-print(a.isPalindrome(ListNode(arrayLiteral: 1,2,3,2,1)))
-print(a.isPalindrome(ListNode(arrayLiteral: 1,2,3,4,5,6)))
+
+

@@ -51,8 +51,3 @@ func pivotIndex(_ nums: [Int]) -> Int {
     return -1
 }
 
-class Solution {
-    func pivotIndex(_ nums: [Int]) -> Int {
-        return 0
-    }
-}

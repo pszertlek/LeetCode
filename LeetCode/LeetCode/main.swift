@@ -8,27 +8,14 @@
 
 import Foundation
 
-func isPalindrome(_ x: Int) -> Bool {
-    var i = 10, xx = x
-    var array = [Int]()
-    while xx != 0 {
-        array.append(xx % 10)
-        xx = xx / 10
-    }
-    i = 0
-    while i < array.count / 2 {
-        if array[i] != array[array.count - 1 - i] {
-            return false
-        }
-        i += 1
-    }
-    return true
-}
+var array = [1,2,3,4,5,6,7]
+//ArraySolution().rotate(&array,1)
+//print(array)
 
-print(isPalindrome(-121))
-print(isPalindrome(0))
+//ArraySolution().rotate(&array,2)
+//print(array)
 
-print(isPalindrome(11321))
-
-print(isPalindrome(121))
-print(isPalindrome(121))
+print(BitComputeSolution().letterCasePermutation("abcdef"))
+//print(BitComputeSolution().letterCasePermutation)
+//print(BitComputeSolution().countPrimeSetBits(11))
+//print(BitComputeSolution().countPrimeSetBits(10))

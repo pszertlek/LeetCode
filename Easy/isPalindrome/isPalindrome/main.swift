@@ -42,4 +42,39 @@ private func palindrome(_ str: String, left: Int, right: Int) -> Bool {
     
     return palindrome(str, left: left + 1, right: right - 1)
 }
-print(isPalindrome("A man, a plan, a canal: Panama"))
+
+func findComplement(_ num: Int) -> Int {
+   
+    var mask = 1
+    let count = num.bitWidth - num.leadingZeroBitCount
+    for _ in 0..<count-1 {
+        mask = mask << 1 ^ 1
+    }
+    return num ^ mask
+}
+
+func hasAlternatingBits(_ n: Int) -> Bool {
+    var n = n
+    var start = n & 1
+    n = n >> 1
+
+    while n != 0 {
+        if  (n % 2) ^ start != 1 {
+            return false
+        } else {
+            start = start ^ 1
+        }
+        n = n >> 1
+    }
+    return true
+}
+
+func findTheDifference(_ s: String, _ t: String) -> Character {
+    let tt = Array<Character>(t)
+    var char = Character(Unicode.Scalar(0))
+    for c in s {
+        char = char ^ c
+    }
+    return tt[tt.count - 1]
+}
+print(Character("s").hashValue)

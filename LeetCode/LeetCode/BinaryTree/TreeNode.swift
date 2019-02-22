@@ -8,15 +8,6 @@
 
 import Foundation
 
-public class ListNode<T> {
-    public var val: T
-    public var next: ListNode?
-    public init(_ val: T) {
-        self.val = val
-        self.next = nil
-    }
-    
-}
 
 public class TreeNode<T>: ExpressibleByArrayLiteral,CustomStringConvertible {
     public var description: String {
@@ -328,8 +319,8 @@ extension TreeNode where T: Comparable {
 }
 
 class Solution {
-    func sortedListToBST(_ head: ListNode<Int>?) -> TreeNode<Int>? {
-        
-        return nil
-    }
+//    func sortedListToBST(_ head: ListNode<Int>?) -> TreeNode<Int>? {
+//        
+//        return nil
+//    }
 }
