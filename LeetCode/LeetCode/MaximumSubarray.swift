@@ -32,10 +32,4 @@ func maxSubArray(_ nums: [Int]) -> Int {
     return maxSum
 }
 
-func sum(_ nums:[Int], _ range: Range<Int>) {
-    var sum = 0
-    for i in range.lowerBound..<range.upperBound {
-        
-    }
-}
 

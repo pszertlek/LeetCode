@@ -36,7 +36,7 @@ public class TreeNode<T>: ExpressibleByArrayLiteral,CustomStringConvertible {
         self.val = elements[0]!
         var levelArray = [TreeNode]()
         levelArray.append(self)
-        var i = 1, height = 1
+        var i = 1
         while i < elements.count {
             let node = levelArray[0]
             var left: TreeNode? = nil , right:TreeNode? = nil

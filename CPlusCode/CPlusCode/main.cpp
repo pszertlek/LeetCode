@@ -111,10 +111,21 @@ char** letterCasePermutation(char* S, int* returnSize) {
     return returnArray;
 }
 
+int hammingWeight(uint32_t n) {
+    int i = 0;
+    while (n != 0) {
+        if (n & 1) {
+            i ++;
+        }
+        n = n >> 1;
+    }
+    return i;
+}
+
 int main(int argc, const char * argv[]) {
     // insert code here...
     int i = 0;
-    char **s = letterCasePermutation("C", &i);
+    printf("%i",hammingWeight(3));
     return 0;
 }
 

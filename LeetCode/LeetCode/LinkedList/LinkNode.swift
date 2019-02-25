@@ -288,36 +288,36 @@ public class ListNode: CustomStringConvertible, ExpressibleByArrayLiteral {
 //    func quickSort(_ head: ListNode?) -> ListNode? {
 //        
 //    }
-    
-    func quickSortss(_ head: ListNode?) -> ListNode? {
-        var midPre: ListNode? = nil, first: ListNode? = nil
-        var mid = head
-        var next = mid?.next
-        while let nextNode = next {
-            let nextNext = nextNode.next
-            if nextNode.val > mid!.val {
-                let midNext = mid?.next
-                mid?.next = nextNode
-                nextNode.next = midNext
-            } else {
-                if midPre == nil {
-                    first = nextNode
-                    midPre = nextNode
-                } else {
-                    midPre?.next = nextNode
-                    nextNode.next = mid
-                    midPre = nextNode
-                }
-            }
-            next = nextNext
-        }
-        midPre?.next = nil
-        quickSortss(first)
-        quickSortss(mid)
-        return nil;
-//        return (first,midPre)
-
-    }
+//    @discardableResult
+//    func quickSortss(_ head: ListNode?) -> ListNode? {
+//        var midPre: ListNode? = nil, first: ListNode? = nil
+//        let mid = head
+//        var next = mid?.next
+//        while let nextNode = next {
+//            let nextNext = nextNode.next
+//            if nextNode.val > mid!.val {
+//                let midNext = mid?.next
+//                mid?.next = nextNode
+//                nextNode.next = midNext
+//            } else {
+//                if midPre == nil {
+//                    first = nextNode
+//                    midPre = nextNode
+//                } else {
+//                    midPre?.next = nextNode
+//                    nextNode.next = mid
+//                    midPre = nextNode
+//                }
+//            }
+//            next = nextNext
+//        }
+//        midPre?.next = nil
+//        quickSortss(first)
+//        quickSortss(mid)
+//        return nil;
+////        return (first,midPre)
+//
+//    }
     
 //    func sortList(_ head: ListNode?) -> ListNode? {
 //

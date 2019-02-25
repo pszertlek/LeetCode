@@ -12,6 +12,7 @@
 		184394CA221BE1A500B8509A /* LinkNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394C9221BE1A500B8509A /* LinkNode.swift */; };
 		184394CC221C099800B8509A /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394CB221C099800B8509A /* Array.swift */; };
 		184394CE221FC25F00B8509A /* BitCompute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394CD221FC25F00B8509A /* BitCompute.swift */; };
+		184394D12223F30700B8509A /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394D02223F30700B8509A /* Heap.swift */; };
 		189EE9471FDBB92F001CA7EA /* LongestPalindrome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189EE9461FDBB92F001CA7EA /* LongestPalindrome.swift */; };
 		18A52DD01FCBF451005A3B6E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A52DCF1FCBF451005A3B6E /* main.swift */; };
 		18A52DD71FCBF6BC005A3B6E /* LC2Sum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A52DD61FCBF6BC005A3B6E /* LC2Sum.swift */; };
@@ -65,6 +66,7 @@
 		184394C9221BE1A500B8509A /* LinkNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkNode.swift; sourceTree = "<group>"; };
 		184394CB221C099800B8509A /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		184394CD221FC25F00B8509A /* BitCompute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitCompute.swift; sourceTree = "<group>"; };
+		184394D02223F30700B8509A /* Heap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
 		189EE9461FDBB92F001CA7EA /* LongestPalindrome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongestPalindrome.swift; sourceTree = "<group>"; };
 		18A52DCC1FCBF451005A3B6E /* LeetCode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LeetCode; sourceTree = BUILT_PRODUCTS_DIR; };
 		18A52DCF1FCBF451005A3B6E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -135,6 +137,14 @@
 			path = BinarySearch;
 			sourceTree = "<group>";
 		};
+		184394CF2223F2FA00B8509A /* Heap */ = {
+			isa = PBXGroup;
+			children = (
+				184394D02223F30700B8509A /* Heap.swift */,
+			);
+			path = Heap;
+			sourceTree = "<group>";
+		};
 		18A52DC31FCBF451005A3B6E = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +168,7 @@
 			children = (
 				18A52DCF1FCBF451005A3B6E /* main.swift */,
 				184394CD221FC25F00B8509A /* BitCompute.swift */,
+				184394CF2223F2FA00B8509A /* Heap */,
 				184394C4221BE11400B8509A /* BinarySearch */,
 				184394C3221BE10800B8509A /* BinaryTree */,
 				184394C1221BDF9000B8509A /* LinkedList */,
@@ -256,11 +267,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Pszertlek;
 				TargetAttributes = {
 					18A52DCB1FCBF451005A3B6E = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 					18B4F3452018367100CDD3A9 = {
@@ -329,6 +341,7 @@
 				18A5B86A2017304D003623BB /* FindDisappearNumber.swift in Sources */,
 				184394CA221BE1A500B8509A /* LinkNode.swift in Sources */,
 				184394C8221BE19C00B8509A /* TreeNode.swift in Sources */,
+				184394D12223F30700B8509A /* Heap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +380,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -374,6 +388,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -424,6 +439,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -431,6 +447,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -465,7 +482,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WEZ4TNATDY;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -475,7 +492,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WEZ4TNATDY;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

@@ -11,10 +11,10 @@ import Foundation
 
 func findDisappearedNumbers(_ nums: [Int]) -> [Int] {
     guard nums.count > 0 else { return [Int]()}
-    
-    var result = Array<Int>()
-    for num in 1...nums.count {
-
-    }
+//    
+    let result = Array<Int>()
+//    for num in 1...nums.count {
+//
+//    }
     return result
 }

@@ -169,9 +169,8 @@ class BinarySearch {
 
     func nextGreatestLetter(_ letters: [Character], _ target: Character) -> Character {
         
-        var lhs = 0, rhs = letters.count - 1, mid = 0, lastIndex = -1
+        var lhs = 0, rhs = letters.count - 1, lastIndex = -1
         while lhs <= rhs {
-            mid = lhs + (rhs - lhs) / 2
             let mid = lhs + (rhs - lhs) / 2
             if letters[mid] >= target {
                 rhs = mid - 1
@@ -243,7 +242,7 @@ class BinarySearch {
         guard n > 1 else {
             return n
         }
-        var index = n, lhs = 0, rhs = n, mid = 0
+        var lhs = 0, rhs = n, mid = 0
         while lhs < rhs {
             mid = (rhs + lhs) / 2
             let result = (1 + mid) * mid / 2

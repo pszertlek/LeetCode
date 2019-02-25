@@ -45,7 +45,7 @@ func twoSum(_ numbers: [Int], _ target: Int) -> [Int] {
 class LC2Sum {
     func twoSum(nums:[Int], _ target:Int) -> Bool {
         //set查找效率为O(1)
-        var set = Set<Int>(nums);
+        let set = Set<Int>(nums);
         for num in nums {
             if set.contains(target - num) {
                 return true

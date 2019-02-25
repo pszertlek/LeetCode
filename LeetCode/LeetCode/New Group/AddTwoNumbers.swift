@@ -19,7 +19,7 @@ class AddTwoNumbers {
                 }
     }
     func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
-        var sum = l1!.val
+        _ = l1!.val
 
         l1!.val = (l1!.val + l2!.val)%10
         while let nextL1 = l1?.next, let nextL2 = l2?.next {
