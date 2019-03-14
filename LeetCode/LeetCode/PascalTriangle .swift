@@ -63,15 +63,36 @@ func maxProfit(_ prices: [Int]) -> Int {
     if prices.count <= 1 {
         return 0
     }
-    var buy = prices[0], sell = prices[0] , profit = 0
-    for price in prices {
-        if price < buy {
-            buy = price
-            sell = price
-        } else if price > sell {
-            sell = price
-            profit = max(sell - buy,profit)
+    var buy = Int.max, sell = -1 , profit = 0, lastProfit = 0
+    for (index,price) in prices.enumerated() {
+        if sell == -1 {
+            if price < buy {
+                buy = price
+                continue
+            } else {
+                lastProfit = price - buy
+                sell = buy
+                if index == prices.count - 1 {
+                    profit = profit + lastProfit
+                }
+            }
+        } else {
+            if price - buy > lastProfit {
+                sell = price
+                lastProfit = price - buy
+                if index == prices.count - 1 {
+                    profit = profit + lastProfit
+
+                }
+            } else {
+                buy = price
+                sell = -1
+                profit = profit + lastProfit
+
+            }
         }
     }
+
     return profit
 }
+

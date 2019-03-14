@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18289BFB222CF2E100184949 /* Dijkstra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18289BFA222CF2E100184949 /* Dijkstra.swift */; };
 		184394C6221BE18A00B8509A /* BinarySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394C5221BE18A00B8509A /* BinarySearch.swift */; };
 		184394C8221BE19C00B8509A /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394C7221BE19C00B8509A /* TreeNode.swift */; };
 		184394CA221BE1A500B8509A /* LinkNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394C9221BE1A500B8509A /* LinkNode.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		18289BFA222CF2E100184949 /* Dijkstra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dijkstra.swift; sourceTree = "<group>"; };
 		184394C5221BE18A00B8509A /* BinarySearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinarySearch.swift; sourceTree = "<group>"; };
 		184394C7221BE19C00B8509A /* TreeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
 		184394C9221BE1A500B8509A /* LinkNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkNode.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				184394D02223F30700B8509A /* Heap.swift */,
+				18289BFA222CF2E100184949 /* Dijkstra.swift */,
 			);
 			path = Heap;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				184394CA221BE1A500B8509A /* LinkNode.swift in Sources */,
 				184394C8221BE19C00B8509A /* TreeNode.swift in Sources */,
 				184394D12223F30700B8509A /* Heap.swift in Sources */,
+				18289BFB222CF2E100184949 /* Dijkstra.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

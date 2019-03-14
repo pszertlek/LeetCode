@@ -36,6 +36,14 @@ class BitComputeSolution {
         return count
     }
     
+    func isPowerOfFour(_ num: Int) -> Bool {
+        
+        guard num != 1 else {
+            return false
+        }
+        return (num.bitWidth - num.leadingZeroBitCount - 1) % 2 == 0 && 1 << (num.bitWidth - num.leadingZeroBitCount - 1) == num
+    }
+    
 //    func readBinaryWatch(_ num: Int) -> [String] {
 //        func minute(_ num: Int) -> [Int]? {
 //
