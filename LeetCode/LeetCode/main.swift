@@ -8,26 +8,7 @@
 
 import Foundation
 
-//print("stride through")
-//
-//for i in stride(from: 10, through: 0, by: -2) {
-//    print(i)
-//}
-//
-//print("stride to")
-//
-//for i in stride(from: 10, to: 5, by: -1) {
-//    print(i)
-//}
-
-//let ss = KthLargest1(3, [4,5,8,2])
-//
-//print(ss.add(-3));   // returns 4
-//print(ss.add(0));   // returns 5
-//print(ss.add(2));  // returns 5
-//print(ss.add(-1));   // returns 8
-//print(ss.add(4));   // returns 8
-
+print(Backtracking().subsets1([1,2,3]))
 
 
 func kSmallestPairs(_ nums1: [Int], _ nums2: [Int], _ k: Int) -> [[Int]] {
@@ -120,13 +101,13 @@ func reorganizeString(_ S: String) -> String {
     }
     return result
 }
-print(reorganizeString("cnwnznunhnqnbivififititxkxkxgxglelelamamomopjpjpcc"))
-print(reorganizeString("zrhmhyevkojpsegvwolkpystdnkyhcjrdvqtyhucxdcwm"))
-print(reorganizeString("aabb"))
-print(reorganizeString("aab"))
-print(reorganizeString("aaba"))
-print(reorganizeString("aabc"))
-print(reorganizeString("aaabcd"))
-print(reorganizeString("bfrbs"))
-print(reorganizeString("ogccckcwmbmxtsbmozli"))
+//print(reorganizeString("cnwnznunhnqnbivififititxkxkxgxglelelamamomopjpjpcc"))
+//print(reorganizeString("zrhmhyevkojpsegvwolkpystdnkyhcjrdvqtyhucxdcwm"))
+//print(reorganizeString("aabb"))
+//print(reorganizeString("aab"))
+//print(reorganizeString("aaba"))
+//print(reorganizeString("aabc"))
+//print(reorganizeString("aaabcd"))
+//print(reorganizeString("bfrbs"))
+//print(reorganizeString("ogccckcwmbmxtsbmozli"))
 //print(reorganizeString("tndsewnllhrtwsvxenkscbivijfqnysamckzoyfnapuotmdexzkkrpmppttficzerdndssuveompqkemtbwbodrhwsfpbmkafpwyedpcowruntvymxtyyejqtajkcjakghtdwmuygecjncxzcxezgecrxonnszmqmecgvqqkdagvaaucewelchsmebikscciegzoiamovdojrmmwgbxeygibxxltemfgpogjkhobmhwquizuwvhfaiavsxhiknysdghcawcrphaykyashchyomklvghkyabxatmrkmrfsppfhgrwywtlxebgzmevefcqquvhvgounldxkdzndwybxhtycmlybhaaqvodntsvfhwcuhvuccwcsxelafyzushjhfyklvghpfvknprfouevsxmcuhiiiewcluehpmzrjzffnrptwbuhnyahrbzqvirvmffbxvrmynfcnupnukayjghpusewdwrbkhvjnveuiionefmnfxao"))

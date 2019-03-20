@@ -15,6 +15,7 @@
 		184394CE221FC25F00B8509A /* BitCompute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394CD221FC25F00B8509A /* BitCompute.swift */; };
 		184394D12223F30700B8509A /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394D02223F30700B8509A /* Heap.swift */; };
 		184394D42225349500B8509A /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394D32225349500B8509A /* Graph.swift */; };
+		189A63E72242313A006D26CF /* Backtracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189A63E62242313A006D26CF /* Backtracking.swift */; };
 		189EE9471FDBB92F001CA7EA /* LongestPalindrome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189EE9461FDBB92F001CA7EA /* LongestPalindrome.swift */; };
 		18A52DD01FCBF451005A3B6E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A52DCF1FCBF451005A3B6E /* main.swift */; };
 		18A52DD71FCBF6BC005A3B6E /* LC2Sum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A52DD61FCBF6BC005A3B6E /* LC2Sum.swift */; };
@@ -71,6 +72,7 @@
 		184394CD221FC25F00B8509A /* BitCompute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitCompute.swift; sourceTree = "<group>"; };
 		184394D02223F30700B8509A /* Heap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
 		184394D32225349500B8509A /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		189A63E62242313A006D26CF /* Backtracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backtracking.swift; sourceTree = "<group>"; };
 		189EE9461FDBB92F001CA7EA /* LongestPalindrome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongestPalindrome.swift; sourceTree = "<group>"; };
 		18A52DCC1FCBF451005A3B6E /* LeetCode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LeetCode; sourceTree = BUILT_PRODUCTS_DIR; };
 		18A52DCF1FCBF451005A3B6E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -158,6 +160,14 @@
 			path = DepthFirstSearch;
 			sourceTree = "<group>";
 		};
+		189A63E3224227E0006D26CF /* Backtracking */ = {
+			isa = PBXGroup;
+			children = (
+				189A63E62242313A006D26CF /* Backtracking.swift */,
+			);
+			path = Backtracking;
+			sourceTree = "<group>";
+		};
 		18A52DC31FCBF451005A3B6E = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +191,7 @@
 			children = (
 				18A52DCF1FCBF451005A3B6E /* main.swift */,
 				184394CD221FC25F00B8509A /* BitCompute.swift */,
+				189A63E3224227E0006D26CF /* Backtracking */,
 				184394D22225347000B8509A /* DepthFirstSearch */,
 				184394CF2223F2FA00B8509A /* Heap */,
 				184394C4221BE11400B8509A /* BinarySearch */,
@@ -336,6 +347,7 @@
 				18A52DD71FCBF6BC005A3B6E /* LC2Sum.swift in Sources */,
 				18D7B5561FCE9D4E00D7AF18 /* MaxAreaOfIsland.swift in Sources */,
 				18D7B5541FCE781100D7AF18 /* DegreeOfAnArray.swift in Sources */,
+				189A63E72242313A006D26CF /* Backtracking.swift in Sources */,
 				189EE9471FDBB92F001CA7EA /* LongestPalindrome.swift in Sources */,
 				184394CE221FC25F00B8509A /* BitCompute.swift in Sources */,
 				18C702CF2019BD790097F051 /* MaximumSubarray.swift in Sources */,
