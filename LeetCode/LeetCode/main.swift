@@ -8,7 +8,7 @@
 
 import Foundation
 
-print(Backtracking().subsets1([1,2,3]))
+print(Backtracking().generateParenthesis(3))
 
 
 func kSmallestPairs(_ nums1: [Int], _ nums2: [Int], _ k: Int) -> [[Int]] {
