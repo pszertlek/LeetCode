@@ -310,4 +310,270 @@ public class HeapSolution {
         return array.reversed()
     }
 
+    
+    func kClosest(_ points: [[Int]], _ K: Int) -> [[Int]] {
+        var heap = Heap<[Int]>.init { (first, second) -> Bool in
+             return (first[0] * first[0] + first[1] * first[1]) > ( second[0] * second[0] + second[1] * second[1])
+        }
+        for element in points {
+            heap.insert(element)
+            if heap.count > K {
+                heap.remove()
+            }
+        }
+        return heap.nodes
+    }
+    
+    func nthUglyNumber(_ n: Int) -> Int {
+        var uglys = [1]
+        var a = 2, b = 3, c = 5
+        var idx = [0,0,0]
+        for _ in 0..<n {
+            let next = min(a, min(b, c))
+            
+            uglys.append(next)
+            if a == next {
+                
+                idx[0] = idx[0] + 1
+                a = 2 * uglys[idx[0]]
+            }
+            if b == next {
+                
+                idx[1] = idx[1] + 1
+                b = 3 * uglys[idx[1]]
+            }
+            if c == next {
+                
+                idx[2] = idx[2] + 1
+                c = 5 * uglys[idx[2]]
+                
+            }
+        }
+        return uglys[n - 1]
+    }
+
+}
+
+let recentCount = 10
+
+class Twitter {
+    
+    /** Initialize your data structure here. */
+    lazy var dict: [Int:User] = [Int: User]()
+    public var time = 0
+    class User {
+        var userId: Int
+        lazy var tweets: [Tweet] = [Tweet]()
+        lazy var follows: Set<Int> = Set<Int>()
+        init(_ userId: Int) {
+            self.userId = userId
+            self.follows.insert(userId)
+        }
+        
+        func postTweet(_ tweetId: Int, _ time: Int) {
+            let t = Tweet(tweetId, time)
+            self.tweets.append(t)
+        }
+        
+        func follow(_ followeeId: Int) {
+            self.follows.insert(followeeId)
+        }
+        
+        func unfollow(_ followeeId: Int) {
+            self.follows.remove(followeeId)
+        }
+        
+        func allFollowee() -> Set<Int> {
+            return self.follows
+        }
+        
+        func recentTweets() -> [Tweet] {
+            if tweets.count > recentCount {
+                return Array(tweets[(tweets.count - recentCount)..<(tweets.count)])
+            } else {
+                return tweets
+            }
+        }
+    }
+    
+    class Tweet {
+        var tweedId: Int
+        var createTime: Int
+        init(_ tweetId: Int, _ time: Int) {
+            self.tweedId = tweetId
+            self.createTime = time
+        }
+    }
+    
+    init() {
+
+    }
+
+    /** Compose a new tweet. */
+    func postTweet(_ userId: Int, _ tweetId: Int) {
+        let user: User = self.getUser(userId)
+        time = time + 1
+        user.postTweet(tweetId, time)
+    }
+    
+    /** Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */
+    func getNewsFeed(_ userId: Int) -> [Int] {
+        guard let follower = dict[userId] else {
+            return []
+        }
+        let followees = follower.allFollowee()
+        guard followees.count != 0 else {
+            return []
+        }
+        var results = Heap<Tweet>.init(sort: {
+            return $0.createTime < $1.createTime
+        })
+        for i in followees {
+            let curUser = dict[i]!
+            let rencentTweets = curUser.recentTweets()
+            for j in stride(from: rencentTweets.count - 1, through: 0, by: -1) {
+                let tweet = rencentTweets[j]
+                if results.count == 10 {
+                    if tweet.createTime < results.peek()!.createTime {
+                        break
+                    } else {
+                        results.insert(tweet)
+                    }
+                } else {
+                    results.insert(tweet)
+                }
+                if results.count > 10 {
+                    results.remove()
+                }
+            }
+        }
+        var resultArray = [Int]()
+        for i in results.sort() {
+            resultArray.append(i.tweedId)
+        }
+        return resultArray
+    }
+    
+    /** Follower follows a followee. If the operation is invalid, it should be a no-op. */
+    func follow(_ followerId: Int, _ followeeId: Int) {
+        guard followeeId != followerId else {
+            return
+        }
+        let follower = self.getUser(followerId)
+        let _ = self.getUser(followeeId)
+        follower.follow(followeeId)
+    }
+    
+    /** Follower unfollows a followee. If the operation is invalid, it should be a no-op. */
+    func unfollow(_ followerId: Int, _ followeeId: Int) {
+        guard followeeId != followerId else {
+            return
+        }
+        let follower = self.getUser(followerId)
+        let _ = self.getUser(followeeId)
+        follower.unfollow(followeeId)
+    }
+    
+    func getUser(_ userId: Int) -> User {
+        if self.dict[userId] == nil {
+            self.dict[userId] = User(userId)
+        }
+        return self.dict[userId]!
+    }
+}
+
+
+//编写一段程序来查找第 n 个超级丑数。
+//
+//超级丑数是指其所有质因数都是长度为 k 的质数列表 primes 中的正整数。
+//
+//示例:
+//
+//输入: n = 12, primes = [2,7,13,19]
+//输出: 32
+//解释: 给定长度为 4 的质数列表 primes = [2,7,13,19]，前 12 个超级丑数序列为：[1,2,4,7,8,13,14,16,19,26,28,32] 。
+//说明:
+//
+//1 是任何给定 primes 的超级丑数。
+//给定 primes 中的数字以升序排列。
+//0 < k ≤ 100, 0 < n ≤ 106, 0 < primes[i] < 1000 。
+//第 n 个超级丑数确保在 32 位有符整数范围内。
+
+//func nthSuperUglyNumber(_ n: Int, _ primes: [Int]) -> Int {
+//
+//}
+
+
+//int nthUglyNumber(int n) {
+//    vector<int> ugly(n, 1), idx(3, 0);
+//    for (int i = 1; i < n; ++i){
+//        int a = ugly[idx[0]]*2, b = ugly[idx[1]]*3, c = ugly[idx[2]]*5;
+//        int next = std::min(a, std::min(b, c));
+//        if (next == a){
+//            ++idx[0];
+//        }
+//        if (next == b){
+//            ++idx[1];
+//        }
+//        if (next == c){
+//            ++idx[2];
+//        }
+//        ugly[i] = next;
+//    }
+//    return ugly.back();
+//}
+
+func nthSuperUglyNumber(_ n: Int, _ primes: [Int]) -> Int {
+    var superUglys = [1]
+    var idx = Array<(Int,Int)>.init()
+    for (index,i) in primes.enumerated() {
+        idx.append((i,0))
+    }
+    var heap = Heap<Int>.init(array: primes, sort: <)
+    var cur = primes.first!
+    for _ in 0..<n {
+        let next = heap.peek()!
+        
+        superUglys.append(next)
+        
+        
+        for (index,i) in idx.enumerated() {
+            if i.0 == next {
+                
+                idx[index] = idx[index] + 1
+                heap.insert(primes[index] * superUglys[idx[index]])
+            }
+        }
+        heap.remove()
+    }
+    return superUglys.last!
+}
+
+
+func nthUglyNumber(_ n: Int) -> Int {
+    var uglys = [1]
+    var a = 2, b = 3, c = 5
+    var idx = [0,0,0]
+    for _ in 0..<n {
+        let next = min(a, min(b, c))
+
+        uglys.append(next)
+        if a == next {
+
+            idx[0] = idx[0] + 1
+            a = 2 * uglys[idx[0]]
+        }
+        if b == next {
+
+            idx[1] = idx[1] + 1
+            b = 3 * uglys[idx[1]]
+        }
+        if c == next {
+
+            idx[2] = idx[2] + 1
+            c = 5 * uglys[idx[2]]
+
+        }
+    }
+    return uglys[n - 1]
 }

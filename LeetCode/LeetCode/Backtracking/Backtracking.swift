@@ -75,8 +75,21 @@ class Backtracking {
         return result
     }
     
-    func permute(_ nums: [Int]) -> [[Int]] {
-        
-        
-    }
+    
+    
+//    func permute(_ nums: [Int]) -> [[Int]] {
+//        var results = [[Int]]()
+//        func permuteCore(_ nums: inout [Int], _ start: Int) {
+//            if start == nums.count {
+//                var temp = nums
+//                results.append(temp)
+//            }
+//
+//            for i in 0..<nums.count {
+//                nums.swapAt(nums.count, i)
+//                permuteCore(&nums,i)
+//                nums.swapAt(nums, <#T##j: Int##Int#>)
+//            }
+//        }
+//    }
 }
