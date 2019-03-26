@@ -256,8 +256,25 @@ class KthLargest1 {
 }
 
 
+//func findCheapestPrice(_ n: Int, _ flights: [[Int]], _ src: Int, _ dst: Int, _ K: Int) -> Int {
+//
+//}
+
 public class HeapSolution {
 
+    func kthSmallest(_ matrix: [[Int]], _ k: Int) -> Int {
+        var heap = Heap<Int>.init(sort: >)
+        for i in matrix {
+            for j in i {
+                heap.insert(j)
+                if heap.count > k {
+                    heap.remove()
+                }
+            }
+        }
+        return heap.peek()!
+    }
+    
     func topKFrequent(_ nums: [Int], _ k: Int) -> [Int] {
         var heap = Heap<(Int, Int)>.init { (f, s) -> Bool in
             return f.1 < s.1
@@ -523,31 +540,31 @@ class Twitter {
 //    return ugly.back();
 //}
 
-func nthSuperUglyNumber(_ n: Int, _ primes: [Int]) -> Int {
-    var superUglys = [1]
-    var idx = Array<(Int,Int)>.init()
-    for (index,i) in primes.enumerated() {
-        idx.append((i,0))
-    }
-    var heap = Heap<Int>.init(array: primes, sort: <)
-    var cur = primes.first!
-    for _ in 0..<n {
-        let next = heap.peek()!
-        
-        superUglys.append(next)
-        
-        
-        for (index,i) in idx.enumerated() {
-            if i.0 == next {
-                
-                idx[index] = idx[index] + 1
-                heap.insert(primes[index] * superUglys[idx[index]])
-            }
-        }
-        heap.remove()
-    }
-    return superUglys.last!
-}
+//func nthSuperUglyNumber(_ n: Int, _ primes: [Int]) -> Int {
+//    var superUglys = [1]
+//    var idx = Array<(Int,Int)>.init()
+//    for (index,i) in primes.enumerated() {
+//        idx.append((i,0))
+//    }
+//    var heap = Heap<Int>.init(array: primes, sort: <)
+//    var cur = primes.first!
+//    for _ in 0..<n {
+//        let next = heap.peek()!
+//
+//        superUglys.append(next)
+//
+//
+//        for (index,i) in idx.enumerated() {
+//            if i.0 == next {
+//
+//                idx[index] = idx[index] + 1
+//                heap.insert(primes[index] * superUglys[idx[index]])
+//            }
+//        }
+//        heap.remove()
+//    }
+//    return superUglys.last!
+//}
 
 
 func nthUglyNumber(_ n: Int) -> Int {

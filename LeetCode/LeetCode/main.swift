@@ -9,7 +9,9 @@
 import Foundation
 
 
-print(nthSuperUglyNumber(12,[2,7,13,19]))
+print(HeapSolution().kthSmallest([[ 1,  5,  9],
+                  [10, 11, 13],
+                  [12, 13, 15]],8))
 
 func kSmallestPairs(_ nums1: [Int], _ nums2: [Int], _ k: Int) -> [[Int]] {
     guard nums1.count != 0 && nums2.count != 0 else {
