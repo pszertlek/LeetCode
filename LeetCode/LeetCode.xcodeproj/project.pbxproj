@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1806A650225C8A2000369540 /* DoubleNodeSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1806A64F225C8A2000369540 /* DoubleNodeSolution.swift */; };
 		18289BFB222CF2E100184949 /* Dijkstra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18289BFA222CF2E100184949 /* Dijkstra.swift */; };
 		184394C6221BE18A00B8509A /* BinarySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394C5221BE18A00B8509A /* BinarySearch.swift */; };
 		184394C8221BE19C00B8509A /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394C7221BE19C00B8509A /* TreeNode.swift */; };
@@ -64,6 +65,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1806A64F225C8A2000369540 /* DoubleNodeSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleNodeSolution.swift; sourceTree = "<group>"; };
 		18289BFA222CF2E100184949 /* Dijkstra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dijkstra.swift; sourceTree = "<group>"; };
 		184394C5221BE18A00B8509A /* BinarySearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinarySearch.swift; sourceTree = "<group>"; };
 		184394C7221BE19C00B8509A /* TreeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				F4519458203AB7B80000CD0A /* LongestContinuousIncresingSub.swift */,
 				F451945A203BEAB40000CD0A /* MaximumAverageSubarray.swift */,
 				184394CB221C099800B8509A /* Array.swift */,
+				1806A64F225C8A2000369540 /* DoubleNodeSolution.swift */,
 			);
 			name = Array;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				18AF899D20243885003EBB1D /* FindPivotIndex.swift in Sources */,
 				F4519459203AB7B80000CD0A /* LongestContinuousIncresingSub.swift in Sources */,
 				18B4F3412018283E00CDD3A9 /* SearchInsertPosition.swift in Sources */,
+				1806A650225C8A2000369540 /* DoubleNodeSolution.swift in Sources */,
 				18D7B5521FCD482F00D7AF18 /* OneBitTwoBitCharacters.swift in Sources */,
 				184394C6221BE18A00B8509A /* BinarySearch.swift in Sources */,
 				18C702D22019CB210097F051 /* PlusOne.swift in Sources */,

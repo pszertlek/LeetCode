@@ -396,5 +396,34 @@ public class ListNode: CustomStringConvertible, ExpressibleByArrayLiteral {
 //    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
 //
 //    }
-    
+    //1,4,3,2,5,2
+    func partition(_ head: ListNode?, _ x: Int) -> ListNode? {
+        guard head != nil else {
+            return nil
+        }
+        var node: ListNode? = ListNode(0)
+        node!.next = head
+        let start = node
+        var pre: ListNode?
+        let move: ListNode = ListNode(0)
+        var moveTo:ListNode? = move
+
+        while let n = node?.next {
+            if n.val >= x {
+                moveTo?.next = n
+                moveTo = moveTo?.next
+                node?.next = n.next
+                n.next = nil
+            } else {
+                pre = n
+                node = node?.next
+            }
+        }
+        if pre == nil {
+            return move.next
+        } else {
+            pre?.next = move.next
+            return start?.next
+        }
+    }
 }

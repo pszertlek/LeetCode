@@ -38,12 +38,60 @@ class BitComputeSolution {
     
     func isPowerOfFour(_ num: Int) -> Bool {
         
-        guard num != 1 else {
+        guard num != 0 else {
             return false
         }
         return (num.bitWidth - num.leadingZeroBitCount - 1) % 2 == 0 && 1 << (num.bitWidth - num.leadingZeroBitCount - 1) == num
     }
     
+    func isPowerOfTwo(_ n: Int) -> Bool {
+        return n != 0 && 1 << (n.bitWidth - n.leadingZeroBitCount - 1) == n
+    }
+    
+    func toHex(_ num: Int) -> String {
+        
+        var n = num
+        if n < 0 {
+            n = n + Int(powf(2, 32))
+        }
+        var array = [Character]()
+        func toHexNumber(_ num: Int) -> Character {
+            switch num {
+            case 0..<10:
+                return Character("\(num)")
+            case 10:
+                return "a"
+            case 11:
+                return "b"
+            case 12:
+                return "c"
+            case 13:
+                return "d"
+            case 14:
+                return "e"
+            case 15:
+                return "f"
+            default:
+                print("error")
+            }
+            return Character("z")
+        }
+        
+        while n > 0 {
+            let i = n % 16
+            array.append(toHexNumber(i))
+            n = n / 16
+        }
+        return String(array.reversed())
+    }
+
+    func countBits(_ num: Int) -> [Int] {
+        var result = Array<Int>.init(repeating: 0, count: num+1)
+        for i in 1...num {
+            result[i] = result[i&(i - 1)] + 1
+        }
+        return result
+    }
 //    func readBinaryWatch(_ num: Int) -> [String] {
 //        func minute(_ num: Int) -> [Int]? {
 //
