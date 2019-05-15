@@ -323,4 +323,158 @@ class ArraySolution {
         return result
     }
     
+    func merge(_ intervals: [[Int]]) -> [[Int]] {
+        guard intervals.count > 0 else {
+            return intervals
+        }
+        var result = [[Int]]()
+
+        let intervals = intervals.sorted { (f, s) -> Bool in
+            return f[0] < s[0]
+        }
+        var currenArray = intervals[0]
+
+        for elements in intervals {
+            if (elements[0] >= currenArray[0] && elements[0] <= currenArray[1]) ||
+                (elements[1] >= currenArray[0] && elements[1] <= currenArray[1]) {
+                currenArray[0] = min(elements[0], currenArray[0])
+                currenArray[1] = max(elements[1], currenArray[1])
+            } else {
+                result.append(currenArray)
+                currenArray = elements
+            }
+        }
+        result.append(currenArray)
+        return result
+    }
+//    var citations = [0,1,3,5,6]
+    func hIndex(_ citations: [Int]) -> Int {
+        let citations = citations.sorted()
+        var h = 0
+        for (index,i) in citations.enumerated() {
+            if h <= citations.count - index {
+                h =  max(h,min(i,citations.count - index))
+            }
+        }
+        return h
+    }
+    
+    func largestNumber(_ nums: [Int]) -> String {
+        guard nums.count > 0 else {
+            return "0"
+        }
+        var total = nums
+        total.sort { (f, s) -> Bool in
+            return ss(f, s)
+        }
+        var result = ""
+        if total[0] == 0 {
+            return "0"
+        }
+        for i in total {
+            result.append("\(i)")
+        }
+        return result
+    }
+    
+    func ss(_ num1: Int,_ num2: Int) -> Bool {
+        let s1 = "\(num1)\(num2)"
+        let s2 = "\(num2)\(num1)"
+        return s1 > s2
+    }
+    /*给定一个无序的数组 nums，将它重新排列成 nums[0] < nums[1] > nums[2] < nums[3]... 的顺序。
+     
+     示例 1:1,1,1,4,5,6
+     1,4,1,1,5,6
+     1,4,1,5,1,6
+     输入: nums = [1, 5, 1, 1, 6, 4]
+     输出: 一个可能的答案是 [1, 4, 1, 5, 1, 6]
+     示例 2:
+     1,1,1,1,1.3,2,2,3,4
+     1,2,1,1,2,3,4,
+     
+     
+    1,1,2,2,3,3,4,4
+     1,3,2,2,1,3,4,4
+     1,3,1,2,2,3,4,4
+     
+     1,2,1,2,3,3
+     1,2,1,3,2,3
+     输入: nums = [1, 3, 2, 2, 3, 1]
+     输出: 一个可能的答案是 [2, 3, 1, 3, 1, 2]*/
+    
+    func wiggleSort(_ nums: inout [Int]) {
+        guard nums.count >= 2 else {
+            return
+        }
+        
+        for i in stride(from: 1, to: nums.count, by: 2) {
+            let idx = getLargest(nums, i - 1, i , i + 1)
+            (nums[i], nums[idx]) = (nums[idx], nums[i])
+        }
+    }
+    
+    private func getLargest(_ nums: [Int], _ x: Int, _ y: Int, _ z: Int) -> Int {
+        let len = nums.count
+        
+        let xVal = x >= 0 && x < len ? nums[x] : Int.min
+        let yVal = y >= 0 && y < len ? nums[y] : Int.min
+        let zVal = z >= 0 && z < len ? nums[z] : Int.min
+        let maxVal = max(xVal, yVal, zVal)
+        
+        if maxVal == xVal {
+            return x
+        } else if maxVal == yVal {
+            return y
+        } else {
+            return z
+        }
+    }
+    
+    
+    /*
+     给定一个整数数组，判断数组中是否有两个不同的索引 i 和 j，使得 nums [i] 和 nums [j] 的差的绝对值最大为 t，并且 i 和 j 之间的差的绝对值最大为 ķ。
+     
+     示例 1:
+     
+     输入: nums = [1,2,3,1], k = 3, t = 0
+     输出: true
+     示例 2:
+     
+     输入: nums = [1,0,1,1], k = 1, t = 2
+     输出: true
+     示例 3:
+     
+     输入: nums = [1,5,9,1,5,9], k = 2, t = 3
+     输出: false
+     */
+    
+//    class SSS {
+//        var val: Int
+//        var indexs = [Int]()
+//        init(_ val: Int) {
+//            self.val = val
+//        }
+//    }
+//
+    func containsNearbyAlmostDuplicate(_ nums: [Int], _ k: Int, _ t: Int) -> Bool {
+        var dict = [Int: Int]()
+        for i in 1...k {
+            dict[nums[i]] = (dict[nums[i]] ?? 0) + 1
+        }
+        
+        for j in 0..<nums.count - 1 {
+            for x in stride(from: 0-t, through: t, by: 1) {
+                if let count = dict[nums[j] + x] ,count > 0{
+                    return true
+                }
+            }
+            dict[nums[j + 1]] = dict[nums[j + 1]]! - 1
+            if j + k + 1 < nums.count {
+                dict[nums[j + k + 1]] = (dict[nums[j + k + 1]] ?? 0) + 1
+            }
+            
+        }
+        return false
+    }
 }

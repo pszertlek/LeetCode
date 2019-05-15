@@ -156,7 +156,7 @@ public func heapSort<T>(_ a:[T], _ sort: @escaping (T,T) -> Bool) -> [T] {
 public extension Heap where T: Equatable {
     /** Get the index of a node in the heap. Performance: O(n). */
     public func index(of node: T) -> Int? {
-        return nodes.index(where: { $0 == node })
+        return nodes.firstIndex(where: { $0 == node })
     }
     
     /** Removes the first occurrence of a node from the heap. Performance: O(n log n). */

@@ -139,4 +139,21 @@ class BitComputeSolution {
 //        return [""]
 //    }
 //
+    
+    func singleNumber(_ nums: [Int]) -> [Int] {
+        var result = [0,0]
+        var xor = 0
+        for i in nums {
+            xor ^= i
+        }
+        let mark = xor & (0 - xor)
+        for i in nums {
+            if (mark & i ) == 0 {
+                result[0] ^= i
+            } else if (mark & i) == mark {
+                result[1] ^= i
+            }
+        }
+        return result
+    }
 }

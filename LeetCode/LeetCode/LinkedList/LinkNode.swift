@@ -426,4 +426,116 @@ public class ListNode: CustomStringConvertible, ExpressibleByArrayLiteral {
             return start?.next
         }
     }
+    
+    func sortList(_ head: ListNode?) -> ListNode? {
+        return mergeSort(head)
+
+    }
+    
+    func mergeSort(_ head: ListNode?) -> ListNode? {
+        guard head?.next != nil else {
+            return head
+        }
+        var lowPoint = head, fastPoint = head,pre = head
+        while fastPoint != nil && fastPoint?.next != nil {
+            pre = lowPoint
+            fastPoint = fastPoint?.next?.next
+            lowPoint = lowPoint?.next
+        }
+        pre?.next = nil
+        let l = mergeSort(head)
+        let r = mergeSort(lowPoint)
+        return merge(l, r)
+    }
+    
+    func merge(_ left: ListNode?, _ right: ListNode?) -> ListNode? {
+        let start = ListNode(0)
+        var cur = start, leftNode = left, rightNode = right
+        while let l = leftNode, let r = rightNode {
+            if l.val < r.val {
+                cur.next = l
+                leftNode = l.next
+            } else {
+                cur.next = r
+                rightNode = r.next
+            }
+            cur = cur.next!
+        }
+        if leftNode != nil {
+            cur.next = leftNode
+        } else {
+            cur.next = rightNode
+        }
+        return start.next
+    }
+    
+    func findMidAndSplit(_ head: ListNode?) -> ListNode? {
+        var slowPoint = head, fastPoint = head,pre = head
+        while fastPoint != nil && fastPoint?.next != nil {
+            pre = slowPoint
+            fastPoint = fastPoint?.next?.next
+            slowPoint = slowPoint?.next
+        }
+        return slowPoint
+    }
+    
+//    func findMid(_ head: ListNode?,_ end: inout ListNode?) -> ListNode? {
+//        var slowPoint = head, fastPoint = head
+//        while fastPoint != end && fastPoint?.next != end {
+//            fastPoint = fastPoint?.next?.next
+//            slowPoint = slowPoint?.next
+//        }
+//        return slowPoint
+//    }
+//
+//    func fastSort(_ head: ListNode?) -> ListNode? {
+//        guard head != nil else {
+//            return head
+//        }
+//
+//
+//
+//    }
+//
+//    func partition(_ head: ListNode?, end: inout ListNode?) -> ListNode? {
+//        guard head?.next != nil else {
+//            return head
+//        }
+//        let stand = findMid(head, &end)
+//        let left = ListNode(0)
+//        let right = stand
+//        var leftCur: ListNode? = left, righCur = stand, cur = head
+//
+//        while let current = cur {
+//            if current.val >= stand!.val {
+//                righCur?.next = current
+//                righCur = righCur?.next
+//            } else {
+//                leftCur?.next = current
+//                leftCur = leftCur?.next
+//            }
+//        }
+//        partition(left.next)
+//        partition(right)
+//    }
+    func insertionSortList(_ head: ListNode?) -> ListNode? {
+        var start = ListNode(0)
+        var startPre = start
+        var cur = head
+        while let current = cur {
+            cur = cur?.next
+
+            startPre = start
+            while startPre.next != nil && startPre.next!.val < current.val {
+                startPre = startPre.next!
+            }
+            let temp = startPre.next
+            startPre.next = current
+            current.next = temp
+        }
+        return start.next
+    }
+
 }
+
+

@@ -201,9 +201,7 @@ class DoubleNodeSolution {
                     left = mid + 1
                 }
             }
-            
             return left
-
         }
         print(people)
         while people.count > 0 {
@@ -241,7 +239,20 @@ class DoubleNodeSolution {
 
     }
     
-    func numRescueBoats(_ people: [Int], _ limit: Int) -> Int {
-
+    func numRescueBoats1(_ people: [Int], _ limit: Int) -> Int {
+        var i = 0, j = people.count - 1 , sum = 0
+        var people = people.sorted()
+        
+        while i <= j {
+            if people[i] + people[j] > limit {
+                j -= 1
+            } else {
+                i += 1
+                j -= 1
+            }
+            sum += 1
+        }
+        
+        return sum
     }
 }
