@@ -477,4 +477,181 @@ class ArraySolution {
         }
         return false
     }
+    
+    func threeSum(_ nums: [Int]) -> [[Int]] {
+        let sortedNums = nums.sorted()
+        var x = 0, result = [[Int]]()
+        while x < nums.count - 2 {
+            var y = x + 1
+            var z = nums.count - 1
+            while y < z {
+                let sum = sortedNums[x] + sortedNums[y] + sortedNums[z]
+                if sum == 0 {
+                    while y < z && nums[y] == nums[y + 1] {
+                        y += 1;
+                    }
+                    while y < z && nums[z] == nums[z - 1] {
+                        z -= 1;
+                    }
+                    
+                    result.append([sortedNums[x],sortedNums[y],sortedNums[z]])
+                    z = z - 1
+                    y = y + 1
+                } else if sum > 0{
+                    z = z - 1
+                } else {
+                    y = y + 1
+                }
+            }
+            x = x + 1
+        }
+        return result
+    }
+    
+    func trap(_ height: [Int]) -> Int {
+        var lefts = [Int].init(repeating: 0, count: height.count)
+        var leftMax = 0
+        for (index,i) in height.reversed().enumerated() {
+            lefts[height.count - index - 1] = leftMax
+            leftMax = max(i, leftMax)
+        }
+        var sum = 0
+        var right = 0
+        for (index,i) in height.enumerated() {
+            let cur = min(right, lefts[index]) - i
+            sum = (cur > 0 ? cur : 0) + sum
+            right = max(right, i)
+        }
+        return sum
+    }
+//    "123" 1
+//    "132" 2
+//    "213" 3
+//    "231" 4
+//    "312" 5
+//    "321" 6
+    func getPermutation(_ n: Int, _ k: Int) -> String {
+        var result = ""
+        var sss = 1
+        var array = [Int]()
+        for i in 1...n {
+            sss *= i
+            array.append(i)
+        }
+        var i = n, j = k
+        while j >= 0 && i > 0 {
+            sss = sss / i
+            let z = max((j - 1) / sss,0)
+            result.append("\(array[z])")
+            j = j - z * sss
+            array.remove(at: z)
+            i = i - 1
+        }
+
+        return result
+    }
+    
+    func findCircleNum(_ M: [[Int]]) -> Int {
+        var set = Set<Int>()
+        var i = 0
+        var total = [Set<Int>]()
+        func minIndex(i: Int) -> Int {
+            var i = i
+            repeat {
+                i = i + 1
+            } while set.contains(i)
+            return i
+        }
+        
+        while i < M.count {
+            var j = minIndex(i: i)
+            var pyq = [Int](), setPyg = Set<Int>()
+            pyq.append(i)
+            setPyg.insert(i)
+            var count = 0
+            while j < M.count || count < pyq.count {
+                if M[i][j] == 1 {
+                    pyq.append(j)
+                    setPyg.insert(j)
+                    set.insert(j)
+                }
+                j = minIndex(i: j)
+                if count < pyq.count {
+                    count = count + 1
+                    j = minIndex(i: i)
+                }
+            }
+            total.append(setPyg)
+            i = minIndex(i: i)
+        }
+        print(total)
+        return total.count
+    }
+    
+    func longestConsecutive(_ nums: [Int]) -> Int {
+        let set = Set(nums)
+        var setttt = Set<Int>()
+        var longest = 0
+        for i in set {
+            if !setttt.contains(i) {
+                setttt.insert(i)
+                var j = i + 1
+                var long = 1
+                while set.contains(j) {
+                    setttt.insert(j)
+                    long = long + 1
+                    j = j + 1
+                }
+                var k = i - 1
+                while set.contains(k) {
+                    setttt.insert(k)
+                    long = long + 1
+                    k = k - 1
+                }
+                longest = max(long, longest)
+            }
+            if longest > set.count / 2 {
+                break
+            }
+        }
+        return longest;
+    }
+    
+    func findLengthOfLCIS(_ nums: [Int]) -> Int {
+        var cur = Int.min, length = 0, maxLength = 0
+        for i in nums {
+            if i > cur {
+                cur = i
+                length = length + 1
+            } else {
+                cur = i
+                maxLength = max(length, maxLength)
+                length = 1
+            }
+        }
+        maxLength = max(length, maxLength)
+        return maxLength
+    }
+    
+    /*给定一些标记了宽度和高度的信封，宽度和高度以整数对形式 (w, h) 出现。当另一个信封的宽度和高度都比这个信封大的时候，这个信封就可以放进另一个信封里，如同俄罗斯套娃一样。
+     
+     请计算最多能有多少个信封能组成一组“俄罗斯套娃”信封（即可以把一个信封放到另一个信封里面）。
+     
+     说明:
+     不允许旋转信封。
+     
+     示例:
+     
+     输入: envelopes = [[5,4],[6,4],[6,7],[2,3]]
+     输出: 3
+     解释: 最多信封的个数为 3, 组合为: [2,3] => [5,4] => [6,7]。*/
+    func maxEnvelopes(_ envelopes: [[Int]]) -> Int {
+        let sorted = envelopes.sorted { (f, s) -> Bool in
+            if f[0] == s[0] {
+                return f[1] < s[1]
+            } else {
+                return f[0] < s[0]
+            }
+        }
+    }
 }

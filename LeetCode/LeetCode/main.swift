@@ -8,23 +8,16 @@
 
 import Foundation
 
+//print(ArraySolution().findCircleNum([[1,1,0],
+//                                     [1,1,0],
+//                                     [0,0,1]]) )
+//print(ArraySolution().findCircleNum([[1,1,0],
+//                                     [1,1,1],
+//                                     [0,1,1]]) )
+//print(ArraySolution().findCircleNum([[1,0,0,1],
+//                                     [0,1,1,0],
+//                                     [0,1,1,1],
+//                                     [1,0,1,1]]) )
 
-
-
-//print(StringSolution().restoreIpAddresses("25525511135"))
-//print(StringSolution().restoreIpAddresses("010010"))
-//["LRUCache","put","put","get","put","get","put","get","get","get"]
-//[[2],       [1,1],[2,2],[1],  [3,3],[2],  [4,4], [1],  [3],  [4]]
-let cache = LRUCache(2)
-
-for i in [[1,1],[2,2],[1],[3,3],[2],[4,4],[1],[3],[4]] {
-    if i.count == 1 {
-        print(cache)
-        print("key:\(i[0]) value:\(cache.get(i[0]))")
-    } else {
-        cache.put(i[0], i[1])
-    }
-
-}
-
-
+print(ArraySolution().findLengthOfLCIS([1,3,5,4,7]))
+print(ArraySolution().findLengthOfLCIS([1,3,5,4,2,3,4,5]))

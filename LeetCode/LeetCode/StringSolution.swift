@@ -318,36 +318,48 @@ class StringSolution {
     }
 }
 
-class LRUCache: CustomStringConvertible {
-    class Item {
-        var next: Item?
-        var pre: Item?
+class LRUCache {
+    class Item: Comparable {
+        static func == (lhs: LRUCache.Item, rhs: LRUCache.Item) -> Bool {
+            return lhs.vaaaa == rhs.vaaaa
+        }
         var val: Int
-        var count: Int
-        init(_ val: Int) {
+        var key: Int
+        var vaaaa: Int
+        init(_ val: Int, _ key: Int, _ vaaaa: Int) {
             self.val = val
-            count = 1
+            self.key = key
+            self.vaaaa = vaaaa
+        }
+        
+        static func < (lhs: Item, rhs: Item) -> Bool {
+            return lhs.vaaaa < rhs.vaaaa
+        }
+        static func <= (lhs: Item, rhs: Item) -> Bool {
+            return lhs.vaaaa <= rhs.vaaaa
+        }
+
+        static func >= (lhs: Item, rhs: Item) -> Bool {
+            return lhs.vaaaa >= rhs.vaaaa
+        }
+        static func > (lhs: Item, rhs: Item) -> Bool {
+            return lhs.vaaaa > rhs.vaaaa
         }
     }
     
     var dict = [Int: Item]()
     var capacity: Int
-
+    var i = 0
+    var queue: Heap<Item> = Heap<Item>.init(sort: >)
     init(_ capacity: Int) {
         self.capacity = capacity
     }
     
     func get(_ key: Int) -> Int {
         if let item = self.dict[key] {
-            let pre = item.pre
-            let next = item.next
-            pre?.next = next
-            let linkNext = item
-            link = item
-            if item.val != linkNext.val {
-                item.next = linkNext
-            }
-            
+            i = i + 1
+            item.vaaaa = i
+            queue.sort()
             return item.val
         } else {
             return -1
@@ -355,38 +367,21 @@ class LRUCache: CustomStringConvertible {
     }
     
     func put(_ key: Int, _ value: Int) {
+        i = i + 1
         if let item = self.dict[key] {
-            let pre = item.pre
-            let next = item.next
-            pre?.next = next
-            let linkNext = item
-            link = item
-            item.next = linkNext
+            item.val = value
+            item.vaaaa = i
+            queue.sort()
         } else {
-            let item = Item(value)
-            let next = self.link
-            self.link = item
-            item.next = next
-            next?.pre = self.link
-            self.dict[key] = item
-            if dict.count > self.capacity {
-                var next = self.link
-                while let nextNext = next?.next {
-                    next = nextNext
-                }
-                next?.pre?.next = nil
-                dict[next!.val] = nil
+            let item = Item(value,key,i)
+            queue.insert(item)
+            dict[key] = item
+            if dict.count > capacity {
+                dict[queue.remove()!.key] = nil
             }
         }
+
     }
     
-    var description: String {
-        var next = self.link
-        var result = ""
-        while let node = next {
-            result += "\(node.val)"
-            next = next?.next
-        }
-        return result
-    }
+    
 }

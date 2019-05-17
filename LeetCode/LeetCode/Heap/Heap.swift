@@ -138,6 +138,7 @@ public struct Heap<T> {
         return nodes.removeLast()
     }
     
+    @discardableResult
     public mutating func sort() -> [T] {
         for i in stride(from: self.nodes.count - 1, to: 0, by: -1) {
             nodes.swapAt(0, i)
