@@ -645,13 +645,34 @@ class ArraySolution {
      输入: envelopes = [[5,4],[6,4],[6,7],[2,3]]
      输出: 3
      解释: 最多信封的个数为 3, 组合为: [2,3] => [5,4] => [6,7]。*/
-    func maxEnvelopes(_ envelopes: [[Int]]) -> Int {
-        let sorted = envelopes.sorted { (f, s) -> Bool in
-            if f[0] == s[0] {
-                return f[1] < s[1]
+//    func maxEnvelopes(_ envelopes: [[Int]]) -> Int {
+//        let sorted = envelopes.sorted { (f, s) -> Bool in
+//            if f[0] == s[0] {
+//                return f[1] < s[1]
+//            } else {
+//                return f[0] < s[0]
+//            }
+//        }
+//    }
+    //1,2,5,[1,2]
+    //2,3,4,[0,0]
+    func numMovesStones(_ a: Int, _ b: Int, _ c: Int) -> [Int] {
+        var array = [a,b,c].sorted()
+        let high = array[2] - array[1], low = array[1] - array[0]
+        var min = 0
+        if high > 1 && low > 1 {
+            if high > 2 && low > 2 {
+                min = 2
             } else {
-                return f[0] < s[0]
+                min = 1
             }
+        } else if high == 1 && low == 1 {
+            min = 1
+        } else {
+            min = 1
         }
+        let max = array[2] - array[0] - 2
+        return [min,max]
     }
+    
 }

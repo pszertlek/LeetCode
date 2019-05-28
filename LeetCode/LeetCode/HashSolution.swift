@@ -58,4 +58,36 @@ class HashSolution {
         }
         return result
     }
+    
+    func subdomainVisits(_ cpdomains: [String]) -> [String] {
+        var dict: [String: Int] = [:]
+        func sss(_ s: [String],_ index: Int) -> String {
+            var i = index
+            var result = ""
+            while i < s.count {
+                result.append(s[i])
+                if i < s.count - 1 {
+                    result.append(".")
+                }
+                i = i + 1
+            }
+            return result
+        }
+        
+        for i in cpdomains {
+            let array = i.components(separatedBy: " ")
+            let count = Int(array[0])!
+            let domains = array[1].components(separatedBy: ".")
+            
+            for (index,i) in domains.enumerated() {
+                let domain = sss(domains, index)
+                dict[domain] = (dict[domain] ?? 0) + count
+            }
+        }
+        var result = [String]()
+        for (key,value) in dict {
+            result.append("\(value) \(key)")
+        }
+        return result
+    }
 }

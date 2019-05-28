@@ -157,3 +157,55 @@ class BitComputeSolution {
         return result
     }
 }
+class MinStack {
+    class Element {
+        var index: Int
+        var val: Int
+        init(_ index: Int, _ val: Int) {
+            self.index = index
+            self.val = val
+        }
+    }
+    var datas: [Element] = []
+    var sorteds: [Element] = []
+    /** initialize your data structure here. */
+    init() {
+        
+    }
+    
+    func push(_ x: Int) {
+        datas.append(Element(datas.count,x))
+        var index = 0
+        for i in sorteds {
+            if x > i.val {
+                index += 1
+            } else {
+                break
+            }
+        }
+        sorteds.insert(datas[datas.count - 1], at: index)
+    }
+    
+    func pop() {
+        let element = datas.removeLast()
+        
+        for (index, i) in sorteds.enumerated() {
+            if element.val == i.val {
+                sorteds.remove(at: index)
+                break
+            }
+        }
+    }
+    
+    func top() -> Int {
+        return datas.last?.val ?? -1
+    }
+    
+    func getMin() -> Int {
+        guard sorteds.count > 0 else {
+            return -1
+        }
+        
+        return sorteds[0].val
+    }
+}
