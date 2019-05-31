@@ -675,4 +675,136 @@ class ArraySolution {
         return [min,max]
     }
     
+    func majorityElement(_ nums: [Int]) -> Int {
+        var major = nums[0],count = 0
+        for i in nums {
+            if major == i {
+                count += 1
+            } else {
+                count -= 1
+            }
+            if count == 0 {
+                count = 1
+                major = i
+            }
+        }
+        return major
+    }
+    
+    
+    func searchMatrix(_ matrix: [[Int]], _ target: Int) -> Bool {
+        guard matrix.count != 0 && matrix[0].count != 0 else {
+            return false
+        }
+        func search(point: (Int,Int)) -> (Int,Int)? {
+            if matrix[point.0][point.1] == target {
+                return point
+            } else if matrix[point.0][point.1] > target {
+                return nil
+            } else if point.0 + 1 < matrix.count && point.1 + 1 < matrix[0].count {
+                if matrix[point.0 + 1][point.1] <= target || matrix[point.0][point.1 + 1] <= target {
+                    if let p = search(point: (point.0 ,point.1 + 1)) {
+                        return p
+                    } else {
+                        return search(point: (point.0 + 1, point.1))
+                    }
+                } else {
+                    return nil
+                }
+            } else if point.0 + 1 < matrix.count {
+                return search(point: (point.0 + 1, point.1))
+            } else if point.1 + 1 < matrix[0].count {
+                return search(point: (point.0 , point.1 + 1))
+            } else {
+                return nil
+            }
+        }
+        
+        if let _ = search(point: (0,0)) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func searchMatrixB(_ matrix: [[Int]], _ target: Int) -> Bool {
+        if matrix.count == 0 || matrix[0].count == 0 {
+            return false
+        }
+        for i in matrix {
+            if i.first! <= target && i.last! >= target {
+                if searchCol(i, target) {
+                    return true
+                }
+            } else if i.first! > target {
+                break
+            }
+        }
+        return false
+        
+    }
+    
+    private func searchRow(_ matrix: [[Int]], _ target: Int) -> Int {
+        var left = 0, right = matrix.count - 1
+        
+        while left + 1 < right {
+            let mid = (right - left) / 2 + left
+            if matrix[mid][0] == target {
+                return mid
+            } else if matrix[mid][0] < target {
+                left = mid
+            } else {
+                right = mid
+            }
+        }
+        
+        return matrix[right][0] <= target ? right : left
+    }
+    
+    private func searchCol(_ nums: [Int], _ target: Int) -> Bool {
+        var left = 0, right = nums.count - 1
+        
+        while left <= right {
+            let mid = (right - left) / 2 + left
+            if nums[mid] == target {
+                return true
+            } else if nums[mid] < target {
+                left = mid + 1
+            } else {
+                right = mid - 1
+            }
+        }
+        
+        return false
+    }
+    
+    func searchMatrixZZ(_ matrix: [[Int]], _ target: Int) -> Bool {
+        guard matrix.count > 0 else {
+            return false
+        }
+        
+        var row = 0, col = matrix[0].count - 1
+        
+        while row < matrix.count && col >= 0 {
+            if matrix[row][col] == target {
+                return true
+            } else if matrix[row][col] < target {
+                row += 1
+            } else {
+                col -= 1
+            }
+        }
+        
+        return false
+    }
+    
+//    func superEggDrop(_ K: Int, _ N: Int) -> Int {
+//
+//    }
+//    func partition(_ s: String) -> [[String]] {
+//        var array = []
+//        for i in s {
+//            
+//        }
+//    }
 }

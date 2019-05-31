@@ -536,6 +536,30 @@ public class ListNode: CustomStringConvertible, ExpressibleByArrayLiteral {
         return start.next
     }
 
+    func sortedListToBST(_ head: ListNode?) -> TreeNode<Int>? {
+        return createBitree(head)
+    }
+    
+    func createBitree(_ head: ListNode?) -> TreeNode<Int>? {
+        guard let head = head else {
+            return nil
+        }
+        guard let _ = head.next else {
+            return TreeNode(head.val)
+        }
+        var fast: ListNode? = head, slow: ListNode? = head,temp: ListNode?
+        while fast != nil && fast?.next != nil {
+            temp = slow
+            fast = fast?.next?.next
+            slow = slow?.next
+        }
+        temp?.next = nil
+        let root = TreeNode(slow!.val)
+        root.left = createBitree(head)
+        root.right = createBitree(slow?.next)
+        return root
+    }
+    
 }
 
 
