@@ -469,6 +469,8 @@ public class ListNode: CustomStringConvertible, ExpressibleByArrayLiteral {
         return start.next
     }
     
+
+    
     func findMidAndSplit(_ head: ListNode?) -> ListNode? {
         var slowPoint = head, fastPoint = head,pre = head
         while fastPoint != nil && fastPoint?.next != nil {
@@ -478,6 +480,8 @@ public class ListNode: CustomStringConvertible, ExpressibleByArrayLiteral {
         }
         return slowPoint
     }
+    
+    
     
 //    func findMid(_ head: ListNode?,_ end: inout ListNode?) -> ListNode? {
 //        var slowPoint = head, fastPoint = head
@@ -559,6 +563,58 @@ public class ListNode: CustomStringConvertible, ExpressibleByArrayLiteral {
         root.right = createBitree(slow?.next)
         return root
     }
+    
+    func reverseList(_ head: ListNode?) -> ListNode? {
+        guard let head = head else {
+            return nil
+        }
+        var node: ListNode? = head
+        var last: ListNode?
+        while node != nil || node?.next != nil {
+            let next = node?.next
+            node?.next = last
+            last = node
+            node = next
+        }
+        return last
+    }
+    
+    func reverseListRecursion(_ head: ListNode?) -> ListNode? {
+        guard let head = head else {
+            return nil
+        }
+        
+        func recursion(_ node: ListNode, last: ListNode?) -> ListNode {
+            guard let nextNode = node.next else {
+                node.next = last
+                return node
+            }
+            node.next = last
+            
+            return recursion(nextNode, last: node)
+        }
+        return recursion(head, last: nil)
+    }
+    
+    func mergeKLists(_ lists: [ListNode?]) -> ListNode? {
+        var vals = [Int]()
+        for list in lists {
+            var node = list
+            while let theNode = node {
+                vals.append(theNode.val)
+                node = node?.next
+            }
+        }
+        vals.sort()
+        let result = ListNode(Int.min)
+        var node: ListNode? = result
+        for i in vals {
+            node?.next = ListNode(i)
+            node = node?.next
+        }
+        return result.next
+    }
+    
     
 }
 

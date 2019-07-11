@@ -551,42 +551,38 @@ class ArraySolution {
         return result
     }
     
+    
+    /*
+    
+     朋友圈
+     班上有 N 名学生。其中有些人是朋友，有些则不是。他们的友谊具有是传递性。如果已知 A 是 B 的朋友，B 是 C 的朋友，那么我们可以认为 A 也是 C 的朋友。所谓的朋友圈，是指所有朋友的集合。
+     
+     给定一个 N * N 的矩阵 M，表示班级中学生之间的朋友关系。如果M[i][j] = 1，表示已知第 i 个和 j 个学生互为朋友关系，否则为不知道。你必须输出所有学生中的已知的朋友圈总数。
+     这道题让我们求朋友圈的个数，题目中对于朋友圈的定义是可以传递的，比如A和B是好友，B和C是好友，那么即使A和C不是好友，那么他们三人也属于一个朋友圈。那么比较直接的解法就是DFS搜索，对于某个人，遍历其好友，然后再遍历其好友的好友，那么我们就能把属于同一个朋友圈的人都遍历一遍，我们同时标记出已经遍历过的人，然后累积朋友圈的个数，再去对于没有遍历到的人在找其朋友圈的人，这样就能求出个数。其实这道题的本质是之前那道题Number of Connected Components in an Undirected Graph，其实许多题目的本质都是一样的，就是看我们有没有一双慧眼能把它们识别出来：
+     */
     func findCircleNum(_ M: [[Int]]) -> Int {
-        var set = Set<Int>()
-        var i = 0
-        var total = [Set<Int>]()
-        func minIndex(i: Int) -> Int {
-            var i = i
-            repeat {
-                i = i + 1
-            } while set.contains(i)
-            return i
-        }
-        
-        while i < M.count {
-            var j = minIndex(i: i)
-            var pyq = [Int](), setPyg = Set<Int>()
-            pyq.append(i)
-            setPyg.insert(i)
-            var count = 0
-            while j < M.count || count < pyq.count {
-                if M[i][j] == 1 {
-                    pyq.append(j)
-                    setPyg.insert(j)
-                    set.insert(j)
-                }
-                j = minIndex(i: j)
-                if count < pyq.count {
-                    count = count + 1
-                    j = minIndex(i: i)
-                }
+        var i = 0, count = 0
+        var visits = [Bool].init(repeating: false, count: M.count)
+        for i in 0..<M.count {
+            if visits[i] {
+                continue
             }
-            total.append(setPyg)
-            i = minIndex(i: i)
+            helper(M, &visits, i)
+            count += 1
         }
-        print(total)
-        return total.count
+        return count
     }
+    
+    func helper(_ M:[[Int]], _ visits: inout [Bool], _ k: Int) {
+        visits[k] = true
+        for i in 0..<M.count {
+            print("\(k) \(i) : \(M[k][i]) \(visits[k])")
+            if M[k][i] == 1 && !visits[i] {
+                helper(M, &visits, i)
+            }
+        }
+    }
+    
     
     func longestConsecutive(_ nums: [Int]) -> Int {
         let set = Set(nums)
@@ -796,6 +792,165 @@ class ArraySolution {
         }
         
         return false
+    }
+    
+    /*
+     给定一个包含了一些 0 和 1的非空二维数组 grid , 一个 岛屿 是由四个方向 (水平或垂直) 的 1 (代表土地) 构成的组合。你可以假设二维矩阵的四个边缘都被水包围着。
+     
+     找到给定的二维数组中最大的岛屿面积。(如果没有岛屿，则返回面积为0。)
+     
+     示例 1:
+     
+     [[0,0,1,0,0,0,0,1,0,0,0,0,0],
+     [0,0,0,0,0,0,0,1,1,1,0,0,0],
+     [0,1,1,0,1,0,0,0,0,0,0,0,0],
+     [0,1,0,0,1,1,0,0,1,0,1,0,0],
+     [0,1,0,0,1,1,0,0,1,1,1,0,0],
+     [0,0,0,0,0,0,0,0,0,0,1,0,0],
+     [0,0,0,0,0,0,0,1,1,1,0,0,0],
+     [0,0,0,0,0,0,0,1,1,0,0,0,0]]
+     对于上面这个给定矩阵应返回 6。注意答案不应该是11，因为岛屿只能包含水平或垂直的四个方向的‘1’。
+     
+     示例 2:
+     
+     [[0,0,0,0,0,0,0,0]]
+     对于上面这个给定的矩阵, 返回 0。
+     
+     注意: 给定的矩阵grid 的长度和宽度都不超过 50。
+     1 1 0
+     1 1 1
+     0 1 1
+     */
+    //利用深度遍历查找一个岛的面积
+    func maxAreaOfIsland(_ grid: [[Int]]) -> Int {
+        let row = [Bool].init(repeating: false, count: grid[0].count)
+        let rowCount = grid[0].count
+        let columnCount = grid.count
+        var visits = [[Bool]].init(repeating: row, count: grid.count)
+
+        
+        func areavisit(_ i: Int, _ j: Int, count: Int) -> Int {
+            
+            print("[i,j]:[\(i),\(j)], value:\(grid[i][j]) count:\(count)")
+            if grid[i][j] == 0 || visits[i][j] {
+                visits[i][j] = true
+                return count
+            }
+            visits[i][j] = true
+            var myCount = count + 1
+            if i < columnCount - 1 && !visits[i + 1][j]  {
+                myCount = areavisit(i + 1, j, count: 0) + myCount
+                print("count \(myCount)")
+            }
+            if j > 0 && !visits[i][j - 1] {
+                myCount = areavisit(i, j - 1, count: 0) + myCount
+                print("count \(myCount)")
+
+            }
+            if j < rowCount - 1 && !visits[i][j + 1] {
+                myCount = areavisit(i, j + 1, count: 0) + myCount
+                print("count \(myCount)")
+
+            }
+            if i > 0 && !visits[i - 1][j] {
+                myCount = areavisit(i - 1, j, count: 0) + myCount
+                print("count \(myCount)")
+
+            }
+            return myCount
+        }
+        var maxArea = 0
+        for i in 0..<columnCount {
+            for j in 0..<rowCount {
+                if !visits[i][j] {
+                    maxArea = max(areavisit(i, j, count: 0),maxArea)
+                }
+            }
+        }
+        return maxArea
+        
+    }
+    //MARK:深度优先算法maxarea
+    func maxAreaOfIslandDFS(_ grid: [[Int]]) -> Int {
+        if grid.isEmpty {
+            return 0
+        }
+
+        
+        let row = [Bool].init(repeating: false, count: grid[0].count)
+        let rowCount = grid[0].count
+        let columnCount = grid.count
+        var visits = [[Bool]].init(repeating: row, count: grid.count)
+        func dfs(_ x: Int, _ y: Int) -> Int {
+            if x >= columnCount || y >= rowCount || x < 0 || y < 0 {
+                return 0
+            }
+            if visits[x][y] {
+                return 0
+            }
+            if grid[x][y] == 0 { return 0 }
+            visits[x][y] = true
+            return 1 + dfs(x + 1, y) + dfs(x - 1, y) + dfs(x, y + 1) + dfs(x, y - 1)
+        }
+        var count = 0
+        for i in 0..<columnCount {
+            for j in 0..<rowCount {
+                if visits[i][j] == true {
+                    continue
+                }
+                count = max(count, dfs(i, j))
+            }
+        }
+        return count
+    }
+    
+    func maxAreaOfIslandBFS(_ grid: [[Int]]) -> Int {
+        if grid.isEmpty {
+            return 0
+        }
+        let row = [Bool].init(repeating: false, count: grid[0].count)
+        let mostLeft = grid[0].count
+        let mostDeep = grid.count
+        var visits = [[Bool]].init(repeating: row, count: grid.count)
+        var count = 0
+        for i in 0..<mostDeep {
+            for j in 0..<mostLeft {
+                if visits[i][j] {
+                    continue
+                }
+                if grid[i][j] == 0 {
+                    continue
+                }
+                var itempArea = 0
+                var stackTemp = [(Int,Int)]()
+                stackTemp.append((i,j))
+                visits[i][j] = true
+                while !stackTemp.isEmpty {
+                    itempArea += 1
+                    let curPoint = stackTemp.removeLast()
+                    let x = curPoint.0
+                    let y = curPoint.1
+                    if x - 1 > 0 && grid[x - 1][y] == 1 && visits[x - 1][y] == false {
+                        stackTemp.append((x - 1, y))
+                        visits[x - 1][y] = true
+                    }
+                    if x + 1 < mostDeep && grid[x + 1][y] == 1 && visits[x - 1][y] == false {
+                        stackTemp.append((x + 1, y))
+                        visits[x + 1][y] = true
+                    }
+                    if y - 1 > 0 && grid[x][y - 1] == 1 && visits[x][y - 1] == false {
+                        stackTemp.append((x, y - 1))
+                        visits[x][y - 1] = true
+                    }
+                    if y + 1 < mostLeft && grid[x][y + 1] == 1 && visits[x][y + 1] == false {
+                        stackTemp.append((x, y + 1))
+                        visits[x][y + 1] = true
+                    }
+                }
+                count = max(count, itempArea)
+            }
+        }
+        return count
     }
     
 //    func superEggDrop(_ K: Int, _ N: Int) -> Int {
