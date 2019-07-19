@@ -51,6 +51,7 @@
 		18D7B5541FCE781100D7AF18 /* DegreeOfAnArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D7B5531FCE781100D7AF18 /* DegreeOfAnArray.swift */; };
 		18D7B5561FCE9D4E00D7AF18 /* MaxAreaOfIsland.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D7B5551FCE9D4E00D7AF18 /* MaxAreaOfIsland.swift */; };
 		18D7B5591FCEAD3400D7AF18 /* AddTwoNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D7B5581FCEAD3400D7AF18 /* AddTwoNumbers.swift */; };
+		18ED201E22E15AF50021E2B1 /* MaxSubArraySolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED201D22E15AF50021E2B1 /* MaxSubArraySolution.swift */; };
 		F4519459203AB7B80000CD0A /* LongestContinuousIncresingSub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4519458203AB7B80000CD0A /* LongestContinuousIncresingSub.swift */; };
 		F451945B203BEAB40000CD0A /* MaximumAverageSubarray.swift in Sources */ = {isa = PBXBuildFile; fileRef = F451945A203BEAB40000CD0A /* MaximumAverageSubarray.swift */; };
 /* End PBXBuildFile section */
@@ -105,6 +106,7 @@
 		18D7B5531FCE781100D7AF18 /* DegreeOfAnArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DegreeOfAnArray.swift; sourceTree = "<group>"; };
 		18D7B5551FCE9D4E00D7AF18 /* MaxAreaOfIsland.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxAreaOfIsland.swift; sourceTree = "<group>"; };
 		18D7B5581FCEAD3400D7AF18 /* AddTwoNumbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTwoNumbers.swift; sourceTree = "<group>"; };
+		18ED201D22E15AF50021E2B1 /* MaxSubArraySolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxSubArraySolution.swift; sourceTree = "<group>"; };
 		F4519458203AB7B80000CD0A /* LongestContinuousIncresingSub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongestContinuousIncresingSub.swift; sourceTree = "<group>"; };
 		F451945A203BEAB40000CD0A /* MaximumAverageSubarray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaximumAverageSubarray.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -256,6 +258,7 @@
 			children = (
 				18D7B5581FCEAD3400D7AF18 /* AddTwoNumbers.swift */,
 				189EE9461FDBB92F001CA7EA /* LongestPalindrome.swift */,
+				18ED201D22E15AF50021E2B1 /* MaxSubArraySolution.swift */,
 			);
 			path = "New Group";
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				18B4F3412018283E00CDD3A9 /* SearchInsertPosition.swift in Sources */,
 				1806A650225C8A2000369540 /* DoubleNodeSolution.swift in Sources */,
 				18D7B5521FCD482F00D7AF18 /* OneBitTwoBitCharacters.swift in Sources */,
+				18ED201E22E15AF50021E2B1 /* MaxSubArraySolution.swift in Sources */,
 				184394C6221BE18A00B8509A /* BinarySearch.swift in Sources */,
 				18C702D22019CB210097F051 /* PlusOne.swift in Sources */,
 				18C702BA201978C70097F051 /* RemoveDuplicates.swift in Sources */,

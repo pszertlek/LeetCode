@@ -96,3 +96,24 @@ func maxProfit(_ prices: [Int]) -> Int {
     return profit
 }
 
+func maximalSquare(matrix: [[Character]]) -> Int {
+    if matrix.isEmpty || matrix[0].isEmpty {
+        return 0
+    }
+    let one = Character("1")
+    var m = matrix.count, n = matrix[0].count, res = 0, pre = 0
+    var dp = [Int].init(repeating: 0, count: m + 1)
+    for j in 0..<n {
+        for i in 1...m {
+            let t = dp[i]
+            if matrix[i - 1][j] == one {
+                dp[i] = min(dp[i], min(dp[i - 1], pre)) + 1
+                res = max(res, dp[i])
+            } else {
+                dp[i] = 0
+            }
+            pre = t
+        }
+    }
+    return res * res
+}

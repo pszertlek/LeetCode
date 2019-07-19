@@ -9,6 +9,48 @@
 import Foundation
 
 class StringSolution {
+    func fullJustify(_ words: [String], _ maxWidth: Int) -> [String] {
+        var result = [String]()
+        var curStartIndex = 0, curEndIndex = 0, curCount = 0
+        for (index,s) in words.enumerated() {
+            if curCount + s.count > maxWidth {
+                let segmentNum = maxWidth - curCount
+                let sectionNum = curEndIndex - curStartIndex - 1 > 0 ? curEndIndex - curStartIndex - 1 : 1
+                let pinjun = segmentNum / sectionNum
+                var yu = segmentNum % sectionNum
+                var curString = ""
+                for i in curStartIndex..<curEndIndex {
+                    curString.append(words[i])
+                    if i != curEndIndex - 1 {
+                        let kkk = String([Character].init(repeating: " ", count: pinjun + (yu > 0 ? 1 : 0)))
+                        curString.append(kkk)
+                    }
+                    if curEndIndex == curStartIndex {
+                        let kkk = String([Character].init(repeating: " ", count: segmentNum))
+                        curString.append(kkk)
+                    }
+                    yu = yu - 1
+                }
+                result.append(curString)
+                curStartIndex = index
+                curEndIndex = index
+            } else {
+                curCount += s.count
+                curEndIndex += 1
+            }
+        }
+        var final = ""
+        for i in curStartIndex..<words.count {
+            final.append(words[i])
+            if i != words.count - 1 {
+                final.append(" ")
+            }
+        }
+        result.append(final)
+        return result
+    }
+    
+    
     func uniqueMorseRepresentations(_ words: [String]) -> Int {
         let s = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
         let a = "a".unicodeScalars.first!.value
@@ -383,5 +425,5 @@ class LRUCache {
 
     }
     
-    
+
 }
