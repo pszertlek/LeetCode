@@ -45,7 +45,7 @@ public class Node: CustomStringConvertible, Equatable {
     }
     
     open func remove(_ edge: Edge) {
-        neighbors.remove(at: neighbors.firstIndex(where: {$0 == edge})!)
+//        neighbors.remove(at: neighbors.firstIndex(where: {$0 == edge})!)
     }
 }
 

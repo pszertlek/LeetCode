@@ -483,68 +483,35 @@ class Twitter {
 }
 
 
-//编写一段程序来查找第 n 个超级丑数。
-//
-//超级丑数是指其所有质因数都是长度为 k 的质数列表 primes 中的正整数。
-//
-//示例:
-//
-//输入: n = 12, primes = [2,7,13,19]
-//输出: 32
-//解释: 给定长度为 4 的质数列表 primes = [2,7,13,19]，前 12 个超级丑数序列为：[1,2,4,7,8,13,14,16,19,26,28,32] 。
-//说明:
-//
-//1 是任何给定 primes 的超级丑数。
-//给定 primes 中的数字以升序排列。
-//0 < k ≤ 100, 0 < n ≤ 106, 0 < primes[i] < 1000 。
-//第 n 个超级丑数确保在 32 位有符整数范围内。
-
-//func nthSuperUglyNumber(_ n: Int, _ primes: [Int]) -> Int {
-//
-//}
-
-
-//int nthUglyNumber(int n) {
-//    vector<int> ugly(n, 1), idx(3, 0);
-//    for (int i = 1; i < n; ++i){
-//        int a = ugly[idx[0]]*2, b = ugly[idx[1]]*3, c = ugly[idx[2]]*5;
-//        int next = std::min(a, std::min(b, c));
-//        if (next == a){
-//            ++idx[0];
-//        }
-//        if (next == b){
-//            ++idx[1];
-//        }
-//        if (next == c){
-//            ++idx[2];
-//        }
-//        ugly[i] = next;
-//    }
-//    return ugly.back();
-//}
 
 func nthSuperUglyNumber(_ n: Int, _ primes: [Int]) -> Int {
     var superUglys = [1]
-    var idx = Array<(Int,Int)>.init()
-    for (index,i) in primes.enumerated() {
-        idx.append((i,0))
+    var heap = Heap<(Int,Int,Int)>.init { (f, s) -> Bool in
+        return f.0 < s.0
     }
-    var heap = Heap<Int>.init(array: primes, sort: <)
-    var cur = primes.first!
+    var idx = Array<(Int,Int)>.init()
+    for i in primes {
+        idx.append((i,0))
+        heap.insert((i, 0, i))
+    }
+    
     for _ in 0..<n {
         let next = heap.peek()!
         
-        superUglys.append(next)
-        
-        
-        for (index,i) in idx.enumerated() {
-            if i.0 == next {
-                
-                idx[index] = idx[index] + 1
-                heap.insert(primes[index] * superUglys[idx[index]])
-            }
+        superUglys.append(next.0)
+//        heap.remove()
+        let nn = (superUglys[next.1 + 1] * next.2,next.1 + 1, next.2)
+        var indexArray = [(Int,Int,Int)]()
+        while let index = heap.nodes.index(where: { $0.0 == next.0 }) {
+            indexArray.append(heap.nodes[index])
+            heap.remove(at: index)
         }
-        heap.remove()
+        if next.0 == 581 {
+            print("ssssss")
+        }
+        for node in indexArray {
+            heap.insert((nn.0,node.1 + 1,node.2))
+        }
     }
     return superUglys.last!
 }
