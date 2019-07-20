@@ -27,6 +27,7 @@ public class Vertex: Hashable, Equatable{
         return identifier.hashValue
     }
     
+    
     public static func ==(lhs: Vertex, rhs: Vertex) -> Bool {
         return lhs.hashValue == rhs.hashValue
     }

@@ -396,5 +396,226 @@ public class ListNode: CustomStringConvertible, ExpressibleByArrayLiteral {
 //    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
 //
 //    }
+    //1,4,3,2,5,2
+    func partition(_ head: ListNode?, _ x: Int) -> ListNode? {
+        guard head != nil else {
+            return nil
+        }
+        var node: ListNode? = ListNode(0)
+        node!.next = head
+        let start = node
+        var pre: ListNode?
+        let move: ListNode = ListNode(0)
+        var moveTo:ListNode? = move
+
+        while let n = node?.next {
+            if n.val >= x {
+                moveTo?.next = n
+                moveTo = moveTo?.next
+                node?.next = n.next
+                n.next = nil
+            } else {
+                pre = n
+                node = node?.next
+            }
+        }
+        if pre == nil {
+            return move.next
+        } else {
+            pre?.next = move.next
+            return start?.next
+        }
+    }
+    
+    func sortList(_ head: ListNode?) -> ListNode? {
+        return mergeSort(head)
+
+    }
+    
+    func mergeSort(_ head: ListNode?) -> ListNode? {
+        guard head?.next != nil else {
+            return head
+        }
+        var lowPoint = head, fastPoint = head,pre = head
+        while fastPoint != nil && fastPoint?.next != nil {
+            pre = lowPoint
+            fastPoint = fastPoint?.next?.next
+            lowPoint = lowPoint?.next
+        }
+        pre?.next = nil
+        let l = mergeSort(head)
+        let r = mergeSort(lowPoint)
+        return merge(l, r)
+    }
+    
+    func merge(_ left: ListNode?, _ right: ListNode?) -> ListNode? {
+        let start = ListNode(0)
+        var cur = start, leftNode = left, rightNode = right
+        while let l = leftNode, let r = rightNode {
+            if l.val < r.val {
+                cur.next = l
+                leftNode = l.next
+            } else {
+                cur.next = r
+                rightNode = r.next
+            }
+            cur = cur.next!
+        }
+        if leftNode != nil {
+            cur.next = leftNode
+        } else {
+            cur.next = rightNode
+        }
+        return start.next
+    }
+    
+
+    
+    func findMidAndSplit(_ head: ListNode?) -> ListNode? {
+        var slowPoint = head, fastPoint = head,pre = head
+        while fastPoint != nil && fastPoint?.next != nil {
+            pre = slowPoint
+            fastPoint = fastPoint?.next?.next
+            slowPoint = slowPoint?.next
+        }
+        return slowPoint
+    }
+    
+    
+    
+//    func findMid(_ head: ListNode?,_ end: inout ListNode?) -> ListNode? {
+//        var slowPoint = head, fastPoint = head
+//        while fastPoint != end && fastPoint?.next != end {
+//            fastPoint = fastPoint?.next?.next
+//            slowPoint = slowPoint?.next
+//        }
+//        return slowPoint
+//    }
+//
+//    func fastSort(_ head: ListNode?) -> ListNode? {
+//        guard head != nil else {
+//            return head
+//        }
+//
+//
+//
+//    }
+//
+//    func partition(_ head: ListNode?, end: inout ListNode?) -> ListNode? {
+//        guard head?.next != nil else {
+//            return head
+//        }
+//        let stand = findMid(head, &end)
+//        let left = ListNode(0)
+//        let right = stand
+//        var leftCur: ListNode? = left, righCur = stand, cur = head
+//
+//        while let current = cur {
+//            if current.val >= stand!.val {
+//                righCur?.next = current
+//                righCur = righCur?.next
+//            } else {
+//                leftCur?.next = current
+//                leftCur = leftCur?.next
+//            }
+//        }
+//        partition(left.next)
+//        partition(right)
+//    }
+    func insertionSortList(_ head: ListNode?) -> ListNode? {
+        var start = ListNode(0)
+        var startPre = start
+        var cur = head
+        while let current = cur {
+            cur = cur?.next
+
+            startPre = start
+            while startPre.next != nil && startPre.next!.val < current.val {
+                startPre = startPre.next!
+            }
+            let temp = startPre.next
+            startPre.next = current
+            current.next = temp
+        }
+        return start.next
+    }
+
+    func sortedListToBST(_ head: ListNode?) -> TreeNode<Int>? {
+        return createBitree(head)
+    }
+    
+    func createBitree(_ head: ListNode?) -> TreeNode<Int>? {
+        guard let head = head else {
+            return nil
+        }
+        guard let _ = head.next else {
+            return TreeNode(head.val)
+        }
+        var fast: ListNode? = head, slow: ListNode? = head,temp: ListNode?
+        while fast != nil && fast?.next != nil {
+            temp = slow
+            fast = fast?.next?.next
+            slow = slow?.next
+        }
+        temp?.next = nil
+        let root = TreeNode(slow!.val)
+        root.left = createBitree(head)
+        root.right = createBitree(slow?.next)
+        return root
+    }
+    
+    func reverseList(_ head: ListNode?) -> ListNode? {
+        guard let head = head else {
+            return nil
+        }
+        var node: ListNode? = head
+        var last: ListNode?
+        while node != nil || node?.next != nil {
+            let next = node?.next
+            node?.next = last
+            last = node
+            node = next
+        }
+        return last
+    }
+    
+    func reverseListRecursion(_ head: ListNode?) -> ListNode? {
+        guard let head = head else {
+            return nil
+        }
+        
+        func recursion(_ node: ListNode, last: ListNode?) -> ListNode {
+            guard let nextNode = node.next else {
+                node.next = last
+                return node
+            }
+            node.next = last
+            
+            return recursion(nextNode, last: node)
+        }
+        return recursion(head, last: nil)
+    }
+    
+    func mergeKLists(_ lists: [ListNode?]) -> ListNode? {
+        var vals = [Int]()
+        for list in lists {
+            var node = list
+            while let theNode = node {
+                vals.append(theNode.val)
+                node = node?.next
+            }
+        }
+        vals.sort()
+        let result = ListNode(Int.min)
+        var node: ListNode? = result
+        for i in vals {
+            node?.next = ListNode(i)
+            node = node?.next
+        }
+        return result.next
+    }
+    
     
 }
+
+

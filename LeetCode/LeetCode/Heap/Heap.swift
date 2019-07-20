@@ -138,6 +138,7 @@ public struct Heap<T> {
         return nodes.removeLast()
     }
     
+    @discardableResult
     public mutating func sort() -> [T] {
         for i in stride(from: self.nodes.count - 1, to: 0, by: -1) {
             nodes.swapAt(0, i)
@@ -156,7 +157,7 @@ public func heapSort<T>(_ a:[T], _ sort: @escaping (T,T) -> Bool) -> [T] {
 public extension Heap where T: Equatable {
     /** Get the index of a node in the heap. Performance: O(n). */
     public func index(of node: T) -> Int? {
-        return nodes.index(where: { $0 == node })
+        return nodes.firstIndex(where: { $0 == node })
     }
     
     /** Removes the first occurrence of a node from the heap. Performance: O(n log n). */
@@ -256,8 +257,114 @@ class KthLargest1 {
 }
 
 
-public class HeapSolution {
+//func findCheapestPrice(_ n: Int, _ flights: [[Int]], _ src: Int, _ dst: Int, _ K: Int) -> Int {
+//
+//}
 
+public class HeapSolution {
+    func kSmallestPairs(_ nums1: [Int], _ nums2: [Int], _ k: Int) -> [[Int]] {
+        guard nums1.count != 0 && nums2.count != 0 else {
+            return []
+        }
+        var k = k
+        if k > nums1.count * nums2.count {
+            k = nums1.count * nums2.count
+        }
+        var steps = Array<Int>.init(repeating: 0, count: nums1.count)
+        var result = [[Int]]()
+        for _ in 0..<k {
+            var min = Int.max
+            var minStepIndex = 0
+            for j in 0..<nums1.count {
+                if steps[j] < nums2.count && nums2[steps[j]] + nums1[j] < min {
+                    min = nums2[steps[j]] + nums1[j]
+                    minStepIndex = j
+                }
+            }
+            result.append([nums1[minStepIndex],nums2[steps[minStepIndex]]])
+            steps[minStepIndex] = steps[minStepIndex] + 1
+        }
+        return result
+    }
+    
+    
+    func reorganizeString(_ S: String) -> String {
+        var dict = [Character: Int]()
+        for c in S {
+            dict[c] = (dict[c] ?? 0) + 1
+        }
+        var heap = Heap<(key:Character, value: Int)>.init { return $0.value < $1.value }
+        for keyValue in dict {
+            heap.insert(keyValue)
+            //        print("key:\(keyValue.key),value: \(keyValue.value)")
+        }
+        
+        var result = ""
+        var count = 0,rightUsed = 0
+        let sort = heap.sort()
+        
+        count = 0
+        var left = sort[0].key,leftUsed = 0
+        var rightIndex = 0, leftIndex = 0
+        var right = sort[rightIndex].key
+        if (S.count + 1) / 2 < sort[0].value {
+            return ""
+        }
+        for _ in 0..<(S.count+1)/2 {
+            rightUsed = rightUsed + 1
+            if rightUsed == sort[rightIndex].value {
+                rightUsed = 0
+                rightIndex = rightIndex + 1
+                right = sort[rightIndex].key
+            }
+        }
+        while count < (S.count / 2) {
+            if left == right {
+                result.append(left)
+                result = String(right) + result
+            } else {
+                result.append(left)
+                result.append(right)
+            }
+            
+            leftUsed = leftUsed + 1
+            rightUsed = rightUsed + 1
+            
+            if leftUsed == sort[leftIndex].value && leftIndex + 1 < sort.count {
+                leftIndex = leftIndex + 1
+                leftUsed = 0
+                left = sort[leftIndex].key
+            }
+            if rightUsed == sort[rightIndex].value && rightIndex < sort.count - 1 {
+                rightUsed = 0
+                rightIndex = rightIndex + 1
+                right = sort[rightIndex].key
+            }
+            count = count + 1
+        }
+        if result.count != S.count {
+            if result.last! != left {
+                result.append(left)
+            } else {
+                result = String(left) + result
+            }
+        }
+        return result
+    }
+
+    func kthSmallest(_ matrix: [[Int]], _ k: Int) -> Int {
+        var heap = Heap<Int>.init(sort: >)
+        for i in matrix {
+            for j in i {
+                heap.insert(j)
+                if heap.count > k {
+                    heap.remove()
+                }
+            }
+        }
+        return heap.peek()!
+    }
+    
     func topKFrequent(_ nums: [Int], _ k: Int) -> [Int] {
         var heap = Heap<(Int, Int)>.init { (f, s) -> Bool in
             return f.1 < s.1
@@ -483,38 +590,71 @@ class Twitter {
 }
 
 
+//编写一段程序来查找第 n 个超级丑数。
+//
+//超级丑数是指其所有质因数都是长度为 k 的质数列表 primes 中的正整数。
+//
+//示例:
+//
+//输入: n = 12, primes = [2,7,13,19]
+//输出: 32
+//解释: 给定长度为 4 的质数列表 primes = [2,7,13,19]，前 12 个超级丑数序列为：[1,2,4,7,8,13,14,16,19,26,28,32] 。
+//说明:
+//
+//1 是任何给定 primes 的超级丑数。
+//给定 primes 中的数字以升序排列。
+//0 < k ≤ 100, 0 < n ≤ 106, 0 < primes[i] < 1000 。
+//第 n 个超级丑数确保在 32 位有符整数范围内。
 
-func nthSuperUglyNumber(_ n: Int, _ primes: [Int]) -> Int {
-    var superUglys = [1]
-    var heap = Heap<(Int,Int,Int)>.init { (f, s) -> Bool in
-        return f.0 < s.0
-    }
-    var idx = Array<(Int,Int)>.init()
-    for i in primes {
-        idx.append((i,0))
-        heap.insert((i, 0, i))
-    }
-    
-    for _ in 0..<n {
-        let next = heap.peek()!
-        
-        superUglys.append(next.0)
+//func nthSuperUglyNumber(_ n: Int, _ primes: [Int]) -> Int {
+//
+//}
+
+
+//int nthUglyNumber(int n) {
+//    vector<int> ugly(n, 1), idx(3, 0);
+//    for (int i = 1; i < n; ++i){
+//        int a = ugly[idx[0]]*2, b = ugly[idx[1]]*3, c = ugly[idx[2]]*5;
+//        int next = std::min(a, std::min(b, c));
+//        if (next == a){
+//            ++idx[0];
+//        }
+//        if (next == b){
+//            ++idx[1];
+//        }
+//        if (next == c){
+//            ++idx[2];
+//        }
+//        ugly[i] = next;
+//    }
+//    return ugly.back();
+//}
+
+//func nthSuperUglyNumber(_ n: Int, _ primes: [Int]) -> Int {
+//    var superUglys = [1]
+//    var idx = Array<(Int,Int)>.init()
+//    for (index,i) in primes.enumerated() {
+//        idx.append((i,0))
+//    }
+//    var heap = Heap<Int>.init(array: primes, sort: <)
+//    var cur = primes.first!
+//    for _ in 0..<n {
+//        let next = heap.peek()!
+//
+//        superUglys.append(next)
+//
+//
+//        for (index,i) in idx.enumerated() {
+//            if i.0 == next {
+//
+//                idx[index] = idx[index] + 1
+//                heap.insert(primes[index] * superUglys[idx[index]])
+//            }
+//        }
 //        heap.remove()
-        let nn = (superUglys[next.1 + 1] * next.2,next.1 + 1, next.2)
-        var indexArray = [(Int,Int,Int)]()
-        while let index = heap.nodes.index(where: { $0.0 == next.0 }) {
-            indexArray.append(heap.nodes[index])
-            heap.remove(at: index)
-        }
-        if next.0 == 581 {
-            print("ssssss")
-        }
-        for node in indexArray {
-            heap.insert((nn.0,node.1 + 1,node.2))
-        }
-    }
-    return superUglys.last!
-}
+//    }
+//    return superUglys.last!
+//}
 
 
 func nthUglyNumber(_ n: Int) -> Int {

@@ -7,110 +7,74 @@
 //
 
 import Foundation
+//从前到后，先找到1的所有朋友，然后在1的非朋友中再找下一个
 
 
+<<<<<<< HEAD
 print(nthSuperUglyNumber(100000,[7,19,29,37,41,47,53,59,61,79,83,89,101,103,109,127,131,137,139,157,167,179,181,199,211,229,233,239,241,251]))
 
 
 
+=======
+>>>>>>> 6a339a22d1f6f47e95152ed1585214cf73131d1d
 
-func kSmallestPairs(_ nums1: [Int], _ nums2: [Int], _ k: Int) -> [[Int]] {
-    guard nums1.count != 0 && nums2.count != 0 else {
-        return []
-    }
-    var k = k
-    if k > nums1.count * nums2.count {
-        k = nums1.count * nums2.count
-    }
-    var steps = Array<Int>.init(repeating: 0, count: nums1.count)
-    var result = [[Int]]()
-    for _ in 0..<k {
-        var min = Int.max
-        var minStepIndex = 0
-        for j in 0..<nums1.count {
-            if steps[j] < nums2.count && nums2[steps[j]] + nums1[j] < min {
-                min = nums2[steps[j]] + nums1[j]
-                minStepIndex = j
-            }
-        }
-        result.append([nums1[minStepIndex],nums2[steps[minStepIndex]]])
-        steps[minStepIndex] = steps[minStepIndex] + 1
-    }
-    return result
+//print(ArraySolution().maxAreaOfIsland(([[0,0,1,0,0,0,0,1,0,0,0,0,0],
+//                                        [0,0,0,0,0,0,0,1,1,1,0,0,0],
+//                                        [0,1,1,0,1,0,0,0,0,0,0,0,0],
+//                                        [0,1,0,0,1,1,0,0,1,0,1,0,0],
+//                                        [0,1,0,0,1,1,0,0,1,1,1,0,0],
+//                                        [0,0,0,0,0,0,0,0,0,0,1,0,0],
+//                                        [0,0,0,0,0,0,0,1,1,1,0,0,0],
+//                                        [0,0,0,0,0,0,0,1,1,0,0,0,0]])))
+
+
+//func largestSub(_ nums: [Int]) -> Int {
+//
+//    var curSum = 0
+//    var maxSum = nums[0]
+//    for i in 0..<nums.count {
+//        curSum = (nums[i] > curSum + nums[i]) ? nums[i] : curSum + nums[i];//1---------
+//        maxSum = (maxSum > curSum) ? maxSum : curSum;//2---------
+//    }
+//    return maxSum
+//}
+//
+//
+//func findMsss(_ target: Int, array: [[Int]]) -> Bool {
+//    var i = 0, j = array.count - 1
+//    while i < array.count && j >= 0 {
+//        if target == array[i][j] {
+//            return true
+//        } else if target > array[i][j] {
+//            i = i + 1
+//        } else {
+//            j = j - 1
+//        }
+//    }
+//    return false
+//}
+//
+//let One = AllOne()
+//
+//let a = ["AllOne","inc","inc","inc","inc","inc","inc","dec", "dec","getMinKey","dec","getMaxKey","getMinKey"]
+//let b = [[],["a"],["b"],["b"],["c"],["c"],["c"],["b"],["b"],[],["a"],[],[]]
+//
+//for (index,s) in a.enumerated() {
+//    print("\(s) \(b[index])")
+//}
+//
+//One.inc("hello")
+//One.inc("hello")
+//One.inc("leet")
+////One.dec("hello")
+//print(One.getMaxKey())
+//print(One.getMinKey())
+
+for i in 0...0 {
+    print(i)
 }
 
-//print(kSmallestPairs([1,7,11], [2,4,6], 3))
-//print(kSmallestPairs([1,1,2], [1,2,3], 2))
-func reorganizeString(_ S: String) -> String {
-    var dict = [Character: Int]()
-    for c in S {
-        dict[c] = (dict[c] ?? 0) + 1
-    }
-    var heap = Heap<(key:Character, value: Int)>.init { return $0.value < $1.value }
-    for keyValue in dict {
-        heap.insert(keyValue)
-//        print("key:\(keyValue.key),value: \(keyValue.value)")
-    }
-    
-    var result = ""
-    var count = 0,rightUsed = 0
-    let sort = heap.sort()
-
-    count = 0
-    var left = sort[0].key,leftUsed = 0
-    var rightIndex = 0, leftIndex = 0
-    var right = sort[rightIndex].key
-    if (S.count + 1) / 2 < sort[0].value {
-        return ""
-    }
-    for _ in 0..<(S.count+1)/2 {
-        rightUsed = rightUsed + 1
-        if rightUsed == sort[rightIndex].value {
-            rightUsed = 0
-            rightIndex = rightIndex + 1
-            right = sort[rightIndex].key
-        }
-    }
-    while count < (S.count / 2) {
-        if left == right {
-            result.append(left)
-            result = String(right) + result
-        } else {
-            result.append(left)
-            result.append(right)
-        }
-
-        leftUsed = leftUsed + 1
-        rightUsed = rightUsed + 1
-
-        if leftUsed == sort[leftIndex].value && leftIndex + 1 < sort.count {
-            leftIndex = leftIndex + 1
-            leftUsed = 0
-            left = sort[leftIndex].key
-        }
-        if rightUsed == sort[rightIndex].value && rightIndex < sort.count - 1 {
-            rightUsed = 0
-            rightIndex = rightIndex + 1
-            right = sort[rightIndex].key
-        }
-        count = count + 1
-    }
-    if result.count != S.count {
-        if result.last! != left {
-            result.append(left)
-        } else {
-            result = String(left) + result
-        }
-    }
-    return result
+let i = StringSolution().fullJustify(["What","must","be","acknowledgment","shall","be"],16)
+for e in i {
+    print(e)
 }
-//print(reorganizeString("cnwnznunhnqnbivififititxkxkxgxglelelamamomopjpjpcc"))
-//print(reorganizeString("zrhmhyevkojpsegvwolkpystdnkyhcjrdvqtyhucxdcwm"))
-//print(reorganizeString("aabb"))
-//print(reorganizeString("aab"))
-//print(reorganizeString("aaba"))
-//print(reorganizeString("aabc"))
-//print(reorganizeString("aaabcd"))
-//print(reorganizeString("bfrbs"))
-//print(reorganizeString("ogccckcwmbmxtsbmozli"))
-//print(reorganizeString("tndsewnllhrtwsvxenkscbivijfqnysamckzoyfnapuotmdexzkkrpmppttficzerdndssuveompqkemtbwbodrhwsfpbmkafpwyedpcowruntvymxtyyejqtajkcjakghtdwmuygecjncxzcxezgecrxonnszmqmecgvqqkdagvaaucewelchsmebikscciegzoiamovdojrmmwgbxeygibxxltemfgpogjkhobmhwquizuwvhfaiavsxhiknysdghcawcrphaykyashchyomklvghkyabxatmrkmrfsppfhgrwywtlxebgzmevefcqquvhvgounldxkdzndwybxhtycmlybhaaqvodntsvfhwcuhvuccwcsxelafyzushjhfyklvghpfvknprfouevsxmcuhiiiewcluehpmzrjzffnrptwbuhnyahrbzqvirvmffbxvrmynfcnupnukayjghpusewdwrbkhvjnveuiionefmnfxao"))

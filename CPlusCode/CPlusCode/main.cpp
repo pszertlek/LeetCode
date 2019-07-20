@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <math.h>
+#include <vector>
 
 struct ListNode {
 public: ListNode *next;
@@ -122,10 +123,56 @@ int hammingWeight(uint32_t n) {
     return i;
 }
 
+using namespace std;
+bool Find(int target, vector<vector<int> > array) {
+    if (array.size() == 0 || array[0].size() == 0) {
+        return false;
+    }
+    int i = 0,j = array[0].size() - 1;
+    while (i < array.size() && j >= 0) {
+        if (array[i][j] == target) {
+            return true;
+        } else if (target > array[i][j]) {
+            j = j + 1;
+        } else {
+            i = i + 1;
+        }
+    }
+    return false;
+}
+
+void replaceSpace(char *str,int length) {
+    
+    int count = 0;
+    for (int i = 0; i < length; i ++) {
+        if (*(str + i) == ' ') {
+            count ++;
+        }
+    }
+    
+//    *(str + length + 2 * count) = NULL;
+    for (int i = length - 1 ; i >= 0; i --) {
+        if (*(str + i) == ' ') {
+            *(str + i + 2 * count) = '0';
+            *(str + i + 2 * count - 1) = '2';
+            *(str + i + 2 * count - 2) = '%';
+            count --;
+        } else {
+            *(str + i + 2 * count) = *(str + i);
+        }
+    }
+    
+}
+
 int main(int argc, const char * argv[]) {
     // insert code here...
-    int i = 0;
-    printf("%i",hammingWeight(3));
+    char *s = (char *)malloc(sizeof(char) * 100);
+    char a[] = "sdfa adfds ";
+    for (int i = 0; i < sizeof(a); i ++) {
+        *(s + i) = a[i];
+    }
+    replaceSpace(s, 12);
+    printf("%s\n",s);
     return 0;
 }
 
