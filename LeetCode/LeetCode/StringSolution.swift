@@ -9,12 +9,42 @@
 import Foundation
 
 class StringSolution {
+    func isInterleave(_ s1: String, _ s2: String, _ s3: String) -> Bool {
+        guard s3.count == s1.count + s2.count else {
+            return false
+        }
+        var i1 = 0, i2 = 0
+        var s1 = s1.utf8CString, s2 = s2.utf8CString, s3 = s3.utf8CString
+        s1.removeLast()
+        s2.removeLast()
+        s3.removeLast()
+
+        let dp111 = [Bool].init(repeating: false, count: s2.count + 1)
+        var dp = [[Bool]].init(repeating: dp111, count: s1.count + 1)
+        dp[0][0] = true
+        for i in 1...s1.count {
+            dp[i][0] = dp[i - 1][0] && (s1[i - 1] == s3[i - 1])
+        }
+        for i in 1...s2.count {
+            dp[0][i] = dp[0][i - 1] && (s2[i - 1] == s3[i - 1])
+        }
+        for i in 1...s1.count {
+            for j in 1...s2.count {
+                dp[i][j] = ( dp[i - 1][j] && s1[i - 1] == s3[i - 1 + j] ) || (dp[i][j - 1] && s2[j - 1] == s3[j - 1 + i] )
+            }
+        }
+        
+        
+        return dp[s1.count][s2.count]
+    }
+    
+    
     func fullJustify(_ words: [String], _ maxWidth: Int) -> [String] {
         var result = [String]()
         var curStartIndex = 0, curEndIndex = 0, curCount = 0
         for (index,s) in words.enumerated() {
             if curCount + s.count > maxWidth {
-                let segmentNum = maxWidth - curCount
+                let segmentNum = maxWidth - curCount + (curEndIndex - curStartIndex)
                 let sectionNum = curEndIndex - curStartIndex - 1 > 0 ? curEndIndex - curStartIndex - 1 : 1
                 let pinjun = segmentNum / sectionNum
                 var yu = segmentNum % sectionNum
@@ -25,28 +55,35 @@ class StringSolution {
                         let kkk = String([Character].init(repeating: " ", count: pinjun + (yu > 0 ? 1 : 0)))
                         curString.append(kkk)
                     }
-                    if curEndIndex == curStartIndex {
-                        let kkk = String([Character].init(repeating: " ", count: segmentNum))
-                        curString.append(kkk)
-                    }
                     yu = yu - 1
                 }
+                for _ in curString.count..<maxWidth {
+                    curString.append(" ")
+                }
                 result.append(curString)
+                curCount = s.count + 1
                 curStartIndex = index
-                curEndIndex = index
+                curEndIndex = index + 1
             } else {
-                curCount += s.count
+                curCount += s.count + 1
                 curEndIndex += 1
             }
-        }
-        var final = ""
-        for i in curStartIndex..<words.count {
-            final.append(words[i])
-            if i != words.count - 1 {
-                final.append(" ")
+            print(curCount)
+            if curEndIndex == words.count {
+                var final = ""
+                for i in curStartIndex..<words.count {
+                    final.append(words[i])
+                    if i != words.count - 1 {
+                        final.append(" ")
+                    }
+                }
+                for _ in final.count..<maxWidth {
+                    final.append(" ")
+                }
+                result.append(final)
             }
         }
-        result.append(final)
+
         return result
     }
     
