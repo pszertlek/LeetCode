@@ -8,6 +8,16 @@
 
 import Foundation
 
+public class TreeNode {
+    var val: Int
+    var left: TreeNode?
+    var right: TreeNode?
+    
+    init(_ val: Int) {
+        self.val = val
+    }
+}
+
 class MediumSolution {
     /*
      给定一个包含非负整数的 m x n 网格，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。
@@ -49,7 +59,14 @@ class MediumSolution {
         return dp[col - 1][row - 1]
     }
     
-//    func generateTrees(_ n: Int) -> [TreeNode?] {
-//        
-//    }
+    func generateTrees(_ n: Int) -> [TreeNode?] {
+        func generateTrees(_ start: Int, _ end: Int) {
+            var allTrees = [TreeNode?]()
+            if start > end {
+                
+            }
+        }
+        
+
+    }
 }
