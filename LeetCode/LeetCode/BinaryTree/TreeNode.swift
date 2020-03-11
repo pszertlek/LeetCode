@@ -26,6 +26,7 @@ public class TreeNode<T>: ExpressibleByArrayLiteral,CustomStringConvertible {
     public var val: T
     public var left: TreeNode?
     public var right: TreeNode?
+    public var next: TreeNode?
     public init(_ val: T) {
         self.val = val
         self.left = nil
@@ -284,6 +285,65 @@ extension TreeNode where T: Comparable {
         return true
     }
     
+    
+    func connect(_ root: TreeNode?) -> TreeNode? {
+        guard let root = root else {
+            return nil
+        }
+        var queue = [TreeNode]()
+        queue.append(root)
+        while queue.count > 0 {
+            var newQueue = [TreeNode]()
+            for n in queue {
+                if let left = n.left {
+                    if let last = queue.last {
+                        last.next = left
+                    }
+                    newQueue.append(left)
+                }
+                
+                if let right = n.right {
+                    if let last = queue.last {
+                        last.next = right
+                    }
+                    newQueue.append(right)
+                }
+            }
+            queue = newQueue
+        }
+        return root
+    }
+    
+    func connect1(_ root: TreeNode?) -> TreeNode? {
+        var prev: TreeNode?, leftmost: TreeNode?
+        func processChild(_ childNode: TreeNode?) {
+            guard let childNode = childNode else {
+                return
+            }
+            if prev != nil {
+                prev?.next = childNode
+            } else {
+                leftmost = childNode
+            }
+            prev = childNode
+        }
+        guard let root = root else {
+            return nil
+        }
+        leftmost = root
+        var curr = leftmost
+        while leftmost != nil {
+            prev = nil
+            curr = leftmost
+            leftmost = nil
+            while curr != nil {
+                processChild(curr?.left)
+                processChild(curr?.right)
+                curr = curr?.next
+            }
+        }
+        return root
+    }
 //    func hasPathSum(_ root: TreeNode<T>?, _ sum: Int) -> Bool {
 //        var nums = [T]()
 //        var node: TreeNode? = root

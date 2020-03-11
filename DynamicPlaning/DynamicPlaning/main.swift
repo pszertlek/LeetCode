@@ -8,10 +8,8 @@
 
 import Foundation
 
-print("Hello, World!")
-
-print(MediumSolution().minPathSum([
-          [1,3,1],
-            [1,5,1],
-            [4,2,1]
-    ]))
+let medium = MediumSolution()
+print(medium.uniqueOccurrences([1,2,2,1,1,3]))
+let dicccc = MagicDictionary()
+dicccc.buildDict(["hello","leetcode"])
+dicccc.search("hhllo")

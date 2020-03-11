@@ -87,6 +87,183 @@ class EasySolution {
         }
         return maxSubF(0, nums.count - 1)
     }
+    
+    //分发饼干
+    func findContentChildren(_ g: [Int], _ s: [Int]) -> Int {
+        let g = g.sorted()
+        let s = s.sorted()
+        var gi = 0, si = 0
+        while gi < g.count && si < s.count {
+            if g[gi] <= s[si] {
+                gi += 1
+            }
+            si += 1
+        }
+        return gi
+    }
+    
+    func lemonadeChange(_ bills: [Int]) -> Bool {
+        var fiveCount = 0
+        var tenCount = 0
+        for i in bills {
+            if i == 5 {
+                fiveCount += 1
+            } else if i == 10 {
+                if fiveCount > 0 {
+                    fiveCount -= 1
+                } else {
+                    return false
+                }
+                tenCount += 1
+            } else {
+                if tenCount > 0 && fiveCount > 0 {
+                    tenCount -= 1
+                    fiveCount -= 1
+                } else if fiveCount >= 3 {
+                    fiveCount -= 3
+                } else {
+                    return false
+                }
+            }
+        }
+        return true
+    }
+    
+    func robotSim(_ commands: [Int], _ obstacles: [[Int]]) -> Int {
+        var x = 0
+        var y = 0
+        var direction = 0
+        var ans = 0
+        var set = Set<[Int]>(obstacles)
+        func find(_ x: Int, _ y: Int) -> Bool {
+            return set.contains([x,y])
+        }
+        
+        for i in commands {
+            if i == -1 {
+                direction = (direction + 1) % 4
+            } else if i == -2 {
+                direction = (direction + 3) % 4
+            } else {
+                for _ in 0..<i {
+                    switch direction {
+                    case 0:
+                        if !find(x, y + 1) {
+                            y += 1
+                        }
+                        
+                    case 1:
+                        if !find(x + 1, y) {
+                            x += 1
+                        }
+                    case 2:
+                        if !find(x, y - 1) {
+                            y -= 1
+                        }
+                    case 3:
+                        if !find(x - 1, y) {
+                            x -= 1
+                        }
+                        
+                    default:
+                        print("error")
+                    }
+                    ans = max(ans, x * x + y * y)
+                }
+            }
+        }
+        return ans
+    }
+    
+    func largestSumAfterKNegations(_ A: [Int], _ K: Int) -> Int {
+        var A = A.sorted()
+        var sum = 0
+        var rotateCount = 0
+        var i = 0
+        while i < A.count {
+            if rotateCount < K {
+                if A[i] < 0 {
+                    rotateCount += 1
+                    A[i] = -A[i]
+                    i += 1
+                } else {
+                    if i != 0 {
+                        A.sort()
+                    }
+                    break
+                }
+            } else {
+                sum = A.reduce(0, +)
+                return sum
+            }
+        }
+        if (K - rotateCount) % 2 == 0 {
+            sum = A.reduce(0, +)
+        } else {
+            sum = A.reduce(0, +) - A[0] * 2
+        }
+        return sum
+    }
+    
+    func twoCitySchedCost(_ costs: [[Int]]) -> Int {
+        let a = costs.sorted(by: { return $0[0] - $0[1] < $1[0] - $1[1]})
+        let n = costs.count / 2
+        var sum = 0
+        for i in 0..<n {
+            sum += a[i][0]
+            sum += a[i + n][1]
+        }
+        return sum
+    }
+    
+    func lastStoneWeight(_ stones: [Int]) -> Int {
+        var stones = stones.sorted()
+        while stones.count > 1 {
+            let y = stones.removeLast()
+            let x = stones.removeLast()
+            if y - x > 0 {
+                let cur = y - x
+                var ifInsert = false
+                for i in 0..<stones.count {
+                    if stones[i] >= cur {
+                        stones.insert(cur, at: i)
+                        ifInsert = true
+                        break
+                    }
+                }
+                if !ifInsert {
+                    stones.append(cur)
+                }
+            }
+        }
+        return stones.count == 1 ? stones[0] : 0
+    }
+    
+    func minCostToMoveChips(_ chips: [Int]) -> Int {
+        let odd = chips.filter( { $0 % 2 == 1 }).count
+        let even = chips.filter( {$0 % 2 == 0 }).count
+
+        return min(odd, even)
+    }
+    
+    func fixedPoint(_ A: [Int]) -> Int {
+        var left = 0
+        var right = A.count - 1
+        var result = -1
+        while left < right {
+            let mid = (right + left) / 2
+            if A[mid] == mid {
+                right = mid
+                result = mid
+            } else if A[mid] > mid {
+                right = mid
+            } else {
+                left = mid + 1
+            }
+        }
+        return result
+    }
+    
 }
 
 /*
@@ -122,3 +299,4 @@ class NumArray {
         return myNums[j + 1] - myNums[i]
     }
 }
+

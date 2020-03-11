@@ -8,15 +8,5 @@
 
 import Foundation
 
-let node1 = TreeNode(1)
-let node2 = TreeNode(2)
-let node3 = TreeNode(2)
-let node4 = TreeNode(4)
-
-node1.left = node2
-node1.right = node3
-//node2.left = node4
-
-
-let node = TreeNode(arrayLiteral: 1,2,3,4,5)
-print(node.preorderTraversal(node))
+let node = TreeNode(arrayLiteral: 4,2,5,1,3)
+print(Solution().treeToDoublyList(node))

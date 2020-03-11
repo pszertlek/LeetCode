@@ -7,12 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F40B529B23FADDC000965720 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F40B529A23FADDC000965720 /* main.cpp */; };
 		F4519469203C65760000CD0A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4519468203C65760000CD0A /* main.swift */; };
 		F4519470203C65920000CD0A /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F451946F203C65920000CD0A /* TreeNode.swift */; };
+		F4C8A57D23C069BA00DECA65 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F4C8A57C23C069BA00DECA65 /* main.cpp */; };
+		F4C8A58323C069DC00DECA65 /* TreeNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F4C8A58123C069DC00DECA65 /* TreeNode.cpp */; };
+		F4C8A58523D82FF600DECA65 /* TreeNode(more).swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C8A58423D82FF600DECA65 /* TreeNode(more).swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		F40B529623FADDC000965720 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		F4519463203C65760000CD0A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		F4C8A57823C069BA00DECA65 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -24,13 +46,34 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F40B529823FADDC000965720 /* BinarySearch */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BinarySearch; sourceTree = BUILT_PRODUCTS_DIR; };
+		F40B529A23FADDC000965720 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		F4519465203C65760000CD0A /* BinaryTree */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BinaryTree; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4519468203C65760000CD0A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		F451946F203C65920000CD0A /* TreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
+		F4C8A57A23C069BA00DECA65 /* BinaryTreeCPlus */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BinaryTreeCPlus; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4C8A57C23C069BA00DECA65 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		F4C8A58123C069DC00DECA65 /* TreeNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TreeNode.cpp; sourceTree = "<group>"; };
+		F4C8A58223C069DC00DECA65 /* TreeNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TreeNode.hpp; sourceTree = "<group>"; };
+		F4C8A58423D82FF600DECA65 /* TreeNode(more).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TreeNode(more).swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F40B529523FADDC000965720 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F4519462203C65760000CD0A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4C8A57723C069BA00DECA65 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -40,10 +83,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F40B529923FADDC000965720 /* BinarySearch */ = {
+			isa = PBXGroup;
+			children = (
+				F40B529A23FADDC000965720 /* main.cpp */,
+			);
+			path = BinarySearch;
+			sourceTree = "<group>";
+		};
 		F451945C203C65760000CD0A = {
 			isa = PBXGroup;
 			children = (
 				F4519467203C65760000CD0A /* BinaryTree */,
+				F4C8A57B23C069BA00DECA65 /* BinaryTreeCPlus */,
+				F40B529923FADDC000965720 /* BinarySearch */,
 				F4519466203C65760000CD0A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,6 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				F4519465203C65760000CD0A /* BinaryTree */,
+				F4C8A57A23C069BA00DECA65 /* BinaryTreeCPlus */,
+				F40B529823FADDC000965720 /* BinarySearch */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,13 +116,41 @@
 			children = (
 				F4519468203C65760000CD0A /* main.swift */,
 				F451946F203C65920000CD0A /* TreeNode.swift */,
+				F4C8A58423D82FF600DECA65 /* TreeNode(more).swift */,
 			);
 			path = BinaryTree;
+			sourceTree = "<group>";
+		};
+		F4C8A57B23C069BA00DECA65 /* BinaryTreeCPlus */ = {
+			isa = PBXGroup;
+			children = (
+				F4C8A57C23C069BA00DECA65 /* main.cpp */,
+				F4C8A58123C069DC00DECA65 /* TreeNode.cpp */,
+				F4C8A58223C069DC00DECA65 /* TreeNode.hpp */,
+			);
+			path = BinaryTreeCPlus;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F40B529723FADDC000965720 /* BinarySearch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F40B529E23FADDC000965720 /* Build configuration list for PBXNativeTarget "BinarySearch" */;
+			buildPhases = (
+				F40B529423FADDC000965720 /* Sources */,
+				F40B529523FADDC000965720 /* Frameworks */,
+				F40B529623FADDC000965720 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BinarySearch;
+			productName = BinarySearch;
+			productReference = F40B529823FADDC000965720 /* BinarySearch */;
+			productType = "com.apple.product-type.tool";
+		};
 		F4519464203C65760000CD0A /* BinaryTree */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F451946C203C65760000CD0A /* Build configuration list for PBXNativeTarget "BinaryTree" */;
@@ -85,6 +168,23 @@
 			productReference = F4519465203C65760000CD0A /* BinaryTree */;
 			productType = "com.apple.product-type.tool";
 		};
+		F4C8A57923C069BA00DECA65 /* BinaryTreeCPlus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4C8A57E23C069BA00DECA65 /* Build configuration list for PBXNativeTarget "BinaryTreeCPlus" */;
+			buildPhases = (
+				F4C8A57623C069BA00DECA65 /* Sources */,
+				F4C8A57723C069BA00DECA65 /* Frameworks */,
+				F4C8A57823C069BA00DECA65 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BinaryTreeCPlus;
+			productName = BinaryTreeCPlus;
+			productReference = F4C8A57A23C069BA00DECA65 /* BinaryTreeCPlus */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -95,8 +195,16 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = Pszertlek;
 				TargetAttributes = {
+					F40B529723FADDC000965720 = {
+						CreatedOnToolsVersion = 11.3;
+						ProvisioningStyle = Automatic;
+					};
 					F4519464203C65760000CD0A = {
 						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					F4C8A57923C069BA00DECA65 = {
+						CreatedOnToolsVersion = 11.3;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -114,23 +222,74 @@
 			projectRoot = "";
 			targets = (
 				F4519464203C65760000CD0A /* BinaryTree */,
+				F4C8A57923C069BA00DECA65 /* BinaryTreeCPlus */,
+				F40B529723FADDC000965720 /* BinarySearch */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F40B529423FADDC000965720 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F40B529B23FADDC000965720 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F4519461203C65760000CD0A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F4519469203C65760000CD0A /* main.swift in Sources */,
 				F4519470203C65920000CD0A /* TreeNode.swift in Sources */,
+				F4C8A58523D82FF600DECA65 /* TreeNode(more).swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4C8A57623C069BA00DECA65 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4C8A57D23C069BA00DECA65 /* main.cpp in Sources */,
+				F4C8A58323C069DC00DECA65 /* TreeNode.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		F40B529C23FADDC000965720 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WEZ4TNATDY;
+				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F40B529D23FADDC000965720 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WEZ4TNATDY;
+				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		F451946A203C65760000CD0A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -242,6 +401,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WEZ4TNATDY;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -252,14 +412,55 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WEZ4TNATDY;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		F4C8A57F23C069BA00DECA65 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WEZ4TNATDY;
+				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F4C8A58023C069BA00DECA65 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WEZ4TNATDY;
+				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F40B529E23FADDC000965720 /* Build configuration list for PBXNativeTarget "BinarySearch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F40B529C23FADDC000965720 /* Debug */,
+				F40B529D23FADDC000965720 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F4519460203C65760000CD0A /* Build configuration list for PBXProject "BinaryTree" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -274,6 +475,15 @@
 			buildConfigurations = (
 				F451946D203C65760000CD0A /* Debug */,
 				F451946E203C65760000CD0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F4C8A57E23C069BA00DECA65 /* Build configuration list for PBXNativeTarget "BinaryTreeCPlus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4C8A57F23C069BA00DECA65 /* Debug */,
+				F4C8A58023C069BA00DECA65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
