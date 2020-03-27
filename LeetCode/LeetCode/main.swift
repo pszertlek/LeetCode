@@ -7,8 +7,11 @@
 //
 
 import Foundation
-//从前到后，先找到1的所有朋友，然后在1的非朋友中再找下一个
-print(SolutionSort().maxProfit([1,2,4]))
 
+print("\(ArraySolution().hasGroupsSizeX([1,2,3,4,4,3,2,1]))")
+print("\(ArraySolution().hasGroupsSizeX([1,1,1,2,2,2,3,3]))")
+print("\(ArraySolution().hasGroupsSizeX([1]))")
+print("\(ArraySolution().hasGroupsSizeX([1,1]))")
+print("\(ArraySolution().hasGroupsSizeX([1,1,2,2,2,2]))")
+print("\(ArraySolution().hasGroupsSizeX([1,1,1,1,2,2,2,2,2,2]))")
 
-print(SolutionSort().maxProfit([1,2,3,0,2]))

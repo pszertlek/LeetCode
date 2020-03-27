@@ -962,4 +962,29 @@ class ArraySolution {
 //            
 //        }
 //    }
+    func hasGroupsSizeX(_ deck: [Int]) -> Bool {
+        guard deck.count > 1 else {
+            return false
+        }
+        var dict = [Int:Int]()
+        for i in deck {
+            dict[i, default: 0] += 1
+        }
+        func gcd(_ a: Int, _ b: Int) -> Int {
+            var a = a
+            var b = b
+            while a % b != 0 {
+                let t = a % b
+                a = b
+                b = t
+            }
+            return b
+        }
+        let arr = [Int].init(dict.values)
+        var greatest = arr[0]
+        for i in arr[1..<arr.count]{
+            greatest = gcd(greatest,i)
+        }
+        return greatest > 1
+    }
 }
