@@ -83,7 +83,7 @@ public class MyLinkedList:CustomStringConvertible {
 public class ListNode: CustomStringConvertible, ExpressibleByArrayLiteral {
     public typealias ArrayLiteralElement = Int
     
-    public var val: Int
+    public var val: Int = 0
     public var next: ListNode?
     public init(_ val: Int) {
         self.val = val
@@ -92,6 +92,9 @@ public class ListNode: CustomStringConvertible, ExpressibleByArrayLiteral {
     
     
     required public init(arrayLiteral elements: Int ...) {
+        guard elements.count > 0 else {
+            return
+        }
         val = elements[0]
         var next: ListNode? = self
         for i in 1 ..< elements.count {
@@ -615,7 +618,81 @@ public class ListNode: CustomStringConvertible, ExpressibleByArrayLiteral {
         return result.next
     }
     
+    func reverseKGroup(_ head: ListNode?, _ k: Int) -> ListNode? {
+        //1.逆转每一组
+        //2.连接每一组的尾部与头部
+        var node = head
+        var pre: ListNode? = nil
+        var theHead: ListNode?
+        func reverseK(_ head: ListNode?) -> (ListNode?, ListNode?) {
+            
+            var node = head
+            var i = 0
+            while let theNode = node, i < k {
+                node = theNode.next
+                i += 1
+            }
+            guard i >= k else {
+                return (head, nil)
+            }
+            node = head
+            var pre: ListNode? = nil
+            var count = 0
+            while let theNode = node, count < k {
+                count += 1
+                let next = theNode.next
+                theNode.next = pre
+                pre = theNode
+                node = next
+            }
+            return (pre, node)
+        }
+        while let theNode = node {
+            let reverseChain = reverseK(theNode)
+            if theHead == nil {
+                theHead = reverseChain.0
+            }
+            pre?.next = reverseChain.0
+            pre = theNode
+            
+            node = reverseChain.1
+        }
+        return theHead
+    }
     
+    func reorderList(_ head: ListNode?) {
+        var node = head
+        var i = 0
+        while let n = node {
+            i += 1
+            node = n.next
+        }
+        var j = 0
+        var tail: ListNode? = head
+        while j < i / 2 {
+            let next = tail?.next
+            if j == i / 2 - 1 {
+                tail?.next = nil
+            }
+            tail = next
+            j += 1
+
+        }
+        var pre: ListNode? = nil
+        while let next = tail?.next {
+            next.next = tail
+            tail?.next = pre
+            pre = tail
+            tail = next
+        }
+        var lead = head
+        while let theLead = lead , let theTrail = tail {
+            lead = theLead.next
+            tail = theTrail.next
+            theLead.next = tail
+            theTrail.next = lead
+        }
+    }
 }
 
 

@@ -8,10 +8,5 @@
 
 import Foundation
 
-print("\(ArraySolution().hasGroupsSizeX([1,2,3,4,4,3,2,1]))")
-print("\(ArraySolution().hasGroupsSizeX([1,1,1,2,2,2,3,3]))")
-print("\(ArraySolution().hasGroupsSizeX([1]))")
-print("\(ArraySolution().hasGroupsSizeX([1,1]))")
-print("\(ArraySolution().hasGroupsSizeX([1,1,2,2,2,2]))")
-print("\(ArraySolution().hasGroupsSizeX([1,1,1,1,2,2,2,2,2,2]))")
 
+print(ListNode(0).reorderList(ListNode(arrayLiteral: 1,2,3,4,5)))

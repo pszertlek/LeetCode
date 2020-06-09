@@ -121,3 +121,105 @@ func depthFirstSearch(_ graph: Graph, source: Node) -> [String] {
     }
     return nodesExplored
 }
+
+class BFSSolution {
+    func landderLength(_ beginWord: String, _ endWord: String, _ wordList: [String]) -> Int {
+        var allComboDict = [String: [String]]()
+        wordList.forEach { (word) in
+            let start = word.startIndex
+            let end = word.endIndex
+            var i = start
+            
+            while i < end {
+                let newword = String(word[start..<i] + "*" + word[word.index(after: i)..<end])
+                allComboDict[newword, default: []].append(word)
+                i = word.index(after: i)
+            }
+        }
+        var queue = [(String,Int)]()
+        queue.append((beginWord,1))
+        var visited = [String: Bool]()
+        visited[beginWord] = true
+        while !queue.isEmpty {
+            let node = queue.removeLast()
+            let word = node.0
+            let level = node.1
+            let start = word.startIndex
+            let end = word.endIndex
+            var i = start
+            while i < end {
+                let newword = String(word[start..<i] + "*" + word[word.index(after: i)..<end])
+                for adjacentWord in allComboDict[newword, default:[]] {
+                    if adjacentWord == endWord {
+                        return level + 1
+                    }
+                    if nil == visited[adjacentWord] {
+                        visited[adjacentWord] = true
+                        queue.append((adjacentWord, level + 1))
+                    }
+                }
+                i = word.index(after: i)
+            }
+        }
+        return 0
+    }
+    
+    class Node {
+        var val: Int
+        var neighbors: [Node?]
+        init(_ val: Int, _ neighbors: [Node] = []) {
+            self.val = val
+            self.neighbors = neighbors
+        }
+    }
+    
+    func clone(_ node: Node?) -> Node? {
+        guard let node = node else {
+            return nil
+        }
+        var queue: [(Node?,[Node?])] = [(nil,[node])]
+        var res: Node?
+        var dict: [Int: Node] = [:]
+        var visited = Set<Int>()
+        while queue.count > 0 {
+            var newQueue = [(Node?, [Node?])]()
+            while let pair = queue.popLast() {
+                let pre = pair.0
+                if let i = pre?.val {
+                    if visited.contains(i) {
+                        continue
+                    } else {
+                        visited.insert(i)
+                    }
+                }
+                for n in pair.1  {
+                    var newNode: Node!
+                    if let theNode = dict[n!.val] {
+                        newNode = theNode
+                    } else {
+                        newNode = Node(n!.val)
+                        dict[n!.val] = newNode
+                    }
+                    if res == nil {
+                        res = newNode
+                    }
+                    newQueue.append((newNode,n!.neighbors))
+                    pre?.neighbors.append(newNode)
+                }
+
+
+            }
+            queue = newQueue
+        }
+        return res
+    }
+    
+    public func singleNumber(_ nums: [Int]) -> Int {
+        var seenOnce = 0, seenTwice = 0
+        for num in nums {
+            seenOnce = ~seenTwice & (seenOnce ^ num)
+            seenTwice = ~seenOnce & (seenTwice ^ num)
+        }
+        return seenOnce
+    }
+}
