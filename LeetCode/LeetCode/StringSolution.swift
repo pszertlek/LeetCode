@@ -460,7 +460,7 @@ class LRUCache: CustomStringConvertible {
     func replaceHead(_ item: Item) {
         
         removeNode(item)
-        
+        insert(item)
     }
     
     func removeNode(_ item: Item) {
@@ -483,10 +483,7 @@ class LRUCache: CustomStringConvertible {
     
     func removeTail() {
         if let theTail = tail {
-            let pre = theTail.pre
-            dict[theTail.key] = nil
-            pre?.next = nil
-            tail = pre
+
         }
     }
     

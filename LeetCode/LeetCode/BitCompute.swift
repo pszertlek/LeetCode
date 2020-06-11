@@ -156,6 +156,17 @@ class BitComputeSolution {
         }
         return result
     }
+    
+    func rangeBitwiseAnd(_ m: Int, _ n: Int) -> Int {
+        var shift = 0
+        var m = m , n = n
+        while m < n {
+            m >>= 1
+            n >>= 1
+            shift += 1
+        }
+        return m << shift
+    }
 }
 class MinStack {
     class Element {
@@ -208,4 +219,6 @@ class MinStack {
         
         return sorteds[0].val
     }
+    
+
 }

@@ -18,3 +18,4 @@ cache.put(4, 4);    // 该操作会使得关键字 1 作废
 print(cache.get(1));       // 返回 -1 (未找到)
 print(cache.get(3));    // 返回  3
 print(cache.get(4));       // 返回  4
+print(BitComputeSolution().rangeBitwiseAnd(5, 7))
