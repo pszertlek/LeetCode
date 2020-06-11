@@ -50,4 +50,43 @@ class unitTest: XCTestCase {
         
     }
     
+    func testLRU() {
+        let cache = LRUCache(2);
+
+        cache.put(1, 1);
+        cache.put(2, 2);
+        XCTAssertTrue(cache.get(1) == 1)
+        cache.put(3, 3);    // 该操作会使得关键字 2 作废
+        XCTAssertTrue(cache.get(2) == -1)       // 返回 -1 (未找到)
+        cache.put(4, 4);    // 该操作会使得关键字 1 作废
+        XCTAssertTrue(cache.get(1) == -1)      // 返回 -1 (未找到)
+        XCTAssertTrue(cache.get(3) == 3)  // 返回  3
+        XCTAssertTrue(cache.get(4) == 4)       // 返回  4
+
+        let actions = ["LRUCache","put","put","put","put","get","get","get","get","put","get","get","get","get","get"]
+        let parameters = [[3],[1,1],[2,2],[3,3],[4,4],[4],[3],[2],[1],[5,5],[1],[2],[3],[4],[5]]
+        let result = [nil,nil,nil,nil,nil,4,3,2,-1,nil,-1,2,3,-1,5]
+        let c = LRUCache(parameters[0][0])
+        var zzz = [Int?]()
+        for i in 1..<parameters.count {
+            let z = lruAction(c, actions[i], parameters[i])
+            zzz.append(z)
+            print("\(actions[i]): \(parameters[i]) : \(z)")
+            XCTAssertTrue(z == result[i])
+        }
+        print(zzz)
+    }
+    
+    func lruAction(_ cache: LRUCache, _ action: String, _ parameters: [Int]) -> Int? {
+        switch action {
+        case "put":
+            cache.put(parameters[0], parameters[1])
+            return nil
+        case "get":
+            return cache.get(parameters[0])
+        default:
+            return nil
+        }
+    }
+    
 }

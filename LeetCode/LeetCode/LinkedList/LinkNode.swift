@@ -669,9 +669,9 @@ public class ListNode: CustomStringConvertible, ExpressibleByArrayLiteral {
         }
         var j = 0
         var tail: ListNode? = head
-        while j < i / 2 {
+        while j <= i / 2 {
             let next = tail?.next
-            if j == i / 2 - 1 {
+            if j == i / 2 {
                 tail?.next = nil
             }
             tail = next
@@ -679,17 +679,19 @@ public class ListNode: CustomStringConvertible, ExpressibleByArrayLiteral {
 
         }
         var pre: ListNode? = nil
-        while let next = tail?.next {
-            next.next = tail
+        while let _ = tail {
+            let next = tail?.next
             tail?.next = pre
             pre = tail
             tail = next
         }
         var lead = head
+        tail = pre
         while let theLead = lead , let theTrail = tail {
+            
             lead = theLead.next
             tail = theTrail.next
-            theLead.next = tail
+            theLead.next = theTrail
             theTrail.next = lead
         }
     }

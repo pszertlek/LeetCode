@@ -52,6 +52,7 @@
 		18D7B5561FCE9D4E00D7AF18 /* MaxAreaOfIsland.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D7B5551FCE9D4E00D7AF18 /* MaxAreaOfIsland.swift */; };
 		18D7B5591FCEAD3400D7AF18 /* AddTwoNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D7B5581FCEAD3400D7AF18 /* AddTwoNumbers.swift */; };
 		18ED201E22E15AF50021E2B1 /* MaxSubArraySolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED201D22E15AF50021E2B1 /* MaxSubArraySolution.swift */; };
+		18FF6AB92491CDAC00337E39 /* StringSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AC07FF22851E9000A0551E /* StringSolution.swift */; };
 		F4519459203AB7B80000CD0A /* LongestContinuousIncresingSub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4519458203AB7B80000CD0A /* LongestContinuousIncresingSub.swift */; };
 		F451945B203BEAB40000CD0A /* MaximumAverageSubarray.swift in Sources */ = {isa = PBXBuildFile; fileRef = F451945A203BEAB40000CD0A /* MaximumAverageSubarray.swift */; };
 /* End PBXBuildFile section */
@@ -404,6 +405,7 @@
 				18C702BB201978C70097F051 /* RemoveDuplicates.swift in Sources */,
 				18B4F3542018547900CDD3A9 /* LC2Sum.swift in Sources */,
 				18B4F34E2018546900CDD3A9 /* FindDisappearNumber.swift in Sources */,
+				18FF6AB92491CDAC00337E39 /* StringSolution.swift in Sources */,
 				18B4F34F2018546E00CDD3A9 /* RemoveElement.swift in Sources */,
 				18C702D62019E10B0097F051 /* PascalTriangle .swift in Sources */,
 				18B4F35720185B6400CDD3A9 /* MinCostClimbingStairs.swift in Sources */,
@@ -464,7 +466,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -517,7 +519,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -551,12 +553,12 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = HY3APXQW82;
+				DEVELOPMENT_TEAM = WEZ4TNATDY;
 				INFOPLIST_FILE = unitTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = BroadLink.unitTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -565,12 +567,12 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = HY3APXQW82;
+				DEVELOPMENT_TEAM = WEZ4TNATDY;
 				INFOPLIST_FILE = unitTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = BroadLink.unitTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

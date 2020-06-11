@@ -8,5 +8,13 @@
 
 import Foundation
 
-
-print(ListNode(0).reorderList(ListNode(arrayLiteral: 1,2,3,4,5)))
+let cache = LRUCache(2)
+cache.put(1, 1);
+cache.put(2, 2);
+print(cache.get(1));       // 返回  1
+cache.put(3, 3);    // 该操作会使得关键字 2 作废
+print(cache.get(2));       // 返回  -1
+cache.put(4, 4);    // 该操作会使得关键字 1 作废
+print(cache.get(1));       // 返回 -1 (未找到)
+print(cache.get(3));    // 返回  3
+print(cache.get(4));       // 返回  4
