@@ -8,14 +8,7 @@
 
 import Foundation
 
-let cache = LRUCache(2)
-cache.put(1, 1);
-cache.put(2, 2);
-print(cache.get(1));       // 返回  1
-cache.put(3, 3);    // 该操作会使得关键字 2 作废
-print(cache.get(2));       // 返回  -1
-cache.put(4, 4);    // 该操作会使得关键字 1 作废
-print(cache.get(1));       // 返回 -1 (未找到)
-print(cache.get(3));    // 返回  3
-print(cache.get(4));       // 返回  4
-print(BitComputeSolution().rangeBitwiseAnd(5, 7))
+//print(BitComputeSolution().hIndex([0,1,2,4,5,7]))
+//print(BitComputeSolution().hIndex([0,1,3,5,6]))
+print(BitComputeSolution().hIndex([0]))
+print(BitComputeSolution().hIndex([11,15]))

@@ -167,6 +167,117 @@ class BitComputeSolution {
         }
         return m << shift
     }
+    
+    func computeArea(_ A: Int, _ B: Int, _ C: Int, _ D: Int, _ E: Int, _ F: Int, _ G: Int, _ H: Int) -> Int {
+        if A > E {
+            return self.computeArea(E, F, G, H, A, B, C, D)
+        }
+        if B >= H || D <= F || C <= E {
+            return abs(A - C) * abs(B - D) + abs(E - G) * abs(F - H)
+        }
+        let down = max(A, E)
+        let up = min(C, G)
+        let left = max(B, F)
+        let right = min(D, H)
+        return abs(A - C) * abs(B - D) + abs(E - G) * abs(F - H) - abs(up - down) * abs(left - right)
+    }
+    
+    func summaryRanges(_ nums: [Int]) -> [String] {
+        var result = [String]()
+        var start: Int? = nil, end: Int? = nil
+        for i in nums {
+            if start == nil {
+                start = i
+                end = i
+            } else if let e = end, e + 1 == i {
+                end = i
+            } else {
+                if start != end {
+                    result.append("\(start!)->\(end!)")
+                } else {
+                    result.append("\(start!)")
+                }
+                start = i
+                end = i
+            }
+        }
+        if start != end && start != nil {
+            result.append("\(start!)->\(end!)")
+        } else if start != nil {
+            result.append("\(start!)")
+        }
+        return result
+    }
+    
+    func majorityElement(_ nums: [Int]) -> [Int] {
+        guard nums.count > 0 else {
+            return []
+        }
+        var res = [Int]()
+        var cand1 = 0, cand2 = 0
+        var cnt1 = 0, cnt2 = 0
+        for num in nums {
+            if num == cand1 {
+                cnt1 += 1
+            } else if num == cand2 {
+                cnt2 += 1
+            } else if cnt1 == 0 {
+                cand1 = num
+                cnt1 += 1
+            } else if cnt2 == 0 {
+                cand2 = num
+                cnt2 += 1
+            } else {
+                cnt1 -= 1
+                cnt2 -= 1
+            }
+        }
+        cnt1 = 0
+        cnt2 = 0
+        for num in nums {
+            if num == cand1 {
+                cnt1 += 1
+            } else if num == cand2 {
+                cnt2 += 1
+            }
+        }
+        if cnt1 > nums.count / 3 {
+            res.append(cand1)
+        }
+        if cnt2 > nums.count / 3 {
+            res.append(cand2)
+        }
+        return res
+    }
+    
+    func hIndex(_ citations: [Int]) -> Int {
+        guard citations.count > 0 else {
+            return 0
+        }
+        let N = citations.count
+        var res = 0
+        var left = 0
+        var right = N - 1
+        while left <= right {
+            let mid = (left + right) / 2
+            if citations[mid] >= N - mid {
+                res = min(citations[mid], N - mid)
+                right = mid - 1
+            } else {
+                left = mid + 1
+            }
+        }
+        
+//        while i >= 0 {
+//            if res + 1 > citations[i] {
+//                return res
+//            } else {
+//                res = min(res + 1,citations[i])
+//            }
+//            i -= 1
+//        }
+        return res
+    }
 }
 class MinStack {
     class Element {
@@ -221,4 +332,34 @@ class MinStack {
     }
     
 
+}
+
+
+class PeekingIterator {
+    var data: [Int]
+    
+    init(_ arr: IndexingIterator<Array<Int>>) {
+        self.data = [Int](arr)
+    }
+    
+    func next() -> Int {
+        if hasNext() {
+            return 0
+        } else {
+            return self.data.remove(at: 0)
+        }
+    }
+    
+    func peek() -> Int {
+        if hasNext() {
+            return 0
+        } else {
+            return self.data[0]
+        }
+        
+    }
+    
+    func hasNext() -> Bool {
+        return self.data.count > 0
+    }
 }
