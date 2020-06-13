@@ -222,4 +222,51 @@ class BFSSolution {
         }
         return seenOnce
     }
+    
+    public func canReach(_ arr: [Int], _ start: Int) -> Bool {
+        var queue = [start]
+        let N = arr.count
+        var visited = [Bool].init(repeating: false, count: arr.count)
+        while queue.count > 0 {
+            var newQueue = [Int]()
+            for i in queue {
+                if arr[i] == 0 {
+                    return true
+                }
+                let left = i - arr[i]
+                let right = i + arr[i]
+                if left >= 0 && !visited[left] {
+                    newQueue.append(left)
+                    visited[left] = true
+                }
+                if right <= N - 1 && !visited[right] {
+                    newQueue.append(right)
+                    visited[right] = true
+                }
+            }
+            queue = newQueue
+        }
+        return false
+    }
+    
+    public func maxDistance(_ grid: [[Int]]) -> Int {
+        guard grid.count > 0 else {
+            return -1
+        }
+        guard grid[0].count > 0 else {
+            return -1
+        }
+        let height = grid.count
+        let width = grid[0].count
+        var visited = [[Bool]].init(repeating: [Bool].init(repeating: false, count: width), count: height)
+        var distance =
+        for h in 0..<height {
+            for w in 0..<width {
+                if grid[h][w] == 0 {
+                    visited[h][w] = true
+                }
+            }
+        }
+    }
+
 }

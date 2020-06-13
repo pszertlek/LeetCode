@@ -8,7 +8,6 @@
 
 import Foundation
 
-//print(BitComputeSolution().hIndex([0,1,2,4,5,7]))
-//print(BitComputeSolution().hIndex([0,1,3,5,6]))
-print(BitComputeSolution().hIndex([0]))
-print(BitComputeSolution().hIndex([11,15]))
+print(BFSSolution().canReach([4,2,3,0,3,1,2], 5))
+print(BFSSolution().canReach([4,2,3,0,3,1,2], 0))
+print(BFSSolution().canReach([3,0,2,1,2], 2))
