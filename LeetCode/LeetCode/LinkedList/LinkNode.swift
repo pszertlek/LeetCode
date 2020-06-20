@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import BinaryTree
 
 public class MyLinkedList:CustomStringConvertible {
     var node: ListNode?

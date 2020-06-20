@@ -173,7 +173,6 @@ extension TreeNode where T: Comparable {
     
     func preorderTraversal1(_ root: TreeNode<T>?) -> [T] {
         var result = [T]()
-        var node = root
         
         func travel(_ root: TreeNode<T>?) {
             guard let node = root else {
@@ -193,7 +192,6 @@ extension TreeNode where T: Comparable {
     
     func inorderTraversal1(_ root: TreeNode?) -> [T] {
         var result = [T]()
-        var node = root
         
         func travel(_ root: TreeNode<T>?) {
             guard let node = root else {
@@ -221,7 +219,6 @@ extension TreeNode where T: Comparable {
     
     func inorderTraversal2(_ root: TreeNode?) -> [T] {
         var result = [T]()
-        var node = root
         
         func travel(_ root: TreeNode<T>?) {
             guard let node = root else {

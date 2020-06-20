@@ -10,7 +10,6 @@
 		1806A650225C8A2000369540 /* DoubleNodeSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1806A64F225C8A2000369540 /* DoubleNodeSolution.swift */; };
 		18289BFB222CF2E100184949 /* Dijkstra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18289BFA222CF2E100184949 /* Dijkstra.swift */; };
 		184394C6221BE18A00B8509A /* BinarySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394C5221BE18A00B8509A /* BinarySearch.swift */; };
-		184394C8221BE19C00B8509A /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394C7221BE19C00B8509A /* TreeNode.swift */; };
 		184394CA221BE1A500B8509A /* LinkNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394C9221BE1A500B8509A /* LinkNode.swift */; };
 		184394CC221C099800B8509A /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394CB221C099800B8509A /* Array.swift */; };
 		184394CE221FC25F00B8509A /* BitCompute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394CD221FC25F00B8509A /* BitCompute.swift */; };
@@ -18,13 +17,21 @@
 		184394D42225349500B8509A /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394D32225349500B8509A /* Graph.swift */; };
 		1850196E227E7C9D009DA33F /* HashSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1850196D227E7C9D009DA33F /* HashSolution.swift */; };
 		18501970228280ED009DA33F /* RedBlackTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1850196F228280ED009DA33F /* RedBlackTree.swift */; };
+		1876C085249CFC580010B697 /* BinaryTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1876C083249CFC580010B697 /* BinaryTree.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1876C089249CFCC90010B697 /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394C7221BE19C00B8509A /* TreeNode.swift */; };
+		1876C08B249CFCE40010B697 /* BinaryTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1876C081249CFC580010B697 /* BinaryTree.framework */; };
+		1876C08C249CFCE40010B697 /* BinaryTree.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1876C081249CFC580010B697 /* BinaryTree.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1876C099249D00860010B697 /* Heap.h in Headers */ = {isa = PBXBuildFile; fileRef = 1876C097249D00860010B697 /* Heap.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1876C0A6249D26D80010B697 /* Utility.h in Headers */ = {isa = PBXBuildFile; fileRef = 1876C0A4249D26D80010B697 /* Utility.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1876C0AB249D26FC0010B697 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876C0AA249D26FC0010B697 /* Extensions.swift */; };
+		1876C0AC249D28290010B697 /* Utility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1876C0A2249D26D80010B697 /* Utility.framework */; };
+		1876C0AD249D28290010B697 /* Utility.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1876C0A2249D26D80010B697 /* Utility.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		189A63E72242313A006D26CF /* Backtracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189A63E62242313A006D26CF /* Backtracking.swift */; };
 		189EE9471FDBB92F001CA7EA /* LongestPalindrome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189EE9461FDBB92F001CA7EA /* LongestPalindrome.swift */; };
 		18A52DD01FCBF451005A3B6E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A52DCF1FCBF451005A3B6E /* main.swift */; };
 		18A52DD71FCBF6BC005A3B6E /* LC2Sum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A52DD61FCBF6BC005A3B6E /* LC2Sum.swift */; };
 		18A52DD91FCBF8FA005A3B6E /* LCStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A52DD81FCBF8FA005A3B6E /* LCStack.swift */; };
 		18A52DDB1FCC0615005A3B6E /* MergeSortedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A52DDA1FCC0615005A3B6E /* MergeSortedArray.swift */; };
-		18A5B86A2017304D003623BB /* FindDisappearNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A5B8692017304D003623BB /* FindDisappearNumber.swift */; };
 		18A5B86C20173E37003623BB /* RemoveElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A5B86B20173E37003623BB /* RemoveElement.swift */; };
 		18AC080022851E9000A0551E /* StringSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AC07FF22851E9000A0551E /* StringSolution.swift */; };
 		18AF899D20243885003EBB1D /* FindPivotIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AF899C20243885003EBB1D /* FindPivotIndex.swift */; };
@@ -32,7 +39,6 @@
 		18B4F33F2018215800CDD3A9 /* LargestOfArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B4F33E2018215800CDD3A9 /* LargestOfArray.swift */; };
 		18B4F3412018283E00CDD3A9 /* SearchInsertPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B4F3402018283E00CDD3A9 /* SearchInsertPosition.swift */; };
 		18B4F3492018367100CDD3A9 /* unitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B4F3482018367100CDD3A9 /* unitTest.swift */; };
-		18B4F34E2018546900CDD3A9 /* FindDisappearNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A5B8692017304D003623BB /* FindDisappearNumber.swift */; };
 		18B4F34F2018546E00CDD3A9 /* RemoveElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A5B86B20173E37003623BB /* RemoveElement.swift */; };
 		18B4F3502018547000CDD3A9 /* LargestOfArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B4F33E2018215800CDD3A9 /* LargestOfArray.swift */; };
 		18B4F3522018547500CDD3A9 /* AddTwoNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D7B5581FCEAD3400D7AF18 /* AddTwoNumbers.swift */; };
@@ -57,7 +63,36 @@
 		F451945B203BEAB40000CD0A /* MaximumAverageSubarray.swift in Sources */ = {isa = PBXBuildFile; fileRef = F451945A203BEAB40000CD0A /* MaximumAverageSubarray.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1876C08D249CFCE40010B697 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18A52DC41FCBF451005A3B6E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1876C080249CFC580010B697;
+			remoteInfo = BinaryTree;
+		};
+		1876C0AE249D28290010B697 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18A52DC41FCBF451005A3B6E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1876C0A1249D26D80010B697;
+			remoteInfo = Utility;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
+		1876C08F249CFCE40010B697 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1876C08C249CFCE40010B697 /* BinaryTree.framework in Embed Frameworks */,
+				1876C0AD249D28290010B697 /* Utility.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		18A52DCA1FCBF451005A3B6E /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -81,6 +116,16 @@
 		184394D32225349500B8509A /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		1850196D227E7C9D009DA33F /* HashSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashSolution.swift; sourceTree = "<group>"; };
 		1850196F228280ED009DA33F /* RedBlackTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedBlackTree.swift; sourceTree = "<group>"; };
+		1876C081249CFC580010B697 /* BinaryTree.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BinaryTree.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1876C083249CFC580010B697 /* BinaryTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BinaryTree.h; sourceTree = "<group>"; };
+		1876C084249CFC580010B697 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1876C095249D00860010B697 /* Heap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Heap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1876C097249D00860010B697 /* Heap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heap.h; sourceTree = "<group>"; };
+		1876C098249D00860010B697 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1876C0A2249D26D80010B697 /* Utility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Utility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1876C0A4249D26D80010B697 /* Utility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		1876C0A5249D26D80010B697 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1876C0AA249D26FC0010B697 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		189A63E62242313A006D26CF /* Backtracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backtracking.swift; sourceTree = "<group>"; };
 		189EE9461FDBB92F001CA7EA /* LongestPalindrome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongestPalindrome.swift; sourceTree = "<group>"; };
 		18A52DCC1FCBF451005A3B6E /* LeetCode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LeetCode; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,7 +133,6 @@
 		18A52DD61FCBF6BC005A3B6E /* LC2Sum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LC2Sum.swift; sourceTree = "<group>"; };
 		18A52DD81FCBF8FA005A3B6E /* LCStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCStack.swift; sourceTree = "<group>"; };
 		18A52DDA1FCC0615005A3B6E /* MergeSortedArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeSortedArray.swift; sourceTree = "<group>"; };
-		18A5B8692017304D003623BB /* FindDisappearNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindDisappearNumber.swift; sourceTree = "<group>"; };
 		18A5B86B20173E37003623BB /* RemoveElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveElement.swift; sourceTree = "<group>"; };
 		18AC07FF22851E9000A0551E /* StringSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringSolution.swift; sourceTree = "<group>"; };
 		18AF899C20243885003EBB1D /* FindPivotIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPivotIndex.swift; sourceTree = "<group>"; };
@@ -113,10 +157,33 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1876C07E249CFC580010B697 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1876C092249D00860010B697 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1876C09F249D26D80010B697 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		18A52DC91FCBF451005A3B6E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1876C08B249CFCE40010B697 /* BinaryTree.framework in Frameworks */,
+				1876C0AC249D28290010B697 /* Utility.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,7 +208,6 @@
 		184394C3221BE10800B8509A /* BinaryTree */ = {
 			isa = PBXGroup;
 			children = (
-				184394C7221BE19C00B8509A /* TreeNode.swift */,
 			);
 			path = BinaryTree;
 			sourceTree = "<group>";
@@ -171,6 +237,42 @@
 			path = DepthFirstSearch;
 			sourceTree = "<group>";
 		};
+		1876C082249CFC580010B697 /* BinaryTree */ = {
+			isa = PBXGroup;
+			children = (
+				1876C083249CFC580010B697 /* BinaryTree.h */,
+				184394C7221BE19C00B8509A /* TreeNode.swift */,
+				1876C084249CFC580010B697 /* Info.plist */,
+			);
+			path = BinaryTree;
+			sourceTree = "<group>";
+		};
+		1876C08A249CFCE40010B697 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1876C096249D00860010B697 /* Heap */ = {
+			isa = PBXGroup;
+			children = (
+				1876C097249D00860010B697 /* Heap.h */,
+				1876C098249D00860010B697 /* Info.plist */,
+			);
+			path = Heap;
+			sourceTree = "<group>";
+		};
+		1876C0A3249D26D80010B697 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				1876C0A4249D26D80010B697 /* Utility.h */,
+				1876C0AA249D26FC0010B697 /* Extensions.swift */,
+				1876C0A5249D26D80010B697 /* Info.plist */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		189A63E3224227E0006D26CF /* Backtracking */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,7 +286,11 @@
 			children = (
 				18A52DCE1FCBF451005A3B6E /* LeetCode */,
 				18B4F3472018367100CDD3A9 /* unitTest */,
+				1876C082249CFC580010B697 /* BinaryTree */,
+				1876C096249D00860010B697 /* Heap */,
+				1876C0A3249D26D80010B697 /* Utility */,
 				18A52DCD1FCBF451005A3B6E /* Products */,
+				1876C08A249CFCE40010B697 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -193,6 +299,9 @@
 			children = (
 				18A52DCC1FCBF451005A3B6E /* LeetCode */,
 				18B4F3462018367100CDD3A9 /* unitTest.xctest */,
+				1876C081249CFC580010B697 /* BinaryTree.framework */,
+				1876C095249D00860010B697 /* Heap.framework */,
+				1876C0A2249D26D80010B697 /* Utility.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -226,7 +335,6 @@
 		18A5B86820173039003623BB /* Array */ = {
 			isa = PBXGroup;
 			children = (
-				18A5B8692017304D003623BB /* FindDisappearNumber.swift */,
 				18A5B86B20173E37003623BB /* RemoveElement.swift */,
 				18B4F33E2018215800CDD3A9 /* LargestOfArray.swift */,
 				18B4F3402018283E00CDD3A9 /* SearchInsertPosition.swift */,
@@ -266,7 +374,88 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		1876C07C249CFC580010B697 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1876C085249CFC580010B697 /* BinaryTree.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1876C090249D00860010B697 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1876C099249D00860010B697 /* Heap.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1876C09D249D26D80010B697 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1876C0A6249D26D80010B697 /* Utility.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		1876C080249CFC580010B697 /* BinaryTree */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1876C088249CFC580010B697 /* Build configuration list for PBXNativeTarget "BinaryTree" */;
+			buildPhases = (
+				1876C07C249CFC580010B697 /* Headers */,
+				1876C07D249CFC580010B697 /* Sources */,
+				1876C07E249CFC580010B697 /* Frameworks */,
+				1876C07F249CFC580010B697 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BinaryTree;
+			productName = BinaryTree;
+			productReference = 1876C081249CFC580010B697 /* BinaryTree.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		1876C094249D00860010B697 /* Heap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1876C09A249D00860010B697 /* Build configuration list for PBXNativeTarget "Heap" */;
+			buildPhases = (
+				1876C090249D00860010B697 /* Headers */,
+				1876C091249D00860010B697 /* Sources */,
+				1876C092249D00860010B697 /* Frameworks */,
+				1876C093249D00860010B697 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Heap;
+			productName = Heap;
+			productReference = 1876C095249D00860010B697 /* Heap.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		1876C0A1249D26D80010B697 /* Utility */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1876C0A7249D26D80010B697 /* Build configuration list for PBXNativeTarget "Utility" */;
+			buildPhases = (
+				1876C09D249D26D80010B697 /* Headers */,
+				1876C09E249D26D80010B697 /* Sources */,
+				1876C09F249D26D80010B697 /* Frameworks */,
+				1876C0A0249D26D80010B697 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Utility;
+			productName = Utility;
+			productReference = 1876C0A2249D26D80010B697 /* Utility.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		18A52DCB1FCBF451005A3B6E /* LeetCode */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18A52DD31FCBF451005A3B6E /* Build configuration list for PBXNativeTarget "LeetCode" */;
@@ -274,10 +463,13 @@
 				18A52DC81FCBF451005A3B6E /* Sources */,
 				18A52DC91FCBF451005A3B6E /* Frameworks */,
 				18A52DCA1FCBF451005A3B6E /* CopyFiles */,
+				1876C08F249CFCE40010B697 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1876C08E249CFCE40010B697 /* PBXTargetDependency */,
+				1876C0AF249D28290010B697 /* PBXTargetDependency */,
 			);
 			name = LeetCode;
 			productName = LeetCode;
@@ -311,6 +503,19 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Pszertlek;
 				TargetAttributes = {
+					1876C080249CFC580010B697 = {
+						CreatedOnToolsVersion = 11.5;
+						ProvisioningStyle = Automatic;
+					};
+					1876C094249D00860010B697 = {
+						CreatedOnToolsVersion = 11.5;
+						ProvisioningStyle = Automatic;
+					};
+					1876C0A1249D26D80010B697 = {
+						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
+						ProvisioningStyle = Automatic;
+					};
 					18A52DCB1FCBF451005A3B6E = {
 						CreatedOnToolsVersion = 9.1;
 						LastSwiftMigration = 1020;
@@ -336,11 +541,35 @@
 			targets = (
 				18A52DCB1FCBF451005A3B6E /* LeetCode */,
 				18B4F3452018367100CDD3A9 /* unitTest */,
+				1876C080249CFC580010B697 /* BinaryTree */,
+				1876C094249D00860010B697 /* Heap */,
+				1876C0A1249D26D80010B697 /* Utility */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1876C07F249CFC580010B697 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1876C093249D00860010B697 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1876C0A0249D26D80010B697 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		18B4F3442018367100CDD3A9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -351,6 +580,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1876C07D249CFC580010B697 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1876C089249CFCC90010B697 /* TreeNode.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1876C091249D00860010B697 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1876C09E249D26D80010B697 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1876C0AB249D26FC0010B697 /* Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		18A52DC81FCBF451005A3B6E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -386,9 +638,7 @@
 				18AC080022851E9000A0551E /* StringSolution.swift in Sources */,
 				F451945B203BEAB40000CD0A /* MaximumAverageSubarray.swift in Sources */,
 				18A52DD91FCBF8FA005A3B6E /* LCStack.swift in Sources */,
-				18A5B86A2017304D003623BB /* FindDisappearNumber.swift in Sources */,
 				184394CA221BE1A500B8509A /* LinkNode.swift in Sources */,
-				184394C8221BE19C00B8509A /* TreeNode.swift in Sources */,
 				184394D12223F30700B8509A /* Heap.swift in Sources */,
 				18289BFB222CF2E100184949 /* Dijkstra.swift in Sources */,
 			);
@@ -404,7 +654,6 @@
 				18B4F3522018547500CDD3A9 /* AddTwoNumbers.swift in Sources */,
 				18C702BB201978C70097F051 /* RemoveDuplicates.swift in Sources */,
 				18B4F3542018547900CDD3A9 /* LC2Sum.swift in Sources */,
-				18B4F34E2018546900CDD3A9 /* FindDisappearNumber.swift in Sources */,
 				18FF6AB92491CDAC00337E39 /* StringSolution.swift in Sources */,
 				18B4F34F2018546E00CDD3A9 /* RemoveElement.swift in Sources */,
 				18C702D62019E10B0097F051 /* PascalTriangle .swift in Sources */,
@@ -415,7 +664,176 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		1876C08E249CFCE40010B697 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1876C080249CFC580010B697 /* BinaryTree */;
+			targetProxy = 1876C08D249CFCE40010B697 /* PBXContainerItemProxy */;
+		};
+		1876C0AF249D28290010B697 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1876C0A1249D26D80010B697 /* Utility */;
+			targetProxy = 1876C0AE249D28290010B697 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		1876C086249CFC580010B697 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = WEZ4TNATDY;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = BinaryTree/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = Pszertlek.com.BinaryTree;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1876C087249CFC580010B697 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = WEZ4TNATDY;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = BinaryTree/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = Pszertlek.com.BinaryTree;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1876C09B249D00860010B697 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = WEZ4TNATDY;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Heap/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = Pszertlek.com.Heap;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1876C09C249D00860010B697 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = WEZ4TNATDY;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Heap/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = Pszertlek.com.Heap;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1876C0A8249D26D80010B697 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = WEZ4TNATDY;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Utility/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = Pszertlek.com.Utility;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1876C0A9249D26D80010B697 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = WEZ4TNATDY;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Utility/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = Pszertlek.com.Utility;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		18A52DD11FCBF451005A3B6E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -579,6 +997,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1876C088249CFC580010B697 /* Build configuration list for PBXNativeTarget "BinaryTree" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1876C086249CFC580010B697 /* Debug */,
+				1876C087249CFC580010B697 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1876C09A249D00860010B697 /* Build configuration list for PBXNativeTarget "Heap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1876C09B249D00860010B697 /* Debug */,
+				1876C09C249D00860010B697 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1876C0A7249D26D80010B697 /* Build configuration list for PBXNativeTarget "Utility" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1876C0A8249D26D80010B697 /* Debug */,
+				1876C0A9249D26D80010B697 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		18A52DC71FCBF451005A3B6E /* Build configuration list for PBXProject "LeetCode" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -8,6 +8,5 @@
 
 import Foundation
 
-print(BFSSolution().canReach([4,2,3,0,3,1,2], 5))
-print(BFSSolution().canReach([4,2,3,0,3,1,2], 0))
-print(BFSSolution().canReach([3,0,2,1,2], 2))
+print(BFSSolution().calculateMinimumHP([[-2,-3,3],[-5,-10,1],[10,30,-5]]))
+print(BFSSolution().calculateMinimumHP([[1,-3,3],[0,-2,0],[-3,-3,-3]]))

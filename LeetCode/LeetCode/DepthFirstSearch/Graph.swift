@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Utility
 
 open class Edge: Equatable {
     open var neighbor: Node
@@ -259,7 +260,6 @@ class BFSSolution {
         let height = grid.count
         let width = grid[0].count
         var visited = [[Bool]].init(repeating: [Bool].init(repeating: false, count: width), count: height)
-        var distance =
         for h in 0..<height {
             for w in 0..<width {
                 if grid[h][w] == 0 {
@@ -267,6 +267,90 @@ class BFSSolution {
                 }
             }
         }
+        return 0
+    }
+    
+    //174.地下城
+    func calculateMinimumHP(_ dungeon: [[Int]]) -> Int {
+        guard dungeon.count > 0 else {
+            return 0
+        }
+        guard dungeon[0].count > 0 else {
+            return 0
+        }
+        let H = dungeon.count, W = dungeon[0].count
+        var dp = [[Int]].init(repeating: [Int].init(repeating: 1, count: W), count: H)
+        dp[H - 1][W - 1] = dungeon[H - 1][W - 1] >= 0 ? 1 : 1 - dungeon[H - 1][W - 1]
+        if H > 1 {
+            for y in stride(from: H - 2, through: 0, by: -1) {
+                dp[y][W - 1] = dp[y + 1][W - 1] - dungeon[y][W - 1] > 0 ? dp[y + 1][W - 1] - dungeon[y][W - 1] : 1
+            }
+        }
+        if W > 1 {
+            for x in stride(from: W - 2, through: 0, by: -1) {
+                dp[H - 1][x] = dp[H - 1][x + 1] - dungeon[H - 1][x] > 0 ? dp[H - 1][x + 1] - dungeon[H - 1][x] : 1
+            }
+        }
+        if H > 1 && W > 1 {
+            for y in stride(from: H - 2, through: 0, by: -1) {
+                for x in stride(from: W - 2, through: 0, by: -1) {
+                    let right = dp[y][x + 1]
+                    let down = dp[y + 1][x]
+                    let rightMin = right - dungeon[y][x] > 0 ? right - dungeon[y][x] : 1
+                    let downMin = down - dungeon[y][x] > 0 ? down - dungeon[y][x] : 1
+                    dp[y][x] = min(rightMin, downMin)
+                }
+            }
+        }
+        return dp[0][0]
+    }
+    
+    //dfs方法
+    func calculateMinimumHP1(_ dungeon: [[Int]]) -> Int {
+        
+        guard dungeon.count > 0 else {
+            return 0
+        }
+        guard dungeon[0].count > 0 else {
+            return 0
+        }
+        let H = dungeon.count, W = dungeon[0].count
+        var memory = [[Int]].init(repeating: [Int].init(repeating: -1, count: W), count: H)
+        func dfs(_ x: Int, _ y: Int) -> Int {
+            if y == H - 1 && x == W - 1 {
+                if dungeon[y][x] > 0 {
+                    memory[y][x] = 1
+                    return 1
+                } else {
+                    memory[y][x] = 1 - dungeon[y][x]
+                    return 1 - dungeon[y][x]
+                }
+            }
+            if memory[y][x] != -1 {
+                return memory[y][x]
+            }
+            if y == H - 1 {
+                let right = dfs(x + 1, y)
+                let res = right - dungeon[y][x] > 0 ? right - dungeon[y][x] : 1
+                memory[y][x] = res
+                return res
+            } else if x == W - 1 {
+                let down = dfs(x, y + 1)
+                let res = down - dungeon[y][x] > 0 ? down - dungeon[y][x] : 1
+                memory[y][x] = res
+                return res
+            } else {
+                let right = dfs(x + 1, y)
+                let down = dfs(x, y + 1)
+                let rightMin = right - dungeon[y][x] > 0 ? right - dungeon[y][x] : 1
+                let downMin = down - dungeon[y][x] > 0 ? down - dungeon[y][x] : 1
+                let res = min(rightMin, downMin)
+                memory[y][x] = res
+                return res
+            }
+        }
+        return dfs(0, 0)
     }
 
 }
+
