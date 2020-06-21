@@ -13,6 +13,41 @@ import Foundation
 //print(DynamicSolution().maxProfit4(2, [2,1,2,0,1]))
 //print(DynamicSolution().maxProfit4(2,
 //[1,2,4,2,5,7,2,4,9,0]))
-print(DFSSolution().canFinish(2, [[1,0],[0,1]]))
-print(DFSSolution().canFinish(2, [[1,0]]))
-print(DFSSolution().canFinish(3, [[0,1],[1,2],[2,1]]))
+//print(DFSSolution().canFinish(2, [[1,0],[0,1]]))
+//print(DFSSolution().canFinish(2, [[1,0]]))
+//print(DFSSolution().canFinish(3, [[0,1],[1,2],[2,1]]))
+//print(DFSSolution().findSquare([[1]]))
+print(DynamicSolution().findSquare1([
+   [1,0,1],
+   [0,0,1],
+   [0,0,1]
+]))
+//print(DFSSolution().findSquare([
+//   [0,1,1],
+//   [1,0,1],
+//   [1,1,0]
+//]))
+print(DynamicSolution().findSquare1([
+    [1, 1, 1, 0, 1, 1, 0, 1, 0, 0],
+    [0, 1, 0, 1, 1, 0, 0, 0, 1, 1],
+    [0, 0, 1, 1, 0, 0, 1, 1, 1, 0],
+    [0, 1, 1, 1, 0, 1, 0, 0, 1, 0],
+    [1, 1, 0, 1, 1, 0, 1, 0, 0, 1],
+    [0, 1, 1, 0, 0, 0, 0, 1, 1, 0],
+    [1, 0, 0, 0, 0, 1, 1, 1, 1, 1],
+    [1, 0, 1, 0, 1, 0, 0, 0, 1, 0],
+    [1, 1, 1, 1, 0, 1, 0, 1, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 1, 1, 0]
+]
+))
+print(DynamicSolution().findSquare1([
+    [1, 1, 0, 0, 1, 1, 0, 0, 0, 1],
+    [0, 0, 1, 1, 1, 1, 0, 0, 0, 0],
+    [1, 1, 1, 1, 0, 1, 1, 1, 0, 1],
+    [1, 1, 1, 0, 0, 1, 1, 0, 0, 0],
+    [1, 0, 1, 0, 1, 1, 0, 1, 0, 1],
+    [0, 1, 1, 0, 0, 0, 0, 0, 0, 0],
+    [1, 1, 1, 0, 0, 1, 1, 0, 1, 1],
+    [0, 0, 1, 1, 1, 1, 0, 1, 0, 1],
+    [1, 0, 1, 1, 1, 0, 1, 0, 0, 0],
+    [1, 0, 1, 0, 1, 0, 0, 0, 1, 1]]))

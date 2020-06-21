@@ -78,7 +78,7 @@ class MaxSubArraySolution {
                 return 0
             }
         }
-        var mid = (left + right) / 2 , _ = 0
+        var mid = (left + right) / 2
         maxLeftSum = masSubArrayFZF(nums, left, mid)
         maxRightSum = masSubArrayFZF(nums, mid, right)
         maxLeftBorderSum = 0
