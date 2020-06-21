@@ -8,5 +8,11 @@
 
 import Foundation
 
-print(BFSSolution().calculateMinimumHP([[-2,-3,3],[-5,-10,1],[10,30,-5]]))
-print(BFSSolution().calculateMinimumHP([[1,-3,3],[0,-2,0],[-3,-3,-3]]))
+//print(DynamicSolution().maxProfit4(2, [2,4,1]))
+//print(DynamicSolution().maxProfit4(2, [3,2,6,5,0,3]))
+//print(DynamicSolution().maxProfit4(2, [2,1,2,0,1]))
+//print(DynamicSolution().maxProfit4(2,
+//[1,2,4,2,5,7,2,4,9,0]))
+print(DFSSolution().canFinish(2, [[1,0],[0,1]]))
+print(DFSSolution().canFinish(2, [[1,0]]))
+print(DFSSolution().canFinish(3, [[0,1],[1,2],[2,1]]))

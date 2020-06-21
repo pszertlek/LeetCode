@@ -13,7 +13,6 @@ class StringSolution {
         guard s3.count == s1.count + s2.count else {
             return false
         }
-        var i1 = 0, i2 = 0
         var s1 = s1.utf8CString, s2 = s2.utf8CString, s3 = s3.utf8CString
         s1.removeLast()
         s2.removeLast()
@@ -160,7 +159,7 @@ class StringSolution {
     
     func toGoatLatin(_ S: String) -> String {
         var result = ""
-        var yuany = "aeiouAEIOU"
+        let yuany = "aeiouAEIOU"
         var set = Set<UInt32>()
         let kong = " ".unicodeScalars.first!.value
         for c in yuany.unicodeScalars {
@@ -283,7 +282,7 @@ class StringSolution {
         for i in s1 {
             dict[i] = 1 + (dict[i] ?? 0)
         }
-        var cc2 = Array<Character>(s2)
+        let cc2 = Array<Character>(s2)
         var dict2 = [Character: Int]()
         var left = 0,right = s1.count - 1
         for i in 0..<s1.count {
@@ -336,7 +335,7 @@ class StringSolution {
     func simplifyPath(_ path: String) -> String {
         let components = path.components(separatedBy: "/")
         var results: [String] = []
-        for (index,i) in components.enumerated() {
+        for (_,i) in components.enumerated() {
             if i.count != 0 {
                 if i == ".." {
                     if results.count > 0 {
@@ -482,9 +481,7 @@ class LRUCache: CustomStringConvertible {
     }
     
     func removeTail() {
-        if let theTail = tail {
 
-        }
     }
     
     var description: String {

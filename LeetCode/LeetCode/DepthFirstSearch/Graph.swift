@@ -354,3 +354,99 @@ class BFSSolution {
 
 }
 
+class DFSSolution {
+    func canFinish(_ numCourses: Int, _ prerequisites: [[Int]]) -> Bool {
+        var visited = [Bool].init(repeating: false, count: numCourses)
+        var dict = [Int: Set<Int>]()
+        for prerequist in prerequisites {
+            dict[prerequist[0],default: Set<Int>()].insert(prerequist[1])
+        }
+        var curSet = Set<Int>()
+        func dfs(_ i: Int) -> Bool {
+            guard !visited[i] else {
+                return true
+            }
+            if curSet.contains(i) {
+                return false
+            }
+            curSet.insert(i)
+            if let set = dict[i] {
+                for num in set {
+                    if !dfs(num) {
+                        return false
+                    }
+                }
+            }
+            visited[i] = true
+            curSet.remove(i)
+            return true
+        }
+        for i in dict.keys {
+            if !dfs(i) {
+                return false
+            }
+        }
+        return true
+    }
+    
+    func findSquare(_ matrix: [[Int]]) -> [Int] {
+        guard matrix.count > 0 else {
+            return []
+        }
+        let N = matrix.count
+//        var visited = [[Bool]].init(repeating: [Bool].init(repeating: false, count: N), count: N)
+        func calculate(_ r: Int, _ c: Int, _ size: Int, _ actualSize: Int) -> Int {
+            if size == 1 {
+                if matrix[c][r] == 0 {
+                    return calculate(r, c, 1, 1)
+                } else {
+                    return 0
+                }
+            }
+            
+            if r + size >= N || c + size >= N {
+                return actualSize
+            }
+            if matrix[c + size][r] != 0 {
+                return actualSize
+            }
+            if matrix[c][r + size] != 0 {
+                return actualSize
+            }
+
+            var sizeTrue = true
+            for i in 1...size {
+                if matrix[i][r + size] != 0 {
+                    sizeTrue = false
+                    break
+                }
+            }
+            if sizeTrue {
+                for i in 1...size {
+                    if matrix[c + size][i] != 0 {
+                        sizeTrue = false
+                        break
+                    }
+                }
+            }
+            return calculate(r, c, size + 1, sizeTrue ? size + 1 : actualSize)
+            
+        }
+        var res = (0,0,0)
+        for i in 0..<N {
+            for j in 0..<N {
+                let curRes = calculate(i, j, 0, 0)
+                if curRes > res.2 {
+                    res = (i,j,curRes)
+                }
+                if N - j - 1 <= curRes {
+                    break
+                }
+            }
+            if N - i - 1 <= res.2 {
+                break
+            }
+        }
+        return [res.0,res.1,res.2]
+    }
+}

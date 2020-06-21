@@ -17,6 +17,7 @@
 		184394D42225349500B8509A /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394D32225349500B8509A /* Graph.swift */; };
 		1850196E227E7C9D009DA33F /* HashSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1850196D227E7C9D009DA33F /* HashSolution.swift */; };
 		18501970228280ED009DA33F /* RedBlackTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1850196F228280ED009DA33F /* RedBlackTree.swift */; };
+		185A62A9249E321A00B190F8 /* DynamicSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A62A8249E321A00B190F8 /* DynamicSolution.swift */; };
 		1876C085249CFC580010B697 /* BinaryTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1876C083249CFC580010B697 /* BinaryTree.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1876C089249CFCC90010B697 /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394C7221BE19C00B8509A /* TreeNode.swift */; };
 		1876C08B249CFCE40010B697 /* BinaryTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1876C081249CFC580010B697 /* BinaryTree.framework */; };
@@ -116,6 +117,7 @@
 		184394D32225349500B8509A /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		1850196D227E7C9D009DA33F /* HashSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashSolution.swift; sourceTree = "<group>"; };
 		1850196F228280ED009DA33F /* RedBlackTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedBlackTree.swift; sourceTree = "<group>"; };
+		185A62A8249E321A00B190F8 /* DynamicSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSolution.swift; sourceTree = "<group>"; };
 		1876C081249CFC580010B697 /* BinaryTree.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BinaryTree.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1876C083249CFC580010B697 /* BinaryTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BinaryTree.h; sourceTree = "<group>"; };
 		1876C084249CFC580010B697 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				1850196D227E7C9D009DA33F /* HashSolution.swift */,
 				1850196F228280ED009DA33F /* RedBlackTree.swift */,
 				18AC07FF22851E9000A0551E /* StringSolution.swift */,
+				185A62A8249E321A00B190F8 /* DynamicSolution.swift */,
 				189A63E3224227E0006D26CF /* Backtracking */,
 				184394D22225347000B8509A /* DepthFirstSearch */,
 				184394CF2223F2FA00B8509A /* Heap */,
@@ -500,7 +503,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = Pszertlek;
 				TargetAttributes = {
 					1876C080249CFC580010B697 = {
@@ -619,6 +622,7 @@
 				189A63E72242313A006D26CF /* Backtracking.swift in Sources */,
 				189EE9471FDBB92F001CA7EA /* LongestPalindrome.swift in Sources */,
 				184394CE221FC25F00B8509A /* BitCompute.swift in Sources */,
+				185A62A9249E321A00B190F8 /* DynamicSolution.swift in Sources */,
 				18C702CF2019BD790097F051 /* MaximumSubarray.swift in Sources */,
 				184394CC221C099800B8509A /* Array.swift in Sources */,
 				18D7B5591FCEAD3400D7AF18 /* AddTwoNumbers.swift in Sources */,
@@ -947,6 +951,7 @@
 		18A52DD41FCBF451005A3B6E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WEZ4TNATDY;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
@@ -958,6 +963,7 @@
 		18A52DD51FCBF451005A3B6E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WEZ4TNATDY;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;

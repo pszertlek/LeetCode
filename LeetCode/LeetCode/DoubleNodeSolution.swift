@@ -52,7 +52,7 @@ class DoubleNodeSolution {
     }
     
     func longestOnes(_ A: [Int], _ K: Int) -> Int {
-        var n:Int = A.count
+        let n:Int = A.count
         var pre:[Int] = [Int](repeating:0,count:n)
         for i in 0..<n
         {
@@ -74,7 +74,7 @@ class DoubleNodeSolution {
             var ans:Int = i
             while(lo <= hi)
             {
-                var mid:Int = (lo + hi) / 2
+                let mid:Int = (lo + hi) / 2
                 var val:Int = pre[mid]
                 if i >= 0
                 {
@@ -114,7 +114,7 @@ class DoubleNodeSolution {
 //    return res
     
     func longestOnes2(_ A: [Int], _ K: Int) -> Int {
-        var zero = 0, lo = 0, hi = 0, res = 0
+        var zero = 0, lo = 0, res = 0
         for hi in 0..<A.count {
             if A[hi] == 0 {
                 zero = zero + 1
@@ -186,7 +186,7 @@ class DoubleNodeSolution {
     }
     
     func numRescueBoats(_ people: [Int], _ limit: Int) -> Int {
-        var i = 0, j = 0, sum = 0
+        var i = 0, _ = 0, sum = 0
         var people = people.sorted()
         
         func binarySearch(_ nums: inout [Int], _ target: Int) -> Int {
@@ -241,7 +241,7 @@ class DoubleNodeSolution {
     
     func numRescueBoats1(_ people: [Int], _ limit: Int) -> Int {
         var i = 0, j = people.count - 1 , sum = 0
-        var people = people.sorted()
+        let people = people.sorted()
         
         while i <= j {
             if people[i] + people[j] > limit {

@@ -48,7 +48,6 @@ class Backtracking {
     }
     
     func generateParenthesis(_ n: Int) -> [String] {
-        var leftK = 0
         var result = [String]()
         func generate(_ currentLeft: Int, _ currentRight: Int, s: String) {
             if currentLeft > currentRight {

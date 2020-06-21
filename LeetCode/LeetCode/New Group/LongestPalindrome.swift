@@ -11,7 +11,7 @@ import Foundation
 class LongestPalindrome {
     func longestPalindrome(_ s: String) -> String {
         var dict = Dictionary<Character,(Int,Int,Int)>()
-        var stringArray = Array(s)
+        let stringArray = Array(s)
         var i = 0, n = stringArray.count
         var max = (0,0,0)
         while i < n {

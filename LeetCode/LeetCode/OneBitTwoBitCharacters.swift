@@ -12,7 +12,7 @@ func isOneBitCharacter(_ bits: [Int]) -> Bool {
     guard let last = bits.last, last == 0 else {
         return false
     }
-    var i = bits.count - 2
+    let i = bits.count - 2
     if i < 0 {
         return true
     }

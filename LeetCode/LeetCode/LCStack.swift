@@ -885,8 +885,6 @@ class SolutionSort {
             counter[Int(c.asciiValue! - Character("A").asciiValue!)] += 1
             tilesCount += 1
         }
-        var total = 0
-        var res = 0
         func dfs() -> Int {
             var res = 0
             for i in 0..<26 {
@@ -1060,7 +1058,6 @@ class SolutionSort {
     
     func getMaximumGold(_ grid: [[Int]]) -> Int {
         var res = 0
-        var i = 0
         let width = grid[0].count, height = grid.count
         
         func backtrack(_ x:Int, _ y: Int, _ used: inout [[Bool]], _ value: Int) {
@@ -1198,8 +1195,8 @@ class SolutionSort {
     
     func setZeros1(_ matrix: inout [[Int]]) {
         var isCol = false
-        var R = matrix.count
-        var C = matrix[0].count
+        let R = matrix.count
+        let C = matrix[0].count
         for i in 0..<R {
             if matrix[i][0] == 0 {
                 isCol = true
@@ -1555,7 +1552,7 @@ class SolutionSort {
     func quickSort(_ arr: inout [Int], _ low: Int, _ high: Int) {
         
         func partation(_ low: Int, _high: Int) {
-            var tmp = arr[low]
+            let tmp = arr[low]
             var low = low, high = high
             while low < high {
                 while low < high && arr[high] >= tmp {

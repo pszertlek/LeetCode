@@ -79,7 +79,7 @@ class HashSolution {
             let count = Int(array[0])!
             let domains = array[1].components(separatedBy: ".")
             
-            for (index,i) in domains.enumerated() {
+            for (index,_) in domains.enumerated() {
                 let domain = sss(domains, index)
                 dict[domain] = (dict[domain] ?? 0) + count
             }
@@ -203,7 +203,6 @@ class HashSolution {
     
     func findRepeatedDnaSequences(_ s: String) -> [String] {
         let fourArr = [1,4,16,64,256,1024,4096,16384,65536,262144,1048576]
-        var strCount = 0
         var set = Set<Int>()
         var number = 0
         let A = Character("A"), C = Character("C"), G = Character("G"), T = Character("T")
@@ -326,32 +325,7 @@ class HashSolution {
         }
         return result
     }
-    
-    func findAnagrams(_ s: String, _ p: String) -> [Int] {
-        guard s.count >= p.count else {
-            return []
-        }
-        var pArr = [Int].init(repeating: 0, count: 26)
-        let aAsciiValue = Character("a").asciiValue!
-        for c in p {
-            pArr[Int(c.asciiValue! - aAsciiValue)] += 1
-        }
-        
-        var curArr = [Int].init(repeating: 0, count: 26)
-        let ss = [Character].init(s)
 
-        for i in 0..<p.count - 1 {
-            curArr[Int(ss[i].asciiValue! - aAsciiValue)] += 1
-        }
-        var res = [Int]()
-
-        var i = 0
-        var cccc = Character("a")
-        for c in s {
-            
-        }
-        return res
-    }
     
     func findMaxLength(_ nums: [Int]) -> Int {
         var maxLen = 0

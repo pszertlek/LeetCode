@@ -476,9 +476,8 @@ public class ListNode: CustomStringConvertible, ExpressibleByArrayLiteral {
 
     
     func findMidAndSplit(_ head: ListNode?) -> ListNode? {
-        var slowPoint = head, fastPoint = head,pre = head
+        var slowPoint = head, fastPoint = head
         while fastPoint != nil && fastPoint?.next != nil {
-            pre = slowPoint
             fastPoint = fastPoint?.next?.next
             slowPoint = slowPoint?.next
         }
@@ -527,7 +526,7 @@ public class ListNode: CustomStringConvertible, ExpressibleByArrayLiteral {
 //        partition(right)
 //    }
     func insertionSortList(_ head: ListNode?) -> ListNode? {
-        var start = ListNode(0)
+        let start = ListNode(0)
         var startPre = start
         var cur = head
         while let current = cur {
