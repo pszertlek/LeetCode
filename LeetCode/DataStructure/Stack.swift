@@ -8,8 +8,12 @@
 
 import Foundation
 
-public struct stack<T> {
+public struct Stack<T> {
     var data: [T] = []
+    
+    public init() {
+        
+    }
     
     public mutating func pop() -> T? {
         return data.popLast()
@@ -17,5 +21,9 @@ public struct stack<T> {
     
     public mutating func push(_ i: T) {
         data.append(i)
+    }
+    
+    public var count: Int {
+        data.count
     }
 }

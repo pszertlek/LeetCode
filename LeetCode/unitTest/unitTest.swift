@@ -89,4 +89,16 @@ class unitTest: XCTestCase {
         }
     }
     
+    func testCQueue() {
+        let queue = CQueue()
+        var arr = [1,2,3]
+        for i in 0..<arr.count {
+            queue.appendTail(arr[i])
+        }
+        for i in 0..<arr.count {
+            XCTAssert(queue.deleteHead() == arr[i])
+        }
+
+    
+    }
 }

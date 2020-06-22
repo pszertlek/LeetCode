@@ -19,6 +19,9 @@
 		184F9B97249F803500C61E05 /* DataStructureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F9B96249F803500C61E05 /* DataStructureTests.swift */; };
 		184F9B99249F803500C61E05 /* DataStructure.h in Headers */ = {isa = PBXBuildFile; fileRef = 184F9B8B249F803500C61E05 /* DataStructure.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		184F9BA1249F804800C61E05 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F9BA0249F804800C61E05 /* Stack.swift */; };
+		184F9BA2249F835700C61E05 /* DataStructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184F9B89249F803500C61E05 /* DataStructure.framework */; };
+		184F9BA3249F835700C61E05 /* DataStructure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 184F9B89249F803500C61E05 /* DataStructure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		184F9BA6249F87C500C61E05 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394CB221C099800B8509A /* Array.swift */; };
 		1850196E227E7C9D009DA33F /* HashSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1850196D227E7C9D009DA33F /* HashSolution.swift */; };
 		18501970228280ED009DA33F /* RedBlackTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1850196F228280ED009DA33F /* RedBlackTree.swift */; };
 		185A62A9249E321A00B190F8 /* DynamicSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A62A8249E321A00B190F8 /* DynamicSolution.swift */; };
@@ -76,6 +79,13 @@
 			remoteGlobalIDString = 184F9B88249F803500C61E05;
 			remoteInfo = DataStructure;
 		};
+		184F9BA4249F835700C61E05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18A52DC41FCBF451005A3B6E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 184F9B88249F803500C61E05;
+			remoteInfo = DataStructure;
+		};
 		1876C08D249CFCE40010B697 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 18A52DC41FCBF451005A3B6E /* Project object */;
@@ -101,6 +111,7 @@
 			files = (
 				1876C08C249CFCE40010B697 /* BinaryTree.framework in Embed Frameworks */,
 				1876C0AD249D28290010B697 /* Utility.framework in Embed Frameworks */,
+				184F9BA3249F835700C61E05 /* DataStructure.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,6 +230,7 @@
 			files = (
 				1876C08B249CFCE40010B697 /* BinaryTree.framework in Frameworks */,
 				1876C0AC249D28290010B697 /* Utility.framework in Frameworks */,
+				184F9BA2249F835700C61E05 /* DataStructure.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +585,7 @@
 			dependencies = (
 				1876C08E249CFCE40010B697 /* PBXTargetDependency */,
 				1876C0AF249D28290010B697 /* PBXTargetDependency */,
+				184F9BA5249F835700C61E05 /* PBXTargetDependency */,
 			);
 			name = LeetCode;
 			productName = LeetCode;
@@ -802,6 +815,7 @@
 				18FF6AB92491CDAC00337E39 /* StringSolution.swift in Sources */,
 				18B4F34F2018546E00CDD3A9 /* RemoveElement.swift in Sources */,
 				18C702D62019E10B0097F051 /* PascalTriangle .swift in Sources */,
+				184F9BA6249F87C500C61E05 /* Array.swift in Sources */,
 				18B4F35720185B6400CDD3A9 /* MinCostClimbingStairs.swift in Sources */,
 				18C702D02019BD790097F051 /* MaximumSubarray.swift in Sources */,
 			);
@@ -814,6 +828,11 @@
 			isa = PBXTargetDependency;
 			target = 184F9B88249F803500C61E05 /* DataStructure */;
 			targetProxy = 184F9B93249F803500C61E05 /* PBXContainerItemProxy */;
+		};
+		184F9BA5249F835700C61E05 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 184F9B88249F803500C61E05 /* DataStructure */;
+			targetProxy = 184F9BA4249F835700C61E05 /* PBXContainerItemProxy */;
 		};
 		1876C08E249CFCE40010B697 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

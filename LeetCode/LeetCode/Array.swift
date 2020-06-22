@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import DataStructure
+
 
 class ArraySolution {
     //给定一个数组，将数组中的元素向右移动 k 个位置，其中 k 是非负数。
@@ -964,5 +966,73 @@ class ArraySolution {
             greatest = gcd(greatest,i)
         }
         return greatest > 1
+    }
+    
+    func trap1(_ heights: [Int]) -> Int {
+        var leftMax = 0,rightMax = 0
+        var i = 0, j = heights.count - 1
+        var res = 0
+        while i <= j {
+            if leftMax > rightMax {
+                res += min(0,rightMax - heights[i])
+                leftMax = max(leftMax, heights[i])
+                i += 1
+            } else {
+                res += min(0,leftMax - heights[i])
+                rightMax = max(rightMax, heights[i])
+                j -= 1
+            }
+        }
+        return res
+    }
+    
+    func basicCalculatorIV(_ expression: String, _ evalvars: [String], _ evalints: [Int]) -> [String] {
+        var dict = [Character: Int]()
+        for i in 0..<evalints.count {
+            dict[Character(evalvars[i])] = evalints[i]
+        }
+        var stack = [String]()
+        enum ComputeSign: String {
+            typealias RawValue = String
+            
+            case left = "("
+            case right = ")"
+            case mul = "*"
+            case plus = "+"
+            case minus = "-"
+        
+        }
+        var s = ""
+        for c in expression {
+            if c == Character(ComputeSign.left.rawValue) {
+                stack.append(s)
+                
+            }
+        }
+    }
+    
+}
+
+class CQueue {
+    
+    var stack1 = Stack<Int>()
+    var stack2 = Stack<Int>()
+    
+    init() {
+        
+    }
+    
+    func appendTail(_ value: Int) {
+        stack1.push(value)
+    }
+    
+    func deleteHead() -> Int {
+        if stack2.count > 0 {
+            return stack2.pop()!
+        }
+        while let i = stack1.pop() {
+            stack2.push(i)
+        }
+        return stack2.pop()!
     }
 }
