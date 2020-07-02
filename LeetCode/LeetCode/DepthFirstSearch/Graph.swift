@@ -389,5 +389,105 @@ class DFSSolution {
         return true
     }
     
+    func totalNQueues(_ N: Int) -> Int {
+        guard N > 3 else {
+            return 0
+        }
+        var totalCount = 0
+        var curArr = [(Int,Int)]()
+        
+        func compatable(_ x: Int, _ y: Int) -> Bool {
+            for p in curArr {
+                if p.0 - x == p.1 - y || p.0 == x || p.1 == y || p.0 - x == y - p.1 {
+                    return false
+                }
+            }
+            return true
+        }
+        func dfs(_ x: Int, _ y: Int) {
+            guard y < N else {
+                return
+            }
+            guard compatable(x, y) else {
+                return
+            }
+            curArr.append((x,y))
+            guard curArr.count < N else {
+                totalCount += 1
+                curArr.removeLast()
+                return
+            }
+            for i in 0..<N where i !=  x - 1 && i != x + 1{
+                dfs(i, y + 1)
+            }
+            curArr.removeLast()
+        }
+    
 
+        for i in 0..<N/2 {
+            dfs(i, 0)
+        }
+        totalCount *= 2
+        if N % 2 != 0 {
+            dfs(N / 2, 0)
+        }
+        return totalCount
+    }
+    
+    func solveNQueens(_ N: Int) -> [[String]] {
+        guard N > 0 else {
+            return []
+        }
+        guard N > 1 else {
+            return [["Q"]]
+        }
+        var totalCount = 0
+        var curArr = [(Int,Int)]()
+        var res = [[String]]()
+
+        func compatable(_ x: Int, _ y: Int) -> Bool {
+            for p in curArr {
+                if p.0 - x == p.1 - y || p.0 == x || p.1 == y || p.0 - x == y - p.1 {
+                    return false
+                }
+            }
+            return true
+        }
+        func dfs(_ x: Int, _ y: Int) {
+            guard y < N else {
+                return
+            }
+            guard compatable(x, y) else {
+                return
+            }
+            curArr.append((x,y))
+            guard curArr.count < N else {
+                totalCount += 1
+                var cur = [String]()
+                var s = ""
+                for p in curArr {
+                    for x in 0..<N {
+                        if p.0 == x {
+                            s += "Q"
+                        } else {
+                            s += "."
+                        }
+                    }
+                    cur.append(s)
+                    s = ""
+                }
+                res.append(cur)
+                curArr.removeLast()
+                return
+            }
+            for i in 0..<N where i !=  x - 1 && i != x + 1{
+                dfs(i, y + 1)
+            }
+            curArr.removeLast()
+        }
+        for i in 0..<N {
+            dfs(i, 0)
+        }
+        return res
+    }
 }

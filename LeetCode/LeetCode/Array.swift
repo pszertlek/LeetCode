@@ -1009,7 +1009,27 @@ class ArraySolution {
                 
             }
         }
+        return []
     }
+    
+//    func find132pattern(_ nums: [Int]) -> Bool {
+//        guard nums.count >= 3 else {
+//            return false
+//        }
+//        var stack = [Int]()
+//        var minum = [Int].init(repeating: 0, count: nums.count)
+//        minum[0] = nums[0]
+//        for i in 1..<nums.count {
+//            minum[i] = min(minum[i - 1],nums[i])
+//        }
+//        for j in stride(from: nums.count - 1, through: 0, by: -1) {
+//            if nums[j] > minum[j] {
+//                while !stack.isEmpty  && stack.last! <= minum[j] {
+//                    stack.removeLast()
+//                }
+//            }
+//        }
+//    }
     
 }
 

@@ -6,11 +6,14 @@ var str = "Hello, playground"
 
 //: [Next](@next)
 
-struct llll: ExpressibleByArrayLiteral {
-    associaltedtype ArrayLiteralElement = Int
-    var i: ArrayLiteralElement
+var i = 0b010101
+print(i)
 
-    public init(arrayLiteral elements: Self.ArrayLiteralElement) {
-        i = elements
-    }
-}
+i |= 1 << 1
+
+print(i)
+
+i &= 0xffff - 1 << 1
+String(1 << 4,radix: 2)
+
+let c = Character("5")

@@ -362,3 +362,119 @@ class PeekingIterator {
         return self.data.count > 0
     }
 }
+class Solution {
+    func maxSatisfaction(_ satisfaction: [Int]) -> Int {
+        let sa = satisfaction.sorted(by: >)
+        var presum = 0, ans = 0
+        for i in sa {
+            if presum + i > 0 {
+                presum += i
+                ans += presum
+            } else {
+                break
+            }
+        }
+        return ans
+    }
+    
+    func solveSudoku(_ board: inout [[Character]]) {
+        /*
+         1.以集合形式存储每行列和方格的数字
+         2.使用堆排序，按照集合中元素的个数递减排列每个方格
+         */
+        
+        let empty = Character(".")
+        struct Point: Hashable {
+            let x: Int
+            let y: Int
+            
+            func hash(into hasher: inout Hasher) {
+                hasher.combine(x)
+                hasher.combine(y)
+            }
+        }
+        var gridSets = [Int].init(repeating: 0, count: 9)
+        var rowSets = [Int].init(repeating: 0, count: 9)
+        var columnSets = [Int].init(repeating: 0, count: 9)
+        
+        func bitNumber(_ c: Character) -> Int {
+            return 1 << (c.hexDigitValue! - 1)
+        }
+        var arr = Set<Point>()
+
+        for y in 0..<9 {
+            for x in 0..<9 {
+                if board[y][x] != empty {
+                    gridSets[(y / 3) * 3 + x / 3] |= bitNumber(board[y][x])
+                    rowSets[y] |= bitNumber(board[y][x])
+                    columnSets[x] |= bitNumber(board[y][x])
+                    let z = (gridSets[y / 3 + x / 3] | rowSets[y] | columnSets[x])
+                    if z.nonzeroBitCount == 9 {
+                        fatalError()
+                    }
+                } else {
+                    arr.insert(Point(x: x, y: y))
+                }
+            }
+        }
+        
+        let sortedArr = arr.sorted(by: { p1, p2 in
+            let set1 = gridSets[p1.x / 3 + (p1.y / 3) * 3] | rowSets[p1.y] | columnSets[p1.x]
+            let set2 = gridSets[p2.x / 3 + (p2.y / 3) * 3] | rowSets[p2.y] | columnSets[p2.x]
+            var count1 = 0
+            var count2 = 0
+            
+            for i in 0..<9 {
+                if 1 << i & set1 != 0 {
+                    count1 += 1
+                }
+                if 1 << i & set2 != 0 {
+                    count2 += 1
+                }
+            }
+            return count1 > count2
+        })
+
+        var isFinished = false
+        func dfs(_ index: Int) {
+            if index == arr.count {
+                isFinished = true
+                return
+            }
+            let x = sortedArr[index].x
+            let y = sortedArr[index].y
+            
+            if board[y][x] == empty {
+                let set = gridSets[x / 3 + (y / 3) * 3] | rowSets[y] | columnSets[x]
+                var count = 0
+                for i in 0..<9 where set & 1 << i == 0 {
+                    count += 1
+                    if !isFinished {
+                        
+                        board[y][x] = Character("\(i + 1)")
+                        rowSets[y] |= 1 << i
+                        columnSets[x] |= 1 << i
+                        gridSets[(y / 3) * 3 + x / 3] |= 1 << i
+                        dfs(index + 1)
+                        if isFinished {
+                            return
+                        }
+                        board[y][x] = empty
+                        rowSets[y] &= 0xffff - 1 << i
+                        columnSets[x] &= 0xffff - 1 << i
+                        gridSets[(y / 3) * 3 + x / 3] &= 0xffff - 1 << i
+                    }
+                }
+//                if count == 0 && board[y][x] != empty {
+//                    dfs(index + 1)
+//                }
+            }
+        }
+        dfs(0)
+    }
+    
+    func maxScoreWords(_ words: [String], _ letters: [Character], _ score: [Int]) -> Int {
+        var letterCount = [Character: Int]()
+        var wordCount = 
+    }
+}
