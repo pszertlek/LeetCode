@@ -473,8 +473,247 @@ class Solution {
         dfs(0)
     }
     
-    func maxScoreWords(_ words: [String], _ letters: [Character], _ score: [Int]) -> Int {
-        var letterCount = [Character: Int]()
-        var wordCount = 
+    func myPow(_ x: Double, _ n: Int) -> Double {
+        var res: Double = 1.0
+        var n = n
+        if n < 0 {
+            n = -n
+        }
+        var x = x
+        while n != 0 {
+            if n & 1 == 1 {
+                res *= x
+            }
+            n >>= 1
+            x *= x
+        }
+        return res
+        
+    }
+    
+    func findContinuousSequence(_ target: Int) -> [[Int]] {
+        var res = [[Int]]()
+        var i = 2
+        while i < target {
+            let sum = target + target
+            if sum % i == 0 {
+                let j = target / i
+                let start = j - i / 2
+                let end = start + i - 1
+                if start > 0 && start + end == sum / i {
+                    res.append([Int].init(start...end))
+                } else if start + end + 2 == sum / i {
+                    res.append([Int].init(start+1...end+1))
+                }
+            }
+            i += 1
+            if target / i - i / 2 < 0 {
+                break
+            }
+        }
+        return res
+    }
+    
+    func maxSlidingWindow(_ nums: [Int], _ k: Int) -> [Int] {
+        var queue = [Int]()
+        func enqueue(_ i: Int) {
+            while let lastIndex = queue.last {
+                if nums[lastIndex] >= nums[i] {
+                    break
+                } else {
+                    queue.removeLast()
+                }
+            }
+            queue.append(i)
+        }
+        var res: [Int] = []
+        for i in 0..<nums.count {
+            if i < k - 1 {
+                enqueue(i)
+            } else {
+                enqueue(i)
+                res.append(nums[queue.first!])
+                if queue.first! == i - k + 1 {
+                    queue.removeFirst()
+                }
+            }
+        }
+        return res
+    }
+    
+    func constructArr(_ a: [Int]) -> [Int] {
+        var res = [Int].init(repeating: 1, count: a.count)
+        var left = 1
+        for i in 0..<a.count {
+            res[i] = left
+            left = left * a[i]
+        }
+        var right = 1
+        for i in stride(from: a.count - 1, through: 0, by: -1)  {
+            res[i] *= right
+            right *= a[i]
+        }
+        return res
+    }
+    
+    func search(_ nums: [Int], _ target: Int) -> Int {
+
+        enum ComparisonResult {
+            case orderedSame, orderedDescending, orderedAscending
+        }
+        func binarySearch(_ left: Int, _ right: Int, _ comparator: (Int, Int) -> ComparisonResult) -> Int {
+            var left = left, right = right
+            while left < right {
+                let mid = (left + right) / 2
+                let compareResult = comparator(mid, target)
+                switch compareResult {
+                    case .orderedAscending:
+                    left = mid + 1
+                    case .orderedDescending:
+                    right = mid - 1
+                    case .orderedSame:
+                    return mid
+                }
+            }
+            return nums[left] == target ?  left : -1
+        }
+        let leftIndex = binarySearch(0, nums.count - 1) { (mid, target) -> ComparisonResult in
+            if target == nums[mid] {
+                if mid > 0 {
+                    if target == nums[mid - 1] {
+                        return .orderedDescending
+                    } else {
+                        return .orderedSame
+                    }
+                } else {
+                    return .orderedSame
+                }
+            } else if target > nums[mid] {
+                return .orderedAscending
+            } else {
+                return .orderedDescending
+            }
+        }
+        guard leftIndex != -1 else {
+            return 0
+        }
+        let rightIndex = binarySearch(leftIndex, nums.count - 1) { (mid, target) -> ComparisonResult in
+            if target == nums[mid] {
+                if mid < nums.count - 1 {
+                    if target == nums[mid + 1] {
+                        return .orderedAscending
+                    } else {
+                        return .orderedSame
+                    }
+                } else {
+                    return .orderedSame
+                }
+            } else if target > nums[mid] {
+                return .orderedAscending
+            } else {
+                return .orderedDescending
+            }
+        }
+        return rightIndex - leftIndex  + 1
+    }
+    
+    func replaceSpaces(_ S: String, _ length: Int) -> String {
+        return String(S.prefix(length).replacingOccurrences(of: " ", with: "%20"))
+    }
+    
+    func reverseWords(_ s: String) -> String {
+        return s.components(separatedBy: " ").reversed().filter { return $0.count > 0 }.joined(separator: " ")
+    }
+    
+    func missingNumber(_ nums: [Int]) -> Int {
+        let N = nums.count
+        var res = 0
+        for i in 0...N {
+            res ^= i
+        }
+        for i in nums {
+            res ^= i
+        }
+        return res
+    }
+    
+    func strToInt(_ str: String) -> Int {
+        let set = Set<Character>("+-0123456789")
+        var res = 0
+        var sign = 0
+        func zz() -> Int {
+            if sign == 1 {
+                return res > Int(Int32.max) ? Int(Int32.max) : res
+            } else if sign == -1 {
+                return res * sign < Int(Int32.min) ? Int(Int32.min) : res * sign
+            }
+            return 0
+        }
+        for c in str {
+            if res > Int(Int32.max) {
+                return zz()
+            } else if !set.contains(c) {
+                if (c == Character(" ") && sign == 0)  {
+                                        
+                } else {
+                    return zz()
+                }
+            } else if c == Character("+") || c == Character("-") {
+                if sign == 0 && res == 0 {
+                    sign = c == Character("-") ? -1 : 1
+ 
+                } else {
+                    return zz()
+                }
+            }  else {
+                sign = sign == 0 ? 1 : sign
+                res = res * 10 + c.hexDigitValue!
+            }
+        }
+        
+        return zz()
+    }
+    
+    func findSubstring(_ s: String, _ words: [String]) -> [Int] {
+        let length = words[0].count
+        var start = 0
+        let str = [Character].init(s)
+        var all = [String: Int]()
+        for word in words {
+            all[word, default: 0] += 1
+        }
+        var cur = all
+        var res = [Int]()
+        while start + words.count * length <= s.count {
+            for i in 0..<words.count {
+                let curWord = String(str[start+(i * length)..<start+(i + 1)*length])
+                if let count = cur[curWord] {
+                    cur[curWord] = count - 1 == 0 ? nil : count - 1
+                } else {
+                    break
+                }
+                if cur.count == 0 {
+                    res.append(start)
+                }
+            }
+            start += 1
+            cur = all
+        }
+        return res
+    }
+    
+    func longestValidParentheses(_ s: String) -> Int {
+        var stack = [Bool]()
+        let left = Character("("), right = Character(")")
+        var str = [Character].init(s)
+        var count = 0
+        for i in 0..<s.count {
+            if str[i] == left {
+                stack.append(true)
+            } else {
+                stack.append(false)
+            }
+            
+        }
     }
 }

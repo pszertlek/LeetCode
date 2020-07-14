@@ -373,5 +373,37 @@ extension TreeNode where T: Comparable {
 //        return nums
 //    }
 
+
 }
 
+extension TreeNode where T == Int {
+    public func buildTree(_ preorder: [Int], _ inorder: [Int]) -> TreeNode? {
+        guard preorder.count > 0 else {
+            return nil
+        }
+        var rootIndex = 0
+        func build(_ left: Int, _ right: Int) -> TreeNode? {
+            guard left <= right else {
+                return nil
+            }
+            let rootVal = preorder[rootIndex]
+            var midIndex = -1
+            for i in left...right {
+                if inorder[i] == rootVal {
+                    midIndex = i
+                    break
+                }
+            }
+            if midIndex == -1 {
+                return nil
+            } else {
+                let root = TreeNode<Int>(rootVal)
+                rootIndex += 1
+                root.left = build(left, midIndex - 1)
+                root.right = build(midIndex + 1, right)
+                return root
+            }
+        }
+        return build(0, preorder.count - 1)
+    }
+}

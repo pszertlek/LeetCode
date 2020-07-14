@@ -490,4 +490,112 @@ class DFSSolution {
         }
         return res
     }
+    
+    func exist(_ board: [[Character]], _ word: String) -> Bool {
+        guard board.count > 0 else {
+            return word.count == 0
+        }
+        guard board[0].count > 0 else {
+            return word.count == 0
+        }
+        let W = board[0].count
+        let H = board.count
+        let word = [Character].init(word)
+        var visited = [[Bool]].init(repeating: [Bool].init(repeating: false, count: W), count: H)
+        func dfs(_ x: Int, _ y: Int, _ index: Int) -> Bool {
+            guard index < word.count else {
+                return true
+            }
+
+            guard x >= 0 && y >= 0 && x < W && y < H && !visited[y][x] && word[index] == board[y][x] else {
+                return false
+            }
+
+            visited[y][x] = true
+            var res = dfs(x + 1, y, index + 1)
+            if !res {
+                res = dfs(x - 1, y, index + 1)
+            }
+            if !res {
+                res = dfs(x, y + 1, index + 1)
+            }
+            if !res {
+                res = dfs(x, y - 1, index + 1)
+            }
+            visited[y][x] = false
+            return res
+        }
+        for y in 0..<H {
+            for x in 0..<W {
+                if dfs(x, y, 0) {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
+    func movingCount(_ m: Int, _ n: Int, _ k: Int) -> Int {
+        var movingSet = Set<Int>()
+        
+        func unitSum(_ x: Int) -> Int {
+            var res = 0
+            var x = x
+            while x > 0 {
+                res += x % 10
+                x /= 10
+            }
+            return res
+        }
+        
+        func dfs(_ x: Int, _ y: Int) -> Int {
+            guard x >= 0 && y >= 0 && x < m && y < n && !movingSet.contains(x + y * 100) else {
+                return 0
+            }
+            movingSet.insert(x + y * 100)
+            let sum = unitSum(x) + unitSum(y)
+            var res = 0
+            if sum <= k {
+                res = dfs(x + 1, y)
+                res += dfs(x - 1, y)
+                res += dfs(x, y + 1)
+                res += dfs(x, y - 1)
+                res += 1
+            }
+            return res
+        }
+        
+        return dfs(0, 0)
+    }
+    
+    func cuttingRope(_ n: Int) -> Int {
+        func pow(_ x: Int, _ y: Int) -> Int {
+            var res = 1
+            var y = y
+            while y > 0 {
+                res *= x
+                res %= 1000000007
+                y -= 1
+            }
+            return res
+        }
+        if (n < 4) {return n - 1 };
+        let a = n / 3
+        let b = n % 3
+        if (b == 0) {
+            return pow(3, a) % 1000000007
+
+        }
+        if (b == 1) {
+            return pow(3, a-1) * 4 % 1000000007
+
+        }
+        if (b == 2) {
+            return pow(3, a) * 2 % 1000000007
+
+        }
+        return a;
+    }
+    
+
 }

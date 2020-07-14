@@ -15,6 +15,7 @@
 		184394CE221FC25F00B8509A /* BitCompute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394CD221FC25F00B8509A /* BitCompute.swift */; };
 		184394D12223F30700B8509A /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394D02223F30700B8509A /* Heap.swift */; };
 		184394D42225349500B8509A /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394D32225349500B8509A /* Graph.swift */; };
+		184F686524AF6F9000DB5065 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184F686424AF6F9000DB5065 /* main.cpp */; };
 		184F9B92249F803500C61E05 /* DataStructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184F9B89249F803500C61E05 /* DataStructure.framework */; };
 		184F9B97249F803500C61E05 /* DataStructureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F9B96249F803500C61E05 /* DataStructureTests.swift */; };
 		184F9B99249F803500C61E05 /* DataStructure.h in Headers */ = {isa = PBXBuildFile; fileRef = 184F9B8B249F803500C61E05 /* DataStructure.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -103,6 +104,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		184F686024AF6F9000DB5065 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		1876C08F249CFCE40010B697 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -137,6 +147,8 @@
 		184394CD221FC25F00B8509A /* BitCompute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitCompute.swift; sourceTree = "<group>"; };
 		184394D02223F30700B8509A /* Heap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
 		184394D32225349500B8509A /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		184F686224AF6F9000DB5065 /* LeetcodeCpp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LeetcodeCpp; sourceTree = BUILT_PRODUCTS_DIR; };
+		184F686424AF6F9000DB5065 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		184F9B89249F803500C61E05 /* DataStructure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataStructure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		184F9B8B249F803500C61E05 /* DataStructure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataStructure.h; sourceTree = "<group>"; };
 		184F9B8C249F803500C61E05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -188,6 +200,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		184F685F24AF6F9000DB5065 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		184F9B86249F803500C61E05 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -284,6 +303,14 @@
 			path = DepthFirstSearch;
 			sourceTree = "<group>";
 		};
+		184F686324AF6F9000DB5065 /* LeetcodeCpp */ = {
+			isa = PBXGroup;
+			children = (
+				184F686424AF6F9000DB5065 /* main.cpp */,
+			);
+			path = LeetcodeCpp;
+			sourceTree = "<group>";
+		};
 		184F9B8A249F803500C61E05 /* DataStructure */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +384,7 @@
 				1876C0A3249D26D80010B697 /* Utility */,
 				184F9B8A249F803500C61E05 /* DataStructure */,
 				184F9B95249F803500C61E05 /* DataStructureTests */,
+				184F686324AF6F9000DB5065 /* LeetcodeCpp */,
 				18A52DCD1FCBF451005A3B6E /* Products */,
 				1876C08A249CFCE40010B697 /* Frameworks */,
 			);
@@ -372,6 +400,7 @@
 				1876C0A2249D26D80010B697 /* Utility.framework */,
 				184F9B89249F803500C61E05 /* DataStructure.framework */,
 				184F9B91249F803500C61E05 /* DataStructureTests.xctest */,
+				184F686224AF6F9000DB5065 /* LeetcodeCpp */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -481,6 +510,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		184F686124AF6F9000DB5065 /* LeetcodeCpp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 184F686824AF6F9000DB5065 /* Build configuration list for PBXNativeTarget "LeetcodeCpp" */;
+			buildPhases = (
+				184F685E24AF6F9000DB5065 /* Sources */,
+				184F685F24AF6F9000DB5065 /* Frameworks */,
+				184F686024AF6F9000DB5065 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LeetcodeCpp;
+			productName = LeetcodeCpp;
+			productReference = 184F686224AF6F9000DB5065 /* LeetcodeCpp */;
+			productType = "com.apple.product-type.tool";
+		};
 		184F9B88249F803500C61E05 /* DataStructure */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 184F9B9A249F803500C61E05 /* Build configuration list for PBXNativeTarget "DataStructure" */;
@@ -619,6 +665,10 @@
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = Pszertlek;
 				TargetAttributes = {
+					184F686124AF6F9000DB5065 = {
+						CreatedOnToolsVersion = 11.5;
+						ProvisioningStyle = Automatic;
+					};
 					184F9B88249F803500C61E05 = {
 						CreatedOnToolsVersion = 11.5;
 						LastSwiftMigration = 1150;
@@ -671,6 +721,7 @@
 				1876C0A1249D26D80010B697 /* Utility */,
 				184F9B88249F803500C61E05 /* DataStructure */,
 				184F9B90249F803500C61E05 /* DataStructureTests */,
+				184F686124AF6F9000DB5065 /* LeetcodeCpp */,
 			);
 		};
 /* End PBXProject section */
@@ -721,6 +772,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		184F685E24AF6F9000DB5065 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				184F686524AF6F9000DB5065 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		184F9B85249F803500C61E05 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -847,6 +906,31 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		184F686624AF6F9000DB5065 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WEZ4TNATDY;
+				ENABLE_HARDENED_RUNTIME = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		184F686724AF6F9000DB5065 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WEZ4TNATDY;
+				ENABLE_HARDENED_RUNTIME = YES;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		184F9B9B249F803500C61E05 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1257,6 +1341,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		184F686824AF6F9000DB5065 /* Build configuration list for PBXNativeTarget "LeetcodeCpp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				184F686624AF6F9000DB5065 /* Debug */,
+				184F686724AF6F9000DB5065 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		184F9B9A249F803500C61E05 /* Build configuration list for PBXNativeTarget "DataStructure" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
