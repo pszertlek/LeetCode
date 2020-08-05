@@ -9,6 +9,13 @@
 import Foundation
 import BinaryTree
 
-print(Solution().findSubstring("barfoothefoobarman", ["foo","bar"]))
-print(Solution().findSubstring("wordgoodgoodgoodbestword",
-                               ["word","good","best","good"]))
+//print(TreeNode(0).recoverFromPreorder("1-2--3--4-5--6--7"))
+//print(TreeNode(0).recoverFromPreorder("1-2--3---4-5--6---7"))
+print(TreeNode(0).recoverFromPreorder("1-401--349---90--88"))
+struct ABC: Codable {
+    var a = "1"
+    var b = "2"
+}
+let zzz = ABC()
+
+UserDefaults.standard.set(try! JSONEncoder().encode(zzz), forKey: "fsadfasd")

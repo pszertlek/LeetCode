@@ -374,6 +374,7 @@ extension TreeNode where T: Comparable {
 //    }
 
 
+
 }
 
 extension TreeNode where T == Int {
@@ -405,5 +406,78 @@ extension TreeNode where T == Int {
             }
         }
         return build(0, preorder.count - 1)
+    }
+    
+    public func recoverFromPreorder(_ S: String) -> TreeNode? {
+        let s = [Character](S)
+        var levelDict = [Int:[TreeNode]]()
+        var num = 0
+        let shortLine = Character("-")
+        var curLevel = 0, newLevel = 0
+        for i in 0..<s.count {
+            if s[i] == shortLine {
+                if newLevel == 0 {
+                    let newNode = TreeNode(num)
+                    levelDict[curLevel,default:[]].append(newNode)
+                    if curLevel > 0 {
+                        let node = levelDict[curLevel - 1]!.last!
+                        if node.left == nil {
+                            node.left = newNode
+                        } else {
+                            node.right = newNode
+                        }
+                    }
+                    num = 0
+                }
+                newLevel += 1
+            } else {
+                if newLevel != 0 {
+                    curLevel = newLevel
+                    newLevel = 0
+                }
+                num = num * 10 + s[i].hexDigitValue!
+            }
+        }
+        let newNode = TreeNode(num)
+        levelDict[curLevel,default:[]].append(newNode)
+        if curLevel > 0 {
+            let node = levelDict[curLevel - 1]!.last!
+            if node.left == nil {
+                node.left = newNode
+            } else {
+                node.right = newNode
+            }
+        }
+        return levelDict[0]![0]
+    }
+    
+    public func recoverFromPreorder1(_ S: String) -> TreeNode? {
+        var path = [TreeNode]()
+        var pos = 0
+        let s = [Character](S)
+        while pos < s.count {
+            var level = 0
+            while s[pos] == Character("-") {
+                level += 1
+                pos += 1
+            }
+            var value = 0
+            while pos < s.count {
+                value += value * 10 + s[pos].hexDigitValue!
+                pos += 1
+            }
+            let node = TreeNode(value)
+            if level == path.count {
+                if let top = path.last {
+                    top.left = node
+                }
+            } else {
+                while level != path.count {
+                    path.popLast()
+                }
+                path.last!.right = node
+            }
+        }
+        return path.first!
     }
 }

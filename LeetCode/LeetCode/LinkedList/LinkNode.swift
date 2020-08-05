@@ -9,7 +9,7 @@
 import Foundation
 import BinaryTree
 
-public class MyLinkedList:CustomStringConvertible {
+public class MyLinkedList: CustomStringConvertible {
     var node: ListNode?
     
     public var description: String {

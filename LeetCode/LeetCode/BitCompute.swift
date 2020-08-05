@@ -702,18 +702,135 @@ class Solution {
         return res
     }
     
-    func longestValidParentheses(_ s: String) -> Int {
-        var stack = [Bool]()
-        let left = Character("("), right = Character(")")
-        var str = [Character].init(s)
-        var count = 0
-        for i in 0..<s.count {
-            if str[i] == left {
-                stack.append(true)
+    func numTrees(_ n: Int) -> Int {
+        guard n > 1 else {
+            return 1
+        }
+        var dp = [Int].init(repeating: 0, count: n + 1)
+        dp[0] = 1
+        dp[1] = 1
+        
+        for i in 2...n {
+            for j in 0..<i {
+                dp[i] += dp[i - 1 - j] * dp[j]
+            }
+        }
+        return dp[n]
+        
+    }
+
+    
+    func searchInsert(_ nums: [Int], _ target: Int) -> Int {
+        var left = 0, right = nums.count - 1, ans = nums.count
+        while left <= right {
+            let mid = (right + left) >> 1
+            if target <= nums[mid] {
+                ans = mid
+                right = mid - 1
             } else {
-                stack.append(false)
+                left = mid + 1
+            }
+        }
+        return ans
+
+    }
+}
+
+
+struct HardSolution {
+    func isMatch(_ s: String, _ p: String) -> Bool {
+        let kDot = Character("."), kStar = Character("*")
+        enum MatchPattern: Equatable {
+            case dot
+            case star(Character)
+            case alpha(Character)
+            
+            
+            init(_ c: Character) {
+                if c == Character(".") {
+                    self = .dot
+                } else if c == Character("*") {
+                    self = .star(c)
+                } else {
+                    self = .alpha(c)
+                }
             }
             
+            mutating func change(_ c: Character) {
+                self = .star(c)
+            }
         }
+        let s = [Character](s)
+        let p = [Character](p)
+        var stack = [MatchPattern]()
+        for i in 0..<p.count {
+            let pattern = MatchPattern(p[i])
+            switch pattern {
+            case .dot:
+                stack.append(.dot)
+            case .star:
+                
+                if let last = stack.last {
+                    switch last {
+                    case .dot:
+                        stack.removeLast()
+                        stack.append(.star(kDot))
+                    case .star:
+                        return false
+                    case let .alpha(c):
+                        stack.removeLast()
+                        stack.append(.star(c))
+                    }
+                } else {
+                    return false
+                }
+            case .alpha:
+                stack.append(pattern)
+            }
+        }
+        
+        var i = 0, j = 0
+        while i < s.count {
+            if j < stack.count {
+                let pattern = stack[j]
+                switch pattern {
+                case let .alpha(c):
+                    if c == s[i] {
+                        i += 1
+                        j += 1
+                    } else {
+                        if j > 0 {
+                            if case let MatchPattern.alpha(cc) = stack[j - 1], cc == c {
+                                
+                            }
+                        }
+                        return false
+                    }
+                case .dot:
+                    stack.removeFirst()
+                    i += 1
+                case let .star(c):
+                    if c == s[i] || c == kDot {
+                        i += 1
+                    } else {
+                        stack.removeFirst()
+                    }
+                }
+            } else {
+                return false
+            }
+        }
+        while j < s.count{
+            let pattern = stack[j]
+            switch pattern {
+            case .alpha:
+                return false
+            case .dot:
+                return false
+            case .star:
+                j += 1
+            }
+        }
+        return true
     }
 }

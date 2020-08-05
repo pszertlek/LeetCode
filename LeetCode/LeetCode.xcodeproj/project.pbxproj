@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1806A650225C8A2000369540 /* DoubleNodeSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1806A64F225C8A2000369540 /* DoubleNodeSolution.swift */; };
+		1811A12824D1728A00429866 /* MatrixProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1811A12724D1728A00429866 /* MatrixProblem.swift */; };
 		18289BFB222CF2E100184949 /* Dijkstra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18289BFA222CF2E100184949 /* Dijkstra.swift */; };
 		184394C6221BE18A00B8509A /* BinarySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394C5221BE18A00B8509A /* BinarySearch.swift */; };
 		184394CA221BE1A500B8509A /* LinkNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394C9221BE1A500B8509A /* LinkNode.swift */; };
@@ -139,6 +140,7 @@
 
 /* Begin PBXFileReference section */
 		1806A64F225C8A2000369540 /* DoubleNodeSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleNodeSolution.swift; sourceTree = "<group>"; };
+		1811A12724D1728A00429866 /* MatrixProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixProblem.swift; sourceTree = "<group>"; };
 		18289BFA222CF2E100184949 /* Dijkstra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dijkstra.swift; sourceTree = "<group>"; };
 		184394C5221BE18A00B8509A /* BinarySearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinarySearch.swift; sourceTree = "<group>"; };
 		184394C7221BE19C00B8509A /* TreeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 			isa = PBXGroup;
 			children = (
 				18A52DCF1FCBF451005A3B6E /* main.swift */,
+				1811A12724D1728A00429866 /* MatrixProblem.swift */,
 				184394CD221FC25F00B8509A /* BitCompute.swift */,
 				1850196D227E7C9D009DA33F /* HashSolution.swift */,
 				1850196F228280ED009DA33F /* RedBlackTree.swift */,
@@ -828,6 +831,7 @@
 				184394D42225349500B8509A /* Graph.swift in Sources */,
 				18A52DDB1FCC0615005A3B6E /* MergeSortedArray.swift in Sources */,
 				18A5B86C20173E37003623BB /* RemoveElement.swift in Sources */,
+				1811A12824D1728A00429866 /* MatrixProblem.swift in Sources */,
 				18A52DD71FCBF6BC005A3B6E /* LC2Sum.swift in Sources */,
 				18D7B5561FCE9D4E00D7AF18 /* MaxAreaOfIsland.swift in Sources */,
 				1850196E227E7C9D009DA33F /* HashSolution.swift in Sources */,
