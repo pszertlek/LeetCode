@@ -1584,3 +1584,23 @@ class SolutionSort {
     }
 }
 
+class StackSolution {
+    func hanota(_ A: inout [Int], _ B: inout [Int], _ C: inout [Int]) {
+        move(A.count, &A, &B, &C)
+        
+    }
+    
+    func move(_ n: Int, _ A: inout [Int], _ B: inout [Int], _ C: inout [Int]) {
+        if n == 1 {
+            move(&A, &C)
+        }
+        move(n - 1, &A, &C, &B)
+        move(&A, &C)
+        move(n - 1, &B, &A, &C)
+        
+    }
+    
+    func move(_ from: inout [Int], _ to: inout [Int]) {
+        to.append(from.removeLast())
+    }
+}

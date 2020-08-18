@@ -423,4 +423,20 @@ class BinarySearch {
             }
         }
     }
+    
+    func findMagicIndex(_ nums: [Int]) -> Int {
+        var res = 0, N = nums.count
+        while res < N {
+            if res < nums[res] {
+                res = nums[res]
+            } else if res == nums[res] {
+                return res
+            } else {
+                res += 1
+            }
+        }
+        return -1
+    }
+    
+    
 }

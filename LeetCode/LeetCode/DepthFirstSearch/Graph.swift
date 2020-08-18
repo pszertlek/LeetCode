@@ -597,5 +597,42 @@ class DFSSolution {
         return a;
     }
     
+    func floodFill(_ image: [[Int]], _ sr: Int, _ sc: Int, _ newColor: Int) -> [[Int]] {
+        let H = image.count
+        guard H > 0 else {
+            return image
+        }
+        let W = image[0].count
+        guard W > 0 else {
+            return image
+        }
+        var res = image
+        var visited = [[Bool]].init(repeating: [Bool].init(repeating: true, count: W), count: H)
+        let y = sr, x = sc, orignalColor = image[y][x]
+
+        var queue = [(y,x)]
+        while queue.count > 0 {
+            var newQueue = [(Int,Int)]()
+            for p in queue {
+                res[p.0][p.1] = newColor
+                visited[p.0][p.1] = false
+                if p.0 + 1 < H && visited[p.0 + 1][p.1] && res[p.0 + 1][p.1] == orignalColor {
+                    newQueue.append((p.0 + 1, p.1))
+                }
+                if p.1 + 1 < W && visited[p.0][p.1 + 1] && res[p.0][p.1 + 1] == orignalColor {
+                    newQueue.append((p.0, p.1 + 1))
+                }
+                if p.0 - 1 >= 0 && visited[p.0 - 1][p.1] && res[p.0 - 1][p.1] == orignalColor {
+                    newQueue.append((p.0 - 1, p.1))
+                }
+                if p.1 - 1 >= 0 && visited[p.0][p.1 - 1] && res[p.0][p.1 - 1] == orignalColor {
+                    newQueue.append((p.0, p.1 - 1))
+                }
+            }
+            queue = newQueue
+        }
+        return res
+    }
+
 
 }

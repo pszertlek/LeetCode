@@ -986,6 +986,44 @@ class ArraySolution {
         return res
     }
     
+    
+    func firstUniqChar(_ s: String) -> Int {
+        var index = [Int].init(repeating: -2, count: 26)
+        let ss = [Character](s)
+        let aAsicii = Character("a").asciiValue!
+        for i in 0..<s.count {
+            if index[Int(ss[i].asciiValue! - aAsicii)] == -2 {
+                index[Int(ss[i].asciiValue! - aAsicii)] = i
+            } else {
+                index[Int(ss[i].asciiValue! - aAsicii)] = -1
+            }
+        }
+        var res = s.count
+        for i in index {
+            if i >= 0 {
+                res = min(i, res)
+            }
+        }
+        return res == s.count ? -1 : res
+    }
+
+    func isAnagram(_ s: String, _ t: String) -> Bool {
+        guard s.count == t.count else {
+            return false
+        }
+        let aAsicii = Character("a").asciiValue!
+        var arr1 = [Int].init(repeating: 0, count: 26), arr2 = [Int].init(repeating: 0, count: 26)
+        let s = [Character](s), t = [Character](s)
+        for c in s {
+            arr1[Int(c.asciiValue! - aAsicii)] += 1
+        }
+        
+        for c in t {
+            arr2[Int(c.asciiValue! - aAsicii)] += 1
+        }
+        return arr1 == arr2
+    }
+    
     func basicCalculatorIV(_ expression: String, _ evalvars: [String], _ evalints: [Int]) -> [String] {
         var dict = [Character: Int]()
         for i in 0..<evalints.count {
@@ -1031,6 +1069,66 @@ class ArraySolution {
 //        }
 //    }
     
+//    func minWindow(_ s: String, _ t: String) -> String {
+//        var targetDict = [Character: Int]()
+//        for c in t {
+//            targetDict[c,default: 0] += 1
+//        }
+//        var curDict = [Character: [Int]]()
+//        var ss = [Character](s)
+//        var i = 0
+//        while i < s.count {
+//            if targetDict[ss[i]] != nil {
+//                break
+//            }
+//            i += 1
+//        }
+//        while i < s.count {
+//
+//        }
+//    }
+    
+    func gameOfLife(_ board: inout [[Int]]) {
+        guard board.count > 0 && board[0].count > 0 else {
+            return
+        }
+        let m = board.count
+        let n = board[0].count
+        
+        
+        func liveCount(_ x: Int, _ y: Int) -> Int {
+            var count = 0
+            for i in -1...1 {
+                for j in -1...1 {
+                    let yy = y + i, xx = x + j
+                    count += (xx < 0 || yy >= m || xx >= n || yy < 0) ? 0 : board[yy][xx]
+                }
+            }
+            return count - board[y][x]
+        }
+        
+        func backTrack(_ x: Int, _ y: Int) {
+            guard y < m else {
+                return
+            }
+            var toBe = board[y][x]
+            let count = liveCount(x, y)
+            if board[y][x] == 1 {
+                if count > 3 || count < 2 {
+                    toBe = 0
+                }
+            } else {
+                if count == 3 {
+                    toBe = 1
+                }
+            }
+            let nextX = (x + 1) == n ? 0 : x + 1
+            let nextY = nextX == 0 ? y + 1 : y
+            backTrack(nextX, nextY)
+            board[y][x] = toBe
+        }
+        backTrack(0, 0)
+    }
 }
 
 class CQueue {
@@ -1055,4 +1153,6 @@ class CQueue {
         }
         return stack2.pop()!
     }
+    
+    
 }
