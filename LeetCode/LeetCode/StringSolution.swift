@@ -17,7 +17,7 @@ class StringSolution {
         s1.removeLast()
         s2.removeLast()
         s3.removeLast()
-
+        
         let dp111 = [Bool].init(repeating: false, count: s2.count + 1)
         var dp = [[Bool]].init(repeating: dp111, count: s1.count + 1)
         dp[0][0] = true
@@ -394,110 +394,82 @@ class StringSolution {
         huishuoss(ip: [], count: 0)
         return result
     }
+
+    func repeatedSubstringPattern(_ s: String) -> Bool {
+        let N = s.count
+        guard N > 1 else {
+            return false
+        }
+        var sub = [Character]()
+        sub.append(s.first!)
+        let s = [Character](s)
+        var i = 1
+        while i < N {
+            if s[i] != sub[i % sub.count] {
+                var j = sub.count
+                while j < N / 2 {
+                    if N % (j + 1) == 0 {
+                        sub.append(contentsOf: s[sub.count...j])
+                        i = j + 1
+                        break
+                    } else {
+                        j += 1
+                    }
+                }
+                if j == sub.count || (s.count % 2 == 1 && j == s.count / 2) {
+                    return false
+                }
+            } else {
+                i += 1
+            }
+            
+        }
+        return true
+    }
+    
+    func findItinerary(_ tickets: [[String]]) -> [String] {
+        var dict = [String: PriorityQueue<String>]()
+        var res = [String]()
+        for ticket in tickets {
+            dict[ticket[0],default: PriorityQueue<String>.init(sort: <)].enqueue(element: ticket[1])
+        }
+
+        func dfs(_ curr: String) {
+            while dict.keys.contains(curr) && dict[curr,default: PriorityQueue<String>.init(sort: <)].count > 0 {
+                if let tmp = dict[curr]?.dequeue() {
+                    dfs(tmp)
+                }
+            }
+            res.append(curr)
+        }
+        dfs("JFK")
+        return res.reversed()
+    }
+    
+    func findItinerary_arr(_ tickets: [[String]]) -> [String] {
+        var dict = [String: [String]]()
+        var indexDict = [String: Int]()
+        
+        for ticket in tickets {
+            dict[ticket[0],default: []].append(ticket[1])
+            indexDict[ticket[0]] = 0
+        }
+        for key in dict.keys {
+            dict[key]?.sort()
+        }
+        var res: [String] = []
+        func dfs(_ curr: String) {
+            while let arr = dict[curr],
+                  let index = indexDict[curr],
+                  index < arr.count {
+                let tmp = arr[index]
+                indexDict[curr] = index + 1
+                dfs(tmp)
+            }
+            res.append(curr)
+        }
+        dfs("JFK")
+        return res.reversed()
+    }
 }
 
-class LRUCache: CustomStringConvertible {
-    class Item: Comparable, CustomStringConvertible {
-        static func == (lhs: LRUCache.Item, rhs: LRUCache.Item) -> Bool {
-            return lhs.val == rhs.val
-        }
-        var key: Int
-        var val: Int
-        var pre: Item?
-        var next: Item?
-        init(_ val: Int, _ key: Int) {
-            self.val = val
-            self.key = key
-        }
-        
-        static func < (lhs: Item, rhs: Item) -> Bool {
-            return lhs.val < rhs.val
-        }
-        static func <= (lhs: Item, rhs: Item) -> Bool {
-            return lhs.val <= rhs.val
-        }
-
-        static func >= (lhs: Item, rhs: Item) -> Bool {
-            return lhs.val >= rhs.val
-        }
-        static func > (lhs: Item, rhs: Item) -> Bool {
-            return lhs.val > rhs.val
-        }
-        
-        var description: String {
-            return "key:\(key) val: \(val)"
-        }
-    }
-    
-    var dict = [Int: Item]()
-    var capacity: Int
-    var head: Item?
-    var tail: Item?
-    init(_ capacity: Int) {
-        self.capacity = capacity
-    }
-    
-    func get(_ key: Int) -> Int {
-        if let item = self.dict[key] {
-            self.replaceHead(item)
-            return item.val
-        } else {
-            return -1
-        }
-    }
-    
-    func put(_ key: Int, _ value: Int) {
-        if let item = self.dict[key] {
-            item.val = value
-            self.replaceHead(item)
-        } else {
-            let item = Item(value,key)
-            self.insert(item)
-        }
-    }
-    
-    func replaceHead(_ item: Item) {
-        
-        removeNode(item)
-        insert(item)
-    }
-    
-    func removeNode(_ item: Item) {
-        item.pre?.next = item.next
-        item.next?.pre = item.pre
-    }
-    
-    func insert(_ item: Item) {
-        dict[item.key] = item
-        item.next = head
-        head?.pre = item
-        head = item
-        if dict.count == 1 {
-            tail = item
-        }
-        if dict.count > capacity {
-            self.removeTail()
-        }
-    }
-    
-    func removeTail() {
-
-    }
-    
-    var description: String {
-        var s = "head:"
-        var node = head
-        while let n = node {
-            s += "\(n.key)    "
-            node = n.next
-        }
-        node = tail
-        s += "tail:"
-        while let n = node {
-            s += "\(n.key)    "
-            node = n.pre
-        }
-        return s
-    }
-
-}

@@ -354,6 +354,76 @@ class BFSSolution {
 
 }
 
+class WordDictionary {
+
+    /** Initialize your data structure here. */
+    var root: AlphaTree = AlphaTree(".")
+
+    init() {
+
+    }
+    
+    func addWord(_ word: String) {
+        var node = root
+        for c in word {
+            if let n = node.search(c) {
+                node = n
+            } else {
+                let n = AlphaTree(c)
+                node.add(n)
+                node = n
+            }
+        }
+        node.isWord = true
+        
+    }
+    
+    func search(_ word: String) -> Bool {
+        var nodes = [root]
+        for c in word {
+            var newNodes = [AlphaTree]()
+            for n in nodes {
+                if c == "." {
+                    newNodes.append(contentsOf: [AlphaTree](n.next.values))
+                } else {
+                    if let node = n.search(c) {
+                        newNodes.append(node)
+                    }
+                }
+            }
+            nodes = newNodes
+        }
+        for n in nodes {
+            if n.isWord {
+                return true
+            }
+        }
+        return false
+    }
+    
+    
+    
+    
+}
+
+class AlphaTree {
+    let c: Character
+    var next: [Character:AlphaTree] = [:]
+    var isWord = false
+    init(_ c: Character) {
+        self.c = c
+    }
+
+    func search(_ c: Character) -> AlphaTree?  {
+        return next[c]
+    }
+    
+    func add(_ node: AlphaTree) {
+        
+        next[node.c] = node
+    }
+}
+
 class DFSSolution {
     func canFinish(_ numCourses: Int, _ prerequisites: [[Int]]) -> Bool {
         var visited = [Bool].init(repeating: false, count: numCourses)
@@ -634,5 +704,300 @@ class DFSSolution {
         return res
     }
 
+    func generateParenthesis(_ n: Int) -> [String] {
+        var res = [String]()
+        func backtrack(_ s: String, _ left: Int, _ right: Int) {
+            guard s.count < n + n else {
+                res.append(s)
+                return
+            }
+            if left < n {
+                backtrack(s + "(", left + 1, right)
+            }
+            if right < left {
+                backtrack(s + ")", left, right + 1)
+            }
+        }
+        backtrack("", 0, 0)
+        return res
+    }
+    
+    func updateBoard(_ board: [[Character]], _ click: [Int]) -> [[Character]] {
+        var newBoard = board
+        let H = board.count, W = board[0].count
+        var visited = [[Bool]].init(repeating: [Bool].init(repeating: false, count: W), count: H)
 
+        
+        func bombCount(_ x: Int, _ y: Int) -> Int {
+            let xFrom = max(0, x - 1)
+            let xTo = min(x + 1, W - 1)
+            let yFrom = max(0, y - 1)
+            let yTo = min(y + 1, H - 1)
+            var count = 0
+            for y in yFrom...yTo {
+                for x in xFrom...xTo {
+                    if board[y][x] == "M" {
+                        count += 1
+                    }
+                }
+            }
+            return count
+        }
+        
+        func update(_ x: Int, _ y: Int) {
+            guard !visited[y][x] else {
+                return
+            }
+            visited[y][x] = true
+            if board[y][x] == "M" {
+                newBoard[y][x] = "X"
+                return 
+            }
+            let bombNum = bombCount(x, y)
+            if bombNum == 0 {
+                newBoard[y][x] = "B"
+                let xFrom = max(0, x - 1)
+                let xTo = min(x + 1, W - 1)
+                let yFrom = max(0, y - 1)
+                let yTo = min(y + 1, H - 1)
+                for y in yFrom...yTo {
+                    for x in xFrom...xTo {
+                        update(x, y)
+                    }
+                }
+            } else {
+                newBoard[y][x] = Character("\(bombNum)")
+            }
+            
+
+        }
+        update(click[1], click[0])
+        return newBoard
+    }
+    
+    func splitIntoFibonacci(_ S: String) -> [Int] {
+        let N = S.count
+        let s = [Character](S)
+        var finish = false
+        var res = [Int]()
+        func dfs(_ index: Int, _ arr: [Int]) {
+            guard index < S.count && !finish else {
+                if !finish {
+                    finish = arr.count > 2
+                    res = arr.count > 2 ? arr : []
+                }
+
+                return
+            }
+            var number = 0
+            for i in 0..<N-index {
+                number = number * 10 + (s[index + i].hexDigitValue ?? 0)
+                let arrCount = arr.count
+                if number >= 2 << 31 {
+                    break
+                }
+                if arrCount == 0 {
+                    dfs(index + i + 1, [number])
+                } else if arrCount == 1 {
+                    dfs(index + i + 1, arr + [number])
+                } else {
+                    if arr[arrCount - 1] + arr[arrCount - 2] == number {
+                        dfs(index + i + 1, arr + [number])
+                    }
+                }
+                if number == 0 && (s[index + i].hexDigitValue ?? 0) == 0 {
+                    break
+                }
+            }
+        }
+        dfs(0, [])
+        return res
+    }
+    
+    func getHappyString(_ n: Int, _ k: Int) -> String {
+         let cs = [Character]("abc")
+         var i = 0, res = ""
+         func dfs(_ str: [Character]) {
+             guard str.count < n && i < k else {
+                i += 1
+                if k == i {
+                    res = String(str)
+                }
+                 
+
+                 return
+             }
+             for index in 0..<3 {
+                 if let last = str.last {
+                    if last != cs[index] && i < k {
+                        dfs(str + [cs[index]])
+                    }
+                     
+                 } else {
+                     dfs([cs[index]])
+                 }
+             }
+         }
+         dfs([])
+         return res
+     }
+    
+    func permutation(_ S: String) -> [String] {
+        var dict = [Int8].init(repeating: 0, count: 128)
+        
+        for c in S.utf8CString {
+            dict[Int(c)] += 1
+        }
+        
+        let ss = UnsafeMutablePointer<CChar>.allocate(capacity: S.count + 1)
+        let N = S.count
+        var res = [String]()
+        func dfs(_ index: Int) {
+            guard index < N else {
+                (ss + index).initialize(to: 0)
+                res.append(String.init(cString: ss))
+                return
+            }
+            for key in 65...122 {
+                let count = dict[key]
+                var i = 1
+                while i <= count  {
+                    dict[key] -= 1
+                    (ss + index).initialize(to: CChar(key))
+                    dfs(index + 1)
+                    i += 1
+                }
+                dict[key] = count
+
+            }
+        }
+        dfs(0)
+        return res
+    }
+    
+    func sequentialDigits(_ low: Int, _ high: Int) -> [Int] {
+        var j = 0, i = low
+        while i > 0 {
+            i /= 10
+            j += 1
+        }
+        var res = [Int]()
+        var curNum = [Int]()
+    
+        for i in 1...j {
+            curNum.append(i)
+        }
+        func dfs(_ curNum: [Int]) {
+            let i = curNum.reduce(0) { $0 * 10 + $1 }
+            if  i <= high {
+                if i >= low {
+                    res.append(i)
+                }
+                
+                
+                if curNum[curNum.count - 1] < 9 {
+                    var newNum = curNum
+                    for i in 0..<curNum.count {
+                        newNum[i] = newNum[i] + 1
+                    }
+                    dfs(newNum)
+                } else {
+                    if curNum.count < 9 {
+                        var nums = [Int]()
+                        for i in 1...curNum.count+1 {
+                            nums.append(i)
+                        }
+                        dfs(nums)
+                    }
+                }
+            }
+        }
+        dfs(curNum)
+        return res
+    }
+    
+    func countVowelStrings(_ n: Int) -> Int {
+        var count = [1,1,1,1,1]
+        func dfs(_ i: Int) {
+            guard i < n else {
+                return
+            }
+            for j in 0..<5 {
+                count[j] *= 5 - j
+            }
+            dfs(i + 1)
+        }
+        dfs(1)
+        return count.reduce(0, +)
+    }
+    
+    func countArrangement(_ n: Int) -> Int {
+        var arr = [Int]()
+        for i in 1...n {
+            arr.append(i)
+        }
+        var res = 0
+        func dfs(_ i: Int) {
+            guard i < n else {
+                res += 1
+                return
+            }
+            for j in i..<n {
+                arr.swapAt(i,j)
+                if (i + 1) % arr[i] == 0 || arr[i] % (i + 1) == 0 {
+                    dfs(i + 1)
+                }
+                arr.swapAt(i,j)
+
+            }
+
+        }
+        dfs(0)
+        return res
+    }
+    
+    func constructDistancedSequence(_ n: Int) -> [Int] {
+        var arr = [Int](repeating: 0, count: 2 * n - 1)
+        let N = arr.count
+        var visited = [Bool](repeating: false, count: n)
+        var count = 0
+        func dfs(_ i: Int) -> Bool {
+            guard i < 2 * n - 1 && count < n else {
+                return true
+            }
+            guard arr[i] == 0 else {
+                return dfs(i + 1)
+            }
+            for j in stride(from: n, through: 1, by: -1) {
+                if !visited[j - 1]  {
+                    visited[j - 1] = true
+                    if j == 1 {
+                        arr[i] = 1
+                        count += 1
+                        if dfs(i + 1) {
+                            return true
+                        }
+                        count -= 1
+                        arr[i] = 0
+                    } else if j + i < N && arr[j + i] == 0 {
+                        arr[i] = j
+                        arr[j + i] = j
+                        count += 1
+                        if dfs(i + 1) {
+                            return true
+                        }
+                        count -= 1
+                        arr[i] = 0
+                        arr[j + i] = 0
+                    }
+                    visited[j - 1] = false
+                }
+                
+            }
+            return false
+        }
+        
+        dfs(0)
+        return arr
+    }
 }

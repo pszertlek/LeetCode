@@ -341,37 +341,7 @@ extension TreeNode where T: Comparable {
         }
         return root
     }
-//    func hasPathSum(_ root: TreeNode<T>?, _ sum: Int) -> Bool {
-//        var nums = [T]()
-//        var node: TreeNode? = root
-//        var nodeStack = [TreeNode]()
-//        while let theNode = node {
-//            nums.append(theNode.val)
-//            if theNode.left != nil {
-//                nodeStack.append(theNode)
-//                node = theNode.left
-//            } else if theNode.right != nil {
-//                node = theNode.right
-//            } else {
-//                if nodeStack.last == nil {
-//                    break
-//                }
-//                while let root = nodeStack.last {
-//                    if root.right != nil {
-//                        node = root.right
-//                        nodeStack.removeLast()
-//                        break;
-//                    } else {
-//                        nodeStack.removeLast()
-//                        if nodeStack.count == 0 {
-//                            return nums
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        return nums
-//    }
+
 
 
 
@@ -479,5 +449,48 @@ extension TreeNode where T == Int {
             }
         }
         return path.first!
+    }
+    
+    func goodNodes(_ root: TreeNode?) -> Int {
+        var count = 0
+        func preorder(_ root: TreeNode?, _ val: Int) {
+            guard let root = root else {
+                return
+            }
+            let maxVal = max(val, root.val)
+            if root.val == maxVal {
+                count += 1
+            }
+            preorder(root.left, maxVal)
+            preorder(root.right, maxVal)
+        }
+        preorder(root, -1999999)
+        return count
+    }
+    
+    public func pathSum(_ root: TreeNode<Int>?, _ sum: Int) -> [[Int]] {
+
+        guard let root = root else {
+            return []
+        }
+        func inorder(_ node: TreeNode<Int>, _ s: Int, _ path: [Int]) {
+            let nextPath = path + [node.val]
+            let s = s + node.val
+            guard node.left != nil || node.right != nil else {
+                if sum == s {
+                    res.append(nextPath)
+                }
+                return
+            }
+            if let left = node.left {
+                inorder(left, s, nextPath)
+            }
+            if let right = node.right {
+                inorder(right, s, nextPath)
+            }
+        }
+        var res = [[Int]]()
+        inorder(root, 0, [])
+        return res
     }
 }

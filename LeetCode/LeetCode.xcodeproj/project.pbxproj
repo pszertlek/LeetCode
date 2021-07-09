@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,17 +16,26 @@
 		184394CE221FC25F00B8509A /* BitCompute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394CD221FC25F00B8509A /* BitCompute.swift */; };
 		184394D12223F30700B8509A /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394D02223F30700B8509A /* Heap.swift */; };
 		184394D42225349500B8509A /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394D32225349500B8509A /* Graph.swift */; };
+		184943E925D59591000EB0CA /* DoublyLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184943E825D59591000EB0CA /* DoublyLinkedList.swift */; };
+		184A764C24F6CFAB005A3836 /* LRUCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184A764B24F6CFAB005A3836 /* LRUCache.swift */; };
+		184D8497266EF8E900DC8232 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 184D8496266EF8E900DC8232 /* Algorithms */; };
 		184F686524AF6F9000DB5065 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 184F686424AF6F9000DB5065 /* main.cpp */; };
 		184F9B92249F803500C61E05 /* DataStructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184F9B89249F803500C61E05 /* DataStructure.framework */; };
 		184F9B97249F803500C61E05 /* DataStructureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F9B96249F803500C61E05 /* DataStructureTests.swift */; };
 		184F9B99249F803500C61E05 /* DataStructure.h in Headers */ = {isa = PBXBuildFile; fileRef = 184F9B8B249F803500C61E05 /* DataStructure.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		184F9BA1249F804800C61E05 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F9BA0249F804800C61E05 /* Stack.swift */; };
+		184F9BA1249F804800C61E05 /* AVLTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F9BA0249F804800C61E05 /* AVLTree.swift */; };
 		184F9BA2249F835700C61E05 /* DataStructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184F9B89249F803500C61E05 /* DataStructure.framework */; };
 		184F9BA3249F835700C61E05 /* DataStructure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 184F9B89249F803500C61E05 /* DataStructure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		184F9BA6249F87C500C61E05 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394CB221C099800B8509A /* Array.swift */; };
 		1850196E227E7C9D009DA33F /* HashSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1850196D227E7C9D009DA33F /* HashSolution.swift */; };
 		18501970228280ED009DA33F /* RedBlackTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1850196F228280ED009DA33F /* RedBlackTree.swift */; };
+		1851110924FA8EF200936B64 /* HardSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1851110824FA8EF200936B64 /* HardSolution.swift */; };
+		18527987250E1BCD0056085E /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18527986250E1BCD0056085E /* LinkedList.swift */; };
+		18528B9B25543074006A3A9E /* EasySolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18528B9A25543074006A3A9E /* EasySolution.swift */; };
+		18556B3026400E2200FE86CD /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18556B2F26400E2200FE86CD /* main.swift */; };
 		185A62A9249E321A00B190F8 /* DynamicSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A62A8249E321A00B190F8 /* DynamicSolution.swift */; };
+		185C117A25D0424000B4E7CD /* SystemDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185C117925D0424000B4E7CD /* SystemDesign.swift */; };
+		186B5604250CE11000149FEE /* LFUCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B5603250CE11000149FEE /* LFUCache.swift */; };
 		1876C085249CFC580010B697 /* BinaryTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 1876C083249CFC580010B697 /* BinaryTree.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1876C089249CFCC90010B697 /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184394C7221BE19C00B8509A /* TreeNode.swift */; };
 		1876C08B249CFCE40010B697 /* BinaryTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1876C081249CFC580010B697 /* BinaryTree.framework */; };
@@ -45,6 +54,7 @@
 		18A5B86C20173E37003623BB /* RemoveElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A5B86B20173E37003623BB /* RemoveElement.swift */; };
 		18AC080022851E9000A0551E /* StringSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AC07FF22851E9000A0551E /* StringSolution.swift */; };
 		18AF899D20243885003EBB1D /* FindPivotIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AF899C20243885003EBB1D /* FindPivotIndex.swift */; };
+		18B180E72688B2F800BAA3C5 /* MediumSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B180E62688B2F800BAA3C5 /* MediumSolution.swift */; };
 		18B1874A201AC4FD00842F09 /* ToeplitzMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B18749201AC4FD00842F09 /* ToeplitzMatrix.swift */; };
 		18B4F33F2018215800CDD3A9 /* LargestOfArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B4F33E2018215800CDD3A9 /* LargestOfArray.swift */; };
 		18B4F3412018283E00CDD3A9 /* SearchInsertPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B4F3402018283E00CDD3A9 /* SearchInsertPosition.swift */; };
@@ -114,6 +124,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		18556B2B26400E2200FE86CD /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		1876C08F249CFCE40010B697 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -149,6 +168,8 @@
 		184394CD221FC25F00B8509A /* BitCompute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitCompute.swift; sourceTree = "<group>"; };
 		184394D02223F30700B8509A /* Heap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
 		184394D32225349500B8509A /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		184943E825D59591000EB0CA /* DoublyLinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoublyLinkedList.swift; sourceTree = "<group>"; };
+		184A764B24F6CFAB005A3836 /* LRUCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRUCache.swift; sourceTree = "<group>"; };
 		184F686224AF6F9000DB5065 /* LeetcodeCpp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LeetcodeCpp; sourceTree = BUILT_PRODUCTS_DIR; };
 		184F686424AF6F9000DB5065 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		184F9B89249F803500C61E05 /* DataStructure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataStructure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,10 +178,17 @@
 		184F9B91249F803500C61E05 /* DataStructureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataStructureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		184F9B96249F803500C61E05 /* DataStructureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructureTests.swift; sourceTree = "<group>"; };
 		184F9B98249F803500C61E05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		184F9BA0249F804800C61E05 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		184F9BA0249F804800C61E05 /* AVLTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVLTree.swift; sourceTree = "<group>"; };
 		1850196D227E7C9D009DA33F /* HashSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashSolution.swift; sourceTree = "<group>"; };
 		1850196F228280ED009DA33F /* RedBlackTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedBlackTree.swift; sourceTree = "<group>"; };
+		1851110824FA8EF200936B64 /* HardSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardSolution.swift; sourceTree = "<group>"; };
+		18527986250E1BCD0056085E /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
+		18528B9A25543074006A3A9E /* EasySolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasySolution.swift; sourceTree = "<group>"; };
+		18556B2D26400E2200FE86CD /* Empty */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Empty; sourceTree = BUILT_PRODUCTS_DIR; };
+		18556B2F26400E2200FE86CD /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		185A62A8249E321A00B190F8 /* DynamicSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSolution.swift; sourceTree = "<group>"; };
+		185C117925D0424000B4E7CD /* SystemDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemDesign.swift; sourceTree = "<group>"; };
+		186B5603250CE11000149FEE /* LFUCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFUCache.swift; sourceTree = "<group>"; };
 		1876C081249CFC580010B697 /* BinaryTree.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BinaryTree.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1876C083249CFC580010B697 /* BinaryTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BinaryTree.h; sourceTree = "<group>"; };
 		1876C084249CFC580010B697 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -181,6 +209,7 @@
 		18A5B86B20173E37003623BB /* RemoveElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveElement.swift; sourceTree = "<group>"; };
 		18AC07FF22851E9000A0551E /* StringSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringSolution.swift; sourceTree = "<group>"; };
 		18AF899C20243885003EBB1D /* FindPivotIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPivotIndex.swift; sourceTree = "<group>"; };
+		18B180E62688B2F800BAA3C5 /* MediumSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumSolution.swift; sourceTree = "<group>"; };
 		18B18749201AC4FD00842F09 /* ToeplitzMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToeplitzMatrix.swift; sourceTree = "<group>"; };
 		18B4F33E2018215800CDD3A9 /* LargestOfArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargestOfArray.swift; sourceTree = "<group>"; };
 		18B4F3402018283E00CDD3A9 /* SearchInsertPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInsertPosition.swift; sourceTree = "<group>"; };
@@ -224,6 +253,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		18556B2A26400E2200FE86CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1876C07E249CFC580010B697 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -249,6 +285,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				184D8497266EF8E900DC8232 /* Algorithms in Frameworks */,
 				1876C08B249CFCE40010B697 /* BinaryTree.framework in Frameworks */,
 				1876C0AC249D28290010B697 /* Utility.framework in Frameworks */,
 				184F9BA2249F835700C61E05 /* DataStructure.framework in Frameworks */,
@@ -317,7 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				184F9B8B249F803500C61E05 /* DataStructure.h */,
-				184F9BA0249F804800C61E05 /* Stack.swift */,
+				184F9BA0249F804800C61E05 /* AVLTree.swift */,
 				184F9B8C249F803500C61E05 /* Info.plist */,
 			);
 			path = DataStructure;
@@ -330,6 +367,14 @@
 				184F9B98249F803500C61E05 /* Info.plist */,
 			);
 			path = DataStructureTests;
+			sourceTree = "<group>";
+		};
+		18556B2E26400E2200FE86CD /* Empty */ = {
+			isa = PBXGroup;
+			children = (
+				18556B2F26400E2200FE86CD /* main.swift */,
+			);
+			path = Empty;
 			sourceTree = "<group>";
 		};
 		1876C082249CFC580010B697 /* BinaryTree */ = {
@@ -387,6 +432,7 @@
 				184F9B8A249F803500C61E05 /* DataStructure */,
 				184F9B95249F803500C61E05 /* DataStructureTests */,
 				184F686324AF6F9000DB5065 /* LeetcodeCpp */,
+				18556B2E26400E2200FE86CD /* Empty */,
 				18A52DCD1FCBF451005A3B6E /* Products */,
 				1876C08A249CFCE40010B697 /* Frameworks */,
 			);
@@ -403,6 +449,7 @@
 				184F9B89249F803500C61E05 /* DataStructure.framework */,
 				184F9B91249F803500C61E05 /* DataStructureTests.xctest */,
 				184F686224AF6F9000DB5065 /* LeetcodeCpp */,
+				18556B2D26400E2200FE86CD /* Empty */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -411,12 +458,16 @@
 			isa = PBXGroup;
 			children = (
 				18A52DCF1FCBF451005A3B6E /* main.swift */,
+				185C117925D0424000B4E7CD /* SystemDesign.swift */,
+				18528B9A25543074006A3A9E /* EasySolution.swift */,
 				1811A12724D1728A00429866 /* MatrixProblem.swift */,
+				1851110824FA8EF200936B64 /* HardSolution.swift */,
 				184394CD221FC25F00B8509A /* BitCompute.swift */,
 				1850196D227E7C9D009DA33F /* HashSolution.swift */,
 				1850196F228280ED009DA33F /* RedBlackTree.swift */,
 				18AC07FF22851E9000A0551E /* StringSolution.swift */,
 				185A62A8249E321A00B190F8 /* DynamicSolution.swift */,
+				18B180E62688B2F800BAA3C5 /* MediumSolution.swift */,
 				189A63E3224227E0006D26CF /* Backtracking */,
 				184394D22225347000B8509A /* DepthFirstSearch */,
 				184394CF2223F2FA00B8509A /* Heap */,
@@ -431,6 +482,10 @@
 				18D7B5511FCD482F00D7AF18 /* OneBitTwoBitCharacters.swift */,
 				18D7B5531FCE781100D7AF18 /* DegreeOfAnArray.swift */,
 				18D7B5551FCE9D4E00D7AF18 /* MaxAreaOfIsland.swift */,
+				184A764B24F6CFAB005A3836 /* LRUCache.swift */,
+				186B5603250CE11000149FEE /* LFUCache.swift */,
+				18527986250E1BCD0056085E /* LinkedList.swift */,
+				184943E825D59591000EB0CA /* DoublyLinkedList.swift */,
 			);
 			path = LeetCode;
 			sourceTree = "<group>";
@@ -566,6 +621,23 @@
 			productReference = 184F9B91249F803500C61E05 /* DataStructureTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		18556B2C26400E2200FE86CD /* Empty */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18556B3326400E2200FE86CD /* Build configuration list for PBXNativeTarget "Empty" */;
+			buildPhases = (
+				18556B2926400E2200FE86CD /* Sources */,
+				18556B2A26400E2200FE86CD /* Frameworks */,
+				18556B2B26400E2200FE86CD /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Empty;
+			productName = Empty;
+			productReference = 18556B2D26400E2200FE86CD /* Empty */;
+			productType = "com.apple.product-type.tool";
+		};
 		1876C080249CFC580010B697 /* BinaryTree */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1876C088249CFC580010B697 /* Build configuration list for PBXNativeTarget "BinaryTree" */;
@@ -637,6 +709,9 @@
 				184F9BA5249F835700C61E05 /* PBXTargetDependency */,
 			);
 			name = LeetCode;
+			packageProductDependencies = (
+				184D8496266EF8E900DC8232 /* Algorithms */,
+			);
 			productName = LeetCode;
 			productReference = 18A52DCC1FCBF451005A3B6E /* LeetCode */;
 			productType = "com.apple.product-type.tool";
@@ -664,7 +739,7 @@
 		18A52DC41FCBF451005A3B6E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1150;
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = Pszertlek;
 				TargetAttributes = {
@@ -679,6 +754,10 @@
 					};
 					184F9B90249F803500C61E05 = {
 						CreatedOnToolsVersion = 11.5;
+						ProvisioningStyle = Automatic;
+					};
+					18556B2C26400E2200FE86CD = {
+						CreatedOnToolsVersion = 12.4;
 						ProvisioningStyle = Automatic;
 					};
 					1876C080249CFC580010B697 = {
@@ -713,6 +792,9 @@
 				en,
 			);
 			mainGroup = 18A52DC31FCBF451005A3B6E;
+			packageReferences = (
+				184D8495266EF8E900DC8232 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+			);
 			productRefGroup = 18A52DCD1FCBF451005A3B6E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -725,6 +807,7 @@
 				184F9B88249F803500C61E05 /* DataStructure */,
 				184F9B90249F803500C61E05 /* DataStructureTests */,
 				184F686124AF6F9000DB5065 /* LeetcodeCpp */,
+				18556B2C26400E2200FE86CD /* Empty */,
 			);
 		};
 /* End PBXProject section */
@@ -787,7 +870,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				184F9BA1249F804800C61E05 /* Stack.swift in Sources */,
+				184F9BA1249F804800C61E05 /* AVLTree.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -796,6 +879,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				184F9B97249F803500C61E05 /* DataStructureTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18556B2926400E2200FE86CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18556B3026400E2200FE86CD /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -834,29 +925,37 @@
 				1811A12824D1728A00429866 /* MatrixProblem.swift in Sources */,
 				18A52DD71FCBF6BC005A3B6E /* LC2Sum.swift in Sources */,
 				18D7B5561FCE9D4E00D7AF18 /* MaxAreaOfIsland.swift in Sources */,
+				185C117A25D0424000B4E7CD /* SystemDesign.swift in Sources */,
 				1850196E227E7C9D009DA33F /* HashSolution.swift in Sources */,
 				18D7B5541FCE781100D7AF18 /* DegreeOfAnArray.swift in Sources */,
 				189A63E72242313A006D26CF /* Backtracking.swift in Sources */,
 				189EE9471FDBB92F001CA7EA /* LongestPalindrome.swift in Sources */,
 				184394CE221FC25F00B8509A /* BitCompute.swift in Sources */,
 				185A62A9249E321A00B190F8 /* DynamicSolution.swift in Sources */,
+				184A764C24F6CFAB005A3836 /* LRUCache.swift in Sources */,
 				18C702CF2019BD790097F051 /* MaximumSubarray.swift in Sources */,
 				184394CC221C099800B8509A /* Array.swift in Sources */,
 				18D7B5591FCEAD3400D7AF18 /* AddTwoNumbers.swift in Sources */,
 				18AF899D20243885003EBB1D /* FindPivotIndex.swift in Sources */,
 				F4519459203AB7B80000CD0A /* LongestContinuousIncresingSub.swift in Sources */,
+				18B180E72688B2F800BAA3C5 /* MediumSolution.swift in Sources */,
 				18B4F3412018283E00CDD3A9 /* SearchInsertPosition.swift in Sources */,
 				1806A650225C8A2000369540 /* DoubleNodeSolution.swift in Sources */,
+				18527987250E1BCD0056085E /* LinkedList.swift in Sources */,
 				18D7B5521FCD482F00D7AF18 /* OneBitTwoBitCharacters.swift in Sources */,
 				18ED201E22E15AF50021E2B1 /* MaxSubArraySolution.swift in Sources */,
 				184394C6221BE18A00B8509A /* BinarySearch.swift in Sources */,
+				18528B9B25543074006A3A9E /* EasySolution.swift in Sources */,
+				1851110924FA8EF200936B64 /* HardSolution.swift in Sources */,
 				18C702D22019CB210097F051 /* PlusOne.swift in Sources */,
 				18C702BA201978C70097F051 /* RemoveDuplicates.swift in Sources */,
 				18B4F35620185B6400CDD3A9 /* MinCostClimbingStairs.swift in Sources */,
 				18C702D52019E10B0097F051 /* PascalTriangle .swift in Sources */,
+				184943E925D59591000EB0CA /* DoublyLinkedList.swift in Sources */,
 				18501970228280ED009DA33F /* RedBlackTree.swift in Sources */,
 				18B4F33F2018215800CDD3A9 /* LargestOfArray.swift in Sources */,
 				18AC080022851E9000A0551E /* StringSolution.swift in Sources */,
+				186B5604250CE11000149FEE /* LFUCache.swift in Sources */,
 				F451945B203BEAB40000CD0A /* MaximumAverageSubarray.swift in Sources */,
 				18A52DD91FCBF8FA005A3B6E /* LCStack.swift in Sources */,
 				184394CA221BE1A500B8509A /* LinkNode.swift in Sources */,
@@ -950,7 +1049,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = DataStructure/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = Pszertlek.com.DataStructure;
@@ -978,7 +1081,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = DataStructure/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = Pszertlek.com.DataStructure;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -998,7 +1105,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = WEZ4TNATDY;
 				INFOPLIST_FILE = DataStructureTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = Pszertlek.com.DataStructureTests;
@@ -1016,9 +1127,44 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = WEZ4TNATDY;
 				INFOPLIST_FILE = DataStructureTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = Pszertlek.com.DataStructureTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		18556B3126400E2200FE86CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WEZ4TNATDY;
+				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		18556B3226400E2200FE86CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WEZ4TNATDY;
+				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -1038,7 +1184,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = BinaryTree/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = Pszertlek.com.BinaryTree;
@@ -1064,7 +1214,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = BinaryTree/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = Pszertlek.com.BinaryTree;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1089,7 +1243,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Heap/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = Pszertlek.com.Heap;
@@ -1115,7 +1273,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Heap/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = Pszertlek.com.Heap;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1141,7 +1303,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Utility/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = Pszertlek.com.Utility;
@@ -1169,7 +1335,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Utility/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = Pszertlek.com.Utility;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1286,7 +1456,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};
@@ -1321,7 +1492,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = WEZ4TNATDY;
 				INFOPLIST_FILE = unitTest/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = BroadLink.unitTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1335,7 +1510,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = WEZ4TNATDY;
 				INFOPLIST_FILE = unitTest/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = BroadLink.unitTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1368,6 +1547,15 @@
 			buildConfigurations = (
 				184F9B9E249F803500C61E05 /* Debug */,
 				184F9B9F249F803500C61E05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18556B3326400E2200FE86CD /* Build configuration list for PBXNativeTarget "Empty" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18556B3126400E2200FE86CD /* Debug */,
+				18556B3226400E2200FE86CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1427,6 +1615,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		184D8495266EF8E900DC8232 /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		184D8496266EF8E900DC8232 /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 184D8495266EF8E900DC8232 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 18A52DC41FCBF451005A3B6E /* Project object */;
 }

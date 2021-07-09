@@ -438,5 +438,31 @@ class BinarySearch {
         return -1
     }
     
+    func maxDistance(_ position: [Int], _ m: Int) -> Int {
+        let ps = position.sorted()
+        func check(_ x: Int, _ position: [Int], _ m: Int) -> Bool {
+            var pre = position[0], cnt = 1
+            for i in 1..<position.count {
+                if position[i] - pre >= x {
+                    pre = position[i]
+                    cnt += 1
+                }
+            }
+            return cnt >= m
+        }
+        
+        var left = 1, right = ps.last!, ans = -1
+        while left <= right {
+            let mid = (left + right) / 2
+            if check(mid, ps, m) {
+                ans = mid
+                left = mid + 1
+            } else {
+                right = mid - 1
+            }
+        }
+        return ans
+    }
     
+
 }

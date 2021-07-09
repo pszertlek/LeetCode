@@ -9,6 +9,51 @@
 import Foundation
 
 class HashSolution {
+    ///423
+    func originalDigits(_ s: String) -> String {
+        /**
+         zero one two three four five six seven eight nine
+         z: zero
+         o: zero one two four
+         r: zero three four
+         e: zero one three five seven eight nine
+         t: two three eight
+         w: two
+         f: four five
+         u: four
+         v: five seven
+         s: six seven
+         i: six eight five
+         x: six
+         n: seven nine
+         g: eight
+         h: eight three
+         
+         */
+        var dict = [Character: Int]()
+        for c in s {
+            dict[c, default: 0] += 1
+        }
+        var res = [Int](repeating: 0, count: 10)
+        res[0] = dict["z", default: 0]
+        res[2] = dict["w", default: 0]
+        res[4] = dict["u", default: 0]
+        res[6] = dict["x", default: 0]
+        res[8] = dict["g", default: 0]
+        res[3] = dict["h", default: 0] - res[8]
+        res[5] = dict["f", default: 0] - res[4]
+        res[7] = dict["s", default: 0] - res[6]
+        res[9] = dict["i", default: 0] - res[5] - res[6] - res[8]
+        res[1] = dict["n", default: 0] - res[7] - 2 * res[9]
+        var ans = ""
+        for i in 0...9 {
+            for _ in 0..<res[i] {
+                ans.append("\(i)")
+            }
+        }
+        return ans
+    }
+    
     func repeatedNTimes(_ A: [Int]) -> Int {
         var set = Set<Int>()
         for i in A {
@@ -405,46 +450,58 @@ class HashSolution {
         return res
     }
     
-//    func longestStrChain(_ words: [String]) -> Int {
-//        func isPrevious(_ a: String, _ b: String) -> Bool {
-//            guard b.count - a.count == 1 else {
-//                return false
-//            }
-//            var aIndex = a.startIndex
-//            var bIndex = b.startIndex
-//            var diff = 0
-//            while aIndex != a.endIndex {
-//                if a[aIndex] == b[bIndex] {
-//                    aIndex = a.index(after: aIndex)
-//                    bIndex = b.index(after: bIndex)
-//                } else {
-//                    bIndex = b.index(after: bIndex)
-//                    diff += 1
-//                }
-//                if diff > 1 {
-//                    return false
-//                }
-//            }
-//            return true
-//        }
-//        
-//        guard words.count > 1 else {
-//            return words.count
-//        }
-//        let words = words.sorted { (w1, w2) -> Bool in
-//            return w1.count > w2.count
-//        }
-//        var dp = [Int].init(repeating: 0, count: words.count)
-//        var prev = [Int].init(repeating: 0, count: words.count)
-//        for i in 0..<words.count {
-//            prev[i] = -1
-//        }
-//        dp[0] = 1
-//        for i in 1..<words.count {
-//            
-//        }
+//    func countSubstrings(_ s: String, _ t: String) {
+//
 //    }
+    func groupAnagrams(_ strs: [String]) -> [[String]] {
+        var dict = [Set<Character>: [String]]()
+        for str in strs {
+            dict[Set<Character>(str),default: []].append(str)
+        }
+        return [[String]](dict.values)
+    }
+    
+    func gcd(_ a: Int, _ b: Int) -> Int {
+        var r = 0
+        var a = a, b = b
+        repeat {
+            r = a % b
+            a = b
+            b = r
+        } while r != 0
+        return b
+    }
+    
+    func bestLine(_ points: [[Int]]) -> [Int] {
+        var dict = [[Int]: Int]()
+        var dict1 = [[Int]: [Int]]()
+        var maxCount = 0, res = [Int]()
+        for i in 0..<points.count - 1 {
+            for j in i+1 ..< points.count {
+                var a = points[j][1] - points[i][1]
+                var b = points[j][0] - points[i][0]
+                var c = points[j][0] * points[i][1] - points[i][0] * points[j][1]
+                let g = gcd(gcd(a, b), c)
+                a /= g
+                b /= g
+                c /= g
+                if dict1[[a,b,c]] == nil {
+                    dict1[[a,b,c]] = [i,j]
+                    dict[[a,b,c]] = 2
+                } else {
+                    dict[[a,b,c], default: 0] += 1
+                }
+                
+                if dict[[a,b,c], default: 0] > maxCount {
+                    maxCount = dict[[a,b,c], default: 0]
+                    res = dict1[[a,b,c],default: [0,0]]
+                }
+            }
+        }
+        return res
+    }
 }
+
 
 class RandomizedSet {
 
@@ -476,3 +533,4 @@ class RandomizedSet {
         return set.randomElement()!
     }
 }
+

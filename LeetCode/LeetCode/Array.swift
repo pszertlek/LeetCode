@@ -1129,30 +1129,265 @@ class ArraySolution {
         }
         backTrack(0, 0)
     }
+    
+    func calculate(_ s: String) -> Int {
+
+        
+        let set = CharacterSet(charactersIn: "+-*/ ")
+        let numberSet = CharacterSet(charactersIn: "1234567890 ")
+
+        var values = s.components(separatedBy: set)
+            .filter { $0.count > 0 }
+            .map { Int($0) ?? 0 }
+        var operators = s.components(separatedBy: numberSet).filter({ $0.count > 0})
+        if operators.count == values.count {
+            if operators.first == "-" {
+                values[0] = -values[0]
+            }
+            operators.removeFirst()
+        }
+
+        var numArr = [values[0]]
+        var o = [String]()
+        for i in 0..<operators.count {
+            if operators[i] == "+" || operators[i] == "-"{
+                numArr.append(values[i + 1])
+                o.append(operators[i])
+            } else {
+                if operators[i] == "*" {
+                    numArr[numArr.count - 1] = numArr[numArr.count - 1] * values[i + 1]
+                } else {
+                    numArr[numArr.count - 1] = numArr[numArr.count - 1] / values[i + 1]
+                }
+            }
+        }
+        var res = numArr[0]
+        for i in 0..<o.count {
+            if o[i] == "+" {
+                res += numArr[i + 1]
+            } else {
+                res -= numArr[i + 1]
+            }
+        }
+        return res
+    }
+    
+    func numTeams(_ rating: [Int]) -> Int {
+        var i = 0, j = 0, k = 0, assending = true, res = 0
+        while i < rating.count {
+            j = i + 1
+            while j < rating.count {
+                if rating[i] < rating[j] {
+                    assending = true
+                } else if rating[i] > rating[j] {
+                    assending = false
+                } else {
+                    j += 1
+                    continue
+                }
+                k = j + 1
+                while k < rating.count {
+                    if assending == (rating[j] < rating[k]) {
+                        res += 1
+                    }
+                    k += 1
+                }
+                j += 1
+            }
+            i += 1
+        }
+        return res
+    }
+    
+    func numTeams_middle(_ nums: [Int]) -> Int {
+        let N = nums.count
+        var i = 0, j = 1, k = 0
+        var iLess = 0, iMore = 0, kLess = 0, kMore = 0
+        var res = 0
+        while j < N - 1 {
+            i = 0
+            iLess = 0
+            iMore = 0
+            kLess = 0
+            kMore = 0
+            while i < j {
+                if nums[j] > nums[i] {
+                    iLess += 1
+                } else if nums[j] < nums[i] {
+                    iMore += 1
+                }
+                i += 1
+            }
+            k = j + 1
+            while k < N {
+                if nums[j] > nums[k] {
+                    kLess += 1
+                } else if nums[j] < nums[k] {
+                    kMore += 1
+                }
+                k += 1
+            }
+            res += iLess * kMore + iMore * kLess
+            j += 1
+        }
+        return res
+    }
 }
 
-class CQueue {
-    
-    var stack1 = Stack<Int>()
-    var stack2 = Stack<Int>()
-    
-    init() {
-        
-    }
-    
-    func appendTail(_ value: Int) {
-        stack1.push(value)
-    }
-    
-    func deleteHead() -> Int {
-        if stack2.count > 0 {
-            return stack2.pop()!
+class LongestValidParentheses {
+    //stack
+    func longestValidParentheses(_ s: String) -> Int {
+        var stack = [-1]
+        var res = 0
+        for (index,c) in s.enumerated() {
+            if c == "(" {
+                stack.append(index)
+            } else {
+                _ = stack.popLast()
+                if let last = stack.last {
+                    res = max(index - last, res)
+                } else {
+                    stack.append(index)
+                }
+            }
         }
-        while let i = stack1.pop() {
-            stack2.push(i)
-        }
-        return stack2.pop()!
+        return res
     }
     
+    func longestValidParentheses1(_ s: String) -> Int {
+        var left = 0, right = 0
+        var res = 0
+        for c in s {
+            if c == "(" {
+                left += 1
+            } else {
+                right += 1
+            }
+            if right > left {
+                left = 0
+                right = 0
+            } else if right == left {
+                res = max(left + right, res)
+            }
+        }
+        left = 0
+        right = 0
+        for c in s.reversed() {
+            if c == "(" {
+                left += 1
+            } else {
+                right += 1
+            }
+            if left > right {
+                left = 0
+                right = 0
+            } else if right == left {
+                res = max(left + right, res)
+            }
+        }
+        return res
+    }
     
+    func longestValidParentheses_dp(_ s: String) -> Int {
+        var dp = [Int].init(repeating: 0, count: s.count)
+        let s = [Character](s)
+        var res = 0
+        for i in 1..<s.count {
+            if s[i] == ")" {
+                if s[i - 1] == "(" {
+                    dp[i] = (i >= 2 ? dp[i - 2] : 0) + 2
+                } else if i - dp[i - 1] > 0 && s[i - dp[i - 1] - 1] == "(" {
+                    dp[i] = dp[i - 1] + ((i - dp[i - 1]) >= 2 ? dp[i - dp[i - 1] - 2] : 0) + 2
+                }
+            }
+            res = max(res, dp[i])
+        }
+        return res
+    }
+    
+
+}
+
+class Judge24Point {
+
+    func judge24Point(_ nums: [Int]) -> Bool {
+        var floatNums = [Float]()
+        for i in nums {
+            floatNums.append(Float(i))
+        }
+        return compute(floatNums)
+    }
+    
+    func compute(_ nums: [Float]) -> Bool {
+        guard nums.count != 1 else {
+            return abs(24 - nums[0]) <= 0.001
+        }
+
+        var i = 0
+        while i < nums.count - 1 {
+            var j = i + 1
+            while j < nums.count {
+                var leftNums = [Float]()
+                var k = 0
+                while k < i {
+                    leftNums.append(nums[k])
+                    k += 1
+                }
+                k = i + 1
+                while k < j {
+                    leftNums.append(nums[k])
+                    k += 1
+                }
+                k = j + 1
+                while k < nums.count {
+                    leftNums.append(nums[k])
+                    k += 1
+                }
+                let mul = nums[i] * nums[j]
+                leftNums.append(mul)
+                guard !compute(leftNums) else {
+                    return true
+                }
+                leftNums.removeLast()
+                if nums[j] != 0 {
+                    let divide = nums[i] / nums[j]
+                    leftNums.append(divide)
+                    guard !compute(leftNums) else {
+                        return true
+                    }
+                    leftNums.removeLast()
+                }
+                if nums[i] != 0 {
+                    
+                    let divide1 = nums[j] / nums[i]
+                    leftNums.append(divide1)
+                    guard !compute(leftNums) else {
+                        return true
+                    }
+                    leftNums.removeLast()
+                }
+                let plus = nums[i] + nums[j]
+                leftNums.append(plus)
+                guard !compute(leftNums) else {
+                    return true
+                }
+                leftNums.removeLast()
+                let minus = nums[i] - nums[j]
+                leftNums.append(minus)
+                guard !compute(leftNums) else {
+                    return true
+                }
+                leftNums.removeLast()
+                let minus1 = nums[j] - nums[i]
+                leftNums.append(minus1)
+                guard !compute(leftNums) else {
+                    return true
+                }
+                leftNums.removeLast()
+                j += 1
+            }
+            i += 1
+        }
+        return false
+    }
 }

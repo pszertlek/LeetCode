@@ -153,5 +153,151 @@ class DynamicSolution {
         return res.2 == -1 ? [] : [res.0,res.1,res.2]
     }
     
+    func minDistance(_ word1: String, _ word2: String) -> Int {
+        let word1 = [Character](word1), word2 = [Character](word2)
+        let n = word1.count, m = word2.count
+        
+        if n == 0 || m == 0 {
+            return n + m
+        }
+        var dp = [[Int]].init(repeating: [Int].init(repeating: 0, count: m + 1), count: n + 1)
+        for i in 1..<n+1 {
+            dp[i][0] = i
+        }
+        for i in 1..<m+1 {
+            dp[0][i] = i
+        }
+        for i in 1..<n+1 {
+            for j in 1..<m+1 {
+                dp[i][j] = min(dp[i - 1][j] + 1, dp[i][j - 1] + 1, dp[i - 1][j - 1] + (word2[j - 1] != word1[i - 1] ? 1 : 0))
+            }
+        }
+        return dp[n][m]
+    }
 
+    ///376
+    func wiggleMaxLength(_ nums: [Int]) -> Int {
+        guard nums.count > 1 else {
+            return 1
+        }
+        var up = 1, down = 1
+        for i in 1..<nums.count {
+            if nums[i] > nums[i - 1] {
+                up = max(up, down + 1)
+            } else {
+                down = max(down, up + 1)
+            }
+        }
+        return max(up,down)
+    }
+    
+    ///377
+    func combinationSum4(_ nums: [Int], _ target: Int) -> Int {
+        var dp = [Int](repeating: 0, count: target + 1)
+        dp[0] = 1
+        for i in 1...target{
+            for num in nums {
+                if num <= i {
+                    dp[i] += dp[i - num]
+                }
+            }
+        }
+        return dp[target]
+    }
+    
+    ///396
+    func maxRotateFunction(_ nums: [Int]) -> Int {
+        let N = nums.count
+        var dp = [Int](repeating: 0, count: N)
+        dp[0] = nums.enumerated().reduce(0) { r, i in
+            return r + i.element * i.offset
+        }
+        let sum = nums.reduce(0, +)
+        var res = dp[0]
+        for i in 1..<N {
+            dp[i] = dp[i - 1] + sum - nums[N - i] * N
+            res = max(res, dp[i])
+        }
+        return res
+    }
+    
+    ///397
+    func integerReplacement(_ n: Int) -> Int {
+        var dict = [Int: Int]()
+        
+        func replace(_ n: Int) -> Int {
+            guard n > 1 else {
+                return 0
+            }
+            if let i = dict[n] {
+                return i
+            }
+            if n & 1 == 0 {
+                let i = integerReplacement(n / 2) + 1
+                dict[n] = i
+                return i
+            } else {
+                let i = min(integerReplacement(n - 1), integerReplacement(n + 1)) + 1
+                dict[n] = i
+                return i
+            }
+        }
+        return replace(n)
+    }
+    
+    ///397
+    func integerReplacement1(_ n: Int) -> Int {
+        var q = [n], visited = Set<Int>()
+        visited.insert(n)
+        var depth = 0
+        while q.count > 0 {
+            var newQueue = [Int]()
+            for i in q {
+                if i == 1 {
+                    return depth
+                }
+                if i & 1 == 0 {
+                    if !visited.contains(i / 2) {
+                        newQueue.append(i / 2)
+                        visited.insert(i / 2)
+                    }
+                } else {
+                    if !visited.contains(i + 1) {
+                        newQueue.append(i + 1)
+                        visited.insert(i + 1)
+                    }
+                    if !visited.contains(i - 1) {
+                        newQueue.append(i - 1)
+                        visited.insert(i - 1)
+                    }
+                }
+            }
+            q = newQueue
+            depth += 1
+        }
+        return depth
+    }
+
+    
+    func numberOfArithmeticSlices(_ nums: [Int]) -> Int {
+        guard nums.count > 2 else {
+            return 0
+        }
+        let n = nums.count
+        var diff = 0, count = 1, res = 0
+        for i in 1..<n {
+            if nums[i] - nums[i - 1] == diff {
+                count += 1
+            } else {
+                res += (1 + count - 2) * (count - 2) / 2
+                diff = nums[i] - nums[i - 1]
+                count = 2
+            }
+        }
+        res += (1 + count - 2) * (count - 2) / 2
+        return res
+    }
 }
+
+
+
